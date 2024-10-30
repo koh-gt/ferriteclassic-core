@@ -52,15 +52,15 @@
 | [![telegram-logo](https://raw.githubusercontent.com/gauravghongde/social-icons/9d939e1c5b7ea4a24ac39c3e4631970c0aa1b920/SVG/Color/Telegram.svg)](https://t.me/ferrite_core) [Ferrite Core ](https://t.me/ferrite_core) | [![reddit-logo](https://raw.githubusercontent.com/gauravghongde/social-icons/9d939e1c5b7ea4a24ac39c3e4631970c0aa1b920/SVG/Color/Reddit.svg)](https://www.reddit.com/r/Ferritecoin) [r/Ferritecoin](https://www.reddit.com/r/Ferritecoin) | [![discord-logo](https://raw.githubusercontent.com/gauravghongde/social-icons/9d939e1c5b7ea4a24ac39c3e4631970c0aa1b920/SVG/Color/Discord.svg)](https://discord.gg/qKgF5xhS5p) [Discord](https://discord.gg/qKgF5xhS5p) | <a href="https://x.com/ferritecoin"><img width=64 src="https://github.com/koh-gt/koh-gt/blob/main/img/x-fec-logo-transparent.gif?raw=true"></a> [X / Twitter](https://x.com/ferritecoin) |
 |--|--|--|--|
 
-## 🪙 Ferrite supply - 2024 10 19
-[![](https://progress-bar.xyz/21850300/?scale=60221400&title=Circulating&nbsp;Supply&width=300&color=323040&suffix=&nbsp;&sol;&nbsp;&#120125;60221400&nbsp;&nbsp;&#40;36&#183;283&percnt;&#41;)](https://ferritecoin.org:53443)<br>
+## 🪙 Ferrite supply - 2024 10 31
+[![](https://progress-bar.xyz/22589100/?scale=60221400&title=Circulating&nbsp;Supply&width=300&color=323040&suffix=&nbsp;&sol;&nbsp;&#120125;60221400&nbsp;&nbsp;&#40;37&#183;510&percnt;&#41;)](https://ferritecoin.org:53443)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[![](https://progress-bar.xyz/218503/?scale=301107&title=Next&nbsp;Halving&width=300&color=323040&suffix=&nbsp;&sol;&nbsp;301107&nbsp;blocks)](https://ferritecoin.org:53443)<br>
+[![](https://progress-bar.xyz/225891/?scale=301107&title=Next&nbsp;Halving&width=300&color=323040&suffix=&nbsp;&sol;&nbsp;301107&nbsp;blocks)](https://ferritecoin.org:53443)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 [![](https://progress-bar.xyz/100/?scale=100&title=Block&nbsp;Subsidy&width=300&color=323040&suffix=&nbsp;&sol;&nbsp;&#120125;100&nbsp;)](https://ferritecoin.org:53443)<br><br>
 &nbsp;&nbsp;
-[![](https://progress-bar.xyz/218503/?scale=250000&title=DGWv3&nbsp;Activation&width=300&color=007FFF&suffix=&nbsp;&sol;&nbsp;250000&nbsp;blocks)](https://ferritecoin.org:53443)<br>
-[![](https://progress-bar.xyz/218503/?scale=450000&title=Taproot&nbsp;Activation&width=300&color=FF7F00&suffix=&nbsp;&sol;&nbsp;450000&nbsp;blocks)](https://ferritecoin.org:53443)<br>
+[![](https://progress-bar.xyz/225891/?scale=250000&title=DGWv3&nbsp;Activation&width=300&color=007FFF&suffix=&nbsp;&sol;&nbsp;250000&nbsp;blocks)](https://ferritecoin.org:53443)<br>
+[![](https://progress-bar.xyz/225891/?scale=450000&title=Taproot&nbsp;Activation&width=300&color=FF7F00&suffix=&nbsp;&sol;&nbsp;450000&nbsp;blocks)](https://ferritecoin.org:53443)<br>
 
 ## 📣 Announcements
 #### Ferrite Wallet for Android has been released on 2024 09 21
@@ -77,11 +77,9 @@ More details will be sent later regarding the height 250,000 hard fork event.
 | Exchange | Trading pairs | Networks/Bridge support | Listing date |
 |--|----|---|---|
 |<a href="https://xeggex.com/asset/FEC"><img width=48 src="https://github.com/koh-gt/koh-gt/blob/main/img/xeggex.png"><br></a> [XeggeX] | [<img width=64 src="https://github.com/koh-gt/koh-gt/blob/main/img/fec-ltc.png">](https://xeggex.com/market/FEC_LTC)<a href="https://xeggex.com/market/FEC_LTC" target="_blank"><b>FEC/LTC</b></a> [<img width=64 src="https://github.com/koh-gt/koh-gt/blob/main/img/fec-usdt.png">](https://xeggex.com/market/FEC_USDT)<a href="https://xeggex.com/market/FEC_USDT" target="_blank"><b>FEC/USDT</b></a> | <img width=48 src="https://github.com/koh-gt/koh-gt/blob/main/img/fec.png"></a> <img width=48 src="https://github.com/koh-gt/koh-gt/blob/main/img/wfec-bep20.png"></a> | 2023 03 18 |
-|<a href="https://bimex.live/trade/index/market/fec_usdt/"><img width=48 src="https://github.com/koh-gt/koh-gt/blob/main/img/bimex.png"><br></a> [Bimex] | [<img width=64 src="https://github.com/koh-gt/koh-gt/blob/main/img/fec-usdt.png">](https://bimex.live/trade/index/market/fec_usdt/)<a href="https://bimex.live/trade/index/market/fec_usdt/" target="_blank"><b>FEC/USDT</b></a>| <img width=48 src="https://github.com/koh-gt/koh-gt/blob/main/img/fec.png"></a> <img width=48 src="https://github.com/koh-gt/koh-gt/blob/main/img/wfec-bep20.png"></a> | 2023 12 13 |
 | WIP: DEX | | | |
 
 [XeggeX]:https://xeggex.com/asset/FEC/
-[Bimex]:https://bimex.live/trade/index/market/fec_usdt/
 
 | OTC | Trading pairs |
 |-----|---------------|
@@ -130,21 +128,26 @@ For third party mobile wallets - add custom token CA to Metamask or Trust Wallet
 | Token | Network | Contract address (CA) |
 |-------|--------------------------------------------------------------------------|------------------|
 | <a href="https://bscscan.com/token/0xA846ab3673dfb3d27F81EcFe5BcA79c06120eE6D"><img width=64 src="https://github.com/koh-gt/koh-gt/blob/main/img/ferrite-core-main-4k-bep20.png"></a> | <a href="https://bscscan.com/token/0xA846ab3673dfb3d27F81EcFe5BcA79c06120eE6D"><img width=64 src="https://github.com/koh-gt/koh-gt/blob/main/img/bsc.png"></a> [BEP-20](https://bscscan.com/token/0xA846ab3673dfb3d27F81EcFe5BcA79c06120eE6D) | `0xA846ab3673dfb3d27F81EcFe5BcA79c06120eE6D` |
+| <a href="https://tonviewer.com/EQCGQjLgjaSwzLezrRtKKelUwN4zpMVhNOrRjphELoAmGdoM?section=holders"></a> | <a href="https://tonviewer.com/EQCGQjLgjaSwzLezrRtKKelUwN4zpMVhNOrRjphELoAmGdoM?section=holders"></a> | `EQCGQjLgjaSwzLezrRtKKelUwN4zpMVhNOrRjphELoAmGdoM` |
 | <a href=""><img width=64 src="https://github.com/koh-gt/koh-gt/blob/main/img/ferrite-core-main-4k-erc20.png"></a> | <a href="https://bscscan.com/token/0xA846ab3673dfb3d27F81EcFe5BcA79c06120eE6D"><img width=64 src="https://github.com/koh-gt/koh-gt/blob/main/img/eth.png"></a> [ERC-20]() | `-----` |
 
 ### wFEC liquidity pools / DEX
 |  Name                      | Swap | Add liquidity |
 |----------------------------|---------------|-------------------------| 
-| [![pancakeswap32](https://github.com/koh-gt/ferrite-core/assets/101822992/b1a4cbaf-2de7-4e06-806c-5aa775cb74b4)][PancakeSwap BEP-20 to WFEC] [PancakeSwap][PancakeSwap BEP-20 to WFEC] | [WFEC BEP-20][PancakeSwap BEP-20 to WFEC] | [Add v3 liquidity WFEC/USDT Wide Range 1%][PancakeSwap BEP-20 WFEC/USDT v3 1% 0-inf]<br>[Add v3 liquidity WFEC/USDT Narrow Range 1%][PancakeSwap BEP-20 WFEC/USDT v3 1% 0.001-0.1]<br>[Add v2 liquidity WFEC/USDT Wide Range 0.25%][PancakeSwap BEP-20 WFEC/USDT v2 0.25% 0-inf] |
+| [![pancakeswap32](https://github.com/koh-gt/ferrite-core/assets/101822992/b1a4cbaf-2de7-4e06-806c-5aa775cb74b4)][PancakeSwap BEP-20 to WFEC] [PancakeSwap][PancakeSwap BEP-20 to WFEC] | [WFEC BEP-20][PancakeSwap BEP-20 to WFEC] | [Add v3 liquidity WFEC/USDT Narrow Range 1%][PancakeSwap BEP-20 WFEC/USDT v3 1% 0.001-0.1]<br>[Add v2 liquidity WFEC/USDT Wide Range 0.25%][PancakeSwap BEP-20 WFEC/USDT v2 0.25% 0-inf] |
 | [![uniswap32](https://github.com/koh-gt/ferrite-core/assets/101822992/20792bb0-6d46-48ab-b0ca-73a29e357216)][Uniswap BEP-20 to WFEC] [Uniswap][Uniswap BEP-20 to WFEC] | [WFEC BEP-20][Uniswap BEP-20 to WFEC] | [Add liquidity WFEC/USDT Wide Range 0.30%][Uniswap BEP-20 WFEC/USDT 0.30% 0-inf] | 
+| [STON.fi TEP-74 to WFEC]| WIP | [Add liquidity WFEC/USDT][Add liquidity WFEC/TON] |
 
 [PancakeSwap BEP-20 to WFEC]:https://pancakeswap.finance/swap?outputCurrency=0xA846ab3673dfb3d27F81EcFe5BcA79c06120eE6D
 [Uniswap BEP-20 to WFEC]:https://app.uniswap.org/#/swap?outputCurrency=0xA846ab3673dfb3d27F81EcFe5BcA79c06120eE6D
 
-[PancakeSwap BEP-20 WFEC/USDT v3 1% 0-inf]:https://pancakeswap.finance/liquidity/420238
 [PancakeSwap BEP-20 WFEC/USDT v3 1% 0.001-0.1]:https://pancakeswap.finance/liquidity/377069
 [PancakeSwap BEP-20 WFEC/USDT v2 0.25% 0-inf]:https://pancakeswap.finance/v2/pair/0x55d398326f99059fF775485246999027B3197955/0xA846ab3673dfb3d27F81EcFe5BcA79c06120eE6D
 [Uniswap BEP-20 WFEC/USDT 0.30% 0-inf]:https://app.uniswap.org/pools/55980
+
+[Add liquidity WFEC/USDT]:https://app.ston.fi/liquidity/provide?ft=EQCGQjLgjaSwzLezrRtKKelUwN4zpMVhNOrRjphELoAmGdoM&tt=USD%E2%82%AE
+[Add liquidity WFEC/TON]:https://app.ston.fi/liquidity/provide?ft=EQCGQjLgjaSwzLezrRtKKelUwN4zpMVhNOrRjphELoAmGdoM&tt=TON
+[STON.fi TEP-74 to WFEC]:
 
 ## 📌 Blockchain information links
 > Provides transaction details, block information, wallet balances, smart contract interactions, network status, and analytics. They are essential tools for exploring and analyzing blockchain data.
