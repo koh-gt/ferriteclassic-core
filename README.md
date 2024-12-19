@@ -52,23 +52,22 @@
 | [![telegram-logo](https://raw.githubusercontent.com/gauravghongde/social-icons/9d939e1c5b7ea4a24ac39c3e4631970c0aa1b920/SVG/Color/Telegram.svg)](https://t.me/ferrite_core) [Ferrite Core ](https://t.me/ferrite_core) | [![reddit-logo](https://raw.githubusercontent.com/gauravghongde/social-icons/9d939e1c5b7ea4a24ac39c3e4631970c0aa1b920/SVG/Color/Reddit.svg)](https://www.reddit.com/r/Ferritecoin) [r/Ferritecoin](https://www.reddit.com/r/Ferritecoin) | [![discord-logo](https://raw.githubusercontent.com/gauravghongde/social-icons/9d939e1c5b7ea4a24ac39c3e4631970c0aa1b920/SVG/Color/Discord.svg)](https://discord.gg/qKgF5xhS5p) [Discord](https://discord.gg/qKgF5xhS5p) | <a href="https://x.com/ferritecoin"><img width=64 src="https://github.com/koh-gt/koh-gt/blob/main/img/x-fec-logo-transparent.gif?raw=true"></a> [X / Twitter](https://x.com/ferritecoin) |
 |--|--|--|--|
 
-## 🪙 Ferrite supply - 2024 11 27
-[![](https://progress-bar.xyz/23570700/?scale=60221400&title=Circulating&nbsp;Supply&width=300&color=323040&suffix=&nbsp;&sol;&nbsp;&#120125;60221400&nbsp;&nbsp;&#40;39&#183;140&percnt;&#41;)](https://ferritecoin.org:53443)<br>
+## 🪙 Ferrite supply - 2024 12 20
+[![](https://progress-bar.xyz/24441900/?scale=60221400&title=Circulating&nbsp;Supply&width=300&color=323040&suffix=&nbsp;&sol;&nbsp;&#120125;60221400&nbsp;&nbsp;&#40;40&#183;586&percnt;&#41;)](https://ferritecoin.org)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[![](https://progress-bar.xyz/235707/?scale=301107&title=Next&nbsp;Halving&width=300&color=323040&suffix=&nbsp;&sol;&nbsp;301107&nbsp;blocks)](https://ferritecoin.org:53443)<br>
+[![](https://progress-bar.xyz/244419/?scale=301107&title=Next&nbsp;Halving&width=300&color=323040&suffix=&nbsp;&sol;&nbsp;301107&nbsp;blocks)](https://ferritecoin.org)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[![](https://progress-bar.xyz/100/?scale=100&title=Block&nbsp;Subsidy&width=300&color=323040&suffix=&nbsp;&sol;&nbsp;&#120125;100&nbsp;)](https://ferritecoin.org:53443)<br><br>
+[![](https://progress-bar.xyz/100/?scale=100&title=Block&nbsp;Subsidy&width=300&color=323040&suffix=&nbsp;&sol;&nbsp;&#120125;100&nbsp;)](https://ferritecoin.org)<br><br>
 &nbsp;&nbsp;
-[![](https://progress-bar.xyz/235707/?scale=250000&title=DGWv3&nbsp;Activation&width=300&color=007FFF&suffix=&nbsp;&sol;&nbsp;250000&nbsp;blocks)](https://ferritecoin.org:53443)<br>
-[![](https://progress-bar.xyz/235707/?scale=450000&title=Taproot&nbsp;Activation&width=300&color=FF7F00&suffix=&nbsp;&sol;&nbsp;450000&nbsp;blocks)](https://ferritecoin.org:53443)<br>
+[![](https://progress-bar.xyz/244419/?scale=250000&title=DGWv3&nbsp;Activation&width=300&color=007FFF&suffix=&nbsp;&sol;&nbsp;250000&nbsp;blocks)](https://ferritecoin.org)<br>
+[![](https://progress-bar.xyz/244419/?scale=450000&title=Taproot&nbsp;Activation&width=300&color=FF7F00&suffix=&nbsp;&sol;&nbsp;450000&nbsp;blocks)](https://ferritecoin.org)<br>
 
 ## 📣 Announcements
 #### Ferrite Wallet for Android has been released on 2024 09 21
-Users holding Ferritecoins before the fork will have coins on both new Ferritecoin and old Ferrite Classic chain.  
-Your keys in the wallet.dat file allows access to coins on both clients.  
-Ferrite Core v1.x.x and Ferrite Core v2.x.x (before 2 Apr 2023) will become Ferrite Classic clients. They can only send Ferrite Classic coins.  
 Ferrite Core v3.0.0+ (after Apr 2023) will be unaffected. They will continue to work as normal.  
-More details will be sent later regarding the height 250,000 hard fork event.  
+![hard_fork](https://github.com/user-attachments/assets/472844d0-e207-45fa-a072-217efdb2cf53)
+
+
 
 
 ## 🏛️ Exchange links
