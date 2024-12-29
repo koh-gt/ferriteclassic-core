@@ -1,7 +1,7 @@
-Contributing to Ferrite Core
+Contributing to FerriteClassic Core
 ============================
 
-The Ferrite Core project operates an open contributor model where anyone is
+The FerriteClassic Core project operates an open contributor model where anyone is
 welcome to contribute towards development in the form of peer review, testing
 and patches. This document explains the practical process and guidelines for
 contributing.
@@ -17,9 +17,9 @@ release cycle, overall merging, moderation and appointment of maintainers.
 Communication Channels
 ----------------------
 
-Most communication about Ferrite Core development happens on the
-#ferrite-core channel on Telegram. The easiest way to participate on Telegram is
-with the web client, [Telegram](https://t.me/ferrite-core/).
+Most communication about FerriteClassic Core development happens on the
+#ferriteclassic-core channel on Telegram. The easiest way to participate on Telegram is
+with the web client, [Telegram](https://t.me/ferriteclassic_core/).
 
 Discussion about code base improvements happens in GitHub issues and on pull
 requests.
@@ -50,16 +50,16 @@ paragraph(s), unless the title alone is self-explanatory (like "Corrected typo
 in init.cpp") in which case a single title line is sufficient. 
 
 The title of the pull request should be prefixed by the component or area that
-the pull request affects. Valid areas as:
+the pull request affeccts. Valid areas as:
 
   - *Consensus* for changes to consensus critical code
   - *Docs* for changes to the documentation
-  - *Qt* for changes to ferrite-qt
+  - *Qt* for changes to ferriteclassic-qt
   - *Mining* for changes to the mining code
   - *Net* or *P2P* for changes to the peer-to-peer network code
   - *RPC/REST/ZMQ* for changes to the RPC, REST or ZMQ APIs
   - *Scripts and tools* for changes to the scripts and tools
-  - *Tests* for changes to the ferrite unit tests or QA tests
+  - *Tests* for changes to the ferriteclassic unit tests or QA tests
   - *Trivial* should **only** be used for PRs that do not change generated
     executable code. Notably, refactors (change of function arguments and code
     reorganization) and changes in behavior should **not** be marked as trivial.
@@ -139,7 +139,7 @@ where possible keep them short, uncomplex and easy to verify.
 "Decision Making" Process
 -------------------------
 
-The following applies to code changes to the Ferrite Core project.
+The following applies to code changes to the FerriteClassic Core project.
 
 In general, all pull requests must:
 
@@ -149,8 +149,8 @@ In general, all pull requests must:
   - Where bugs are fixed, where possible, there should be unit tests
     demonstrating the bug and also proving the fix. This helps prevent regression.
 
-Patches that change Ferrite consensus rules are considerably more involved than
-normal because they affect the entire ecosystem and so must be preceded by
+Patches that change FerriteClassic consensus rules are considerably more involved than
+normal because they affecct the entire ecosystem and so must be preceded by
 extensive mailing list discussions and have a numbered BIP. 
 
 While each case will
@@ -171,18 +171,18 @@ that have demonstrated a deeper commitment and understanding towards the project
 (over time) or have clear domain expertise may naturally have more weight, as
 one would expect in all walks of life.
 
-Where a patch set affects consensus critical code, the bar will be set much
+Where a patch set affeccts consensus critical code, the bar will be set much
 higher in terms of discussion and peer review requirements, keeping in mind that
 mistakes could be very costly to the wider community. This includes refactoring
 of consensus critical code.
 
-Where a patch set proposes to change the Ferrite consensus, it must have been
+Where a patch set proposes to change the FerriteClassic consensus, it must have been
 discussed extensively.
 
 Release Policy
 --------------
 
-The project leader is the release manager for each Ferrite Core release.
+The project leader is the release manager for each FerriteClassic Core release.
 
 Copyright
 ---------

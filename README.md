@@ -1,126 +1,68 @@
-# ferrite-core
-> Ferrite Core full node + wallet based on Bitcoin Core 23.0 and new Litecoin Core 21.2 codebase.
+# ferriteclassic-core
+### <a href="https://ferritecoin.org/" target="_blank"><img width=256 src="https://github.com/koh-gt/ferrite-core/assets/101822992/bddf138c-659d-45cb-83ee-dbc783bffd18" /></a>
 
-| OS                        | Bit      | Name                   | Link                              | SHA256 Checksum                         |
-|--------------------|-------|---------------------|--------------------------|---------------------------------------|
-| Windows             | 64      | Setup                     | [Download](https://github.com/koh-gt/ferrite-core/releases/download/v2.1.1/ferrite-2.1.1-win64-setup.exe) | `57193a922cb8fdc1cd03d5a759a2e8de7e307e27b566eba43dcb2330ebef7215` |
-| Windows             | 64      | Qt Wallet               | [Download](https://github.com/koh-gt/ferrite-core/releases/download/v2.1.1/ferrite-qt.exe) |  `507f520cd6e726dff458ae86b57c5c36abdc7870b8dc2bd8522f2a74d99d8998` |
-| Windows, Unix       | 32 / 64 | Others                  | [Release 2.1.1](https://github.com/koh-gt/ferrite-core/releases/tag/v2.1.1) | |
+> Ferrite Classic Core full node + wallet based on Ferrite Core v3.2.0.<br>
 
-## Community group links
-| ![telegram-logo](https://raw.githubusercontent.com/gauravghongde/social-icons/9d939e1c5b7ea4a24ac39c3e4631970c0aa1b920/SVG/Color/Telegram.svg) [Ferrite Core ](https://t.me/ferrite_core) | ![reddit-logo](https://raw.githubusercontent.com/gauravghongde/social-icons/9d939e1c5b7ea4a24ac39c3e4631970c0aa1b920/SVG/Color/Reddit.svg) [r/Ferritecoin](https://www.reddit.com/r/Ferritecoin) | ![discord-logo](https://raw.githubusercontent.com/gauravghongde/social-icons/9d939e1c5b7ea4a24ac39c3e4631970c0aa1b920/SVG/Color/Discord.svg) [Discord](https://discord.gg/qKgF5xhS5p) |
-|--|--|--|
 
-## Mining information links
+##### <a href="https://github.com/koh-gt/ferriteclassic-core/releases" target="_blank"><img width=512 src="https://github.com/koh-gt/ferriteclassic-core/assets/101822992/e0a14905-5779-437b-b936-30fa7361342c" /></a>
+##### <p align=left><a href="https://github.com/koh-gt/ferriteclassic-wallet/releases" target="_blank"><img width=256 src="https://github.com/user-attachments/assets/635dcef7-fa5b-4618-a481-1a0657d5341f" /></a></p>
+
+### 📖 [Universal build guide](https://github.com/koh-gt/ferriteclassic-core/wiki/Universal-Build-Guide)
+
+## 💬 Community group links
+| [![telegram-logo](https://raw.githubusercontent.com/gauravghongde/social-icons/9d939e1c5b7ea4a24ac39c3e4631970c0aa1b920/SVG/Color/Telegram.svg)](https://t.me/ferrite_core) [Ferritecoin](https://t.me/ferrite_core) | [![reddit-logo](https://raw.githubusercontent.com/gauravghongde/social-icons/9d939e1c5b7ea4a24ac39c3e4631970c0aa1b920/SVG/Color/Reddit.svg)](https://www.reddit.com/r/Ferritecoin) [r/FerriteClassiccoin](https://www.reddit.com/r/FerriteClassiccoin) | [![discord-logo](https://raw.githubusercontent.com/gauravghongde/social-icons/9d939e1c5b7ea4a24ac39c3e4631970c0aa1b920/SVG/Color/Discord.svg)](https://discord.gg/qKgF5xhS5p) [Discord](https://discord.gg/qKgF5xhS5p) | <a href="https://x.com/ferriteclassiccoin"><img width=64 src="https://github.com/koh-gt/koh-gt/blob/main/img/x-fecc-logo-transparent.gif?raw=true"></a> [X / Twitter](https://x.com/ferriteclassiccoin) |
+|--|--|--|--|
+
+
+
+## ⛏️ Mining information links
 > Mineable with or without MWEB support.
 
-| Name                      | Link                                            | Description                                                                |
-|---------------------------|-------------------------------------------------|----------------------------------------------------------------------------|
-| MiningPoolStats         | [Ferrite (FEC) Scrypt](https://miningpoolstats.stream/ferrite) | Overview of Ferrite hashrate and difficulty. |
-| Mining pools list       | [Github Wiki](https://github.com/koh-gt/ferrite-core/wiki/Mining-Pools-List) | A list of stratum mining pools to mine Ferrite. |
-| CCMiner software        | [Release 2.1.1](https://github.com/koh-gt/ferrite-core/releases/tag/v2.1.1) |
-| Rent ASIC mining hardware | [Github Wiki](https://github.com/koh-gt/ferrite-core/wiki/Rent-an-ASIC-miner) |
-| Quick setup guide (WIP)   | [Github Wiki](https://github.com/koh-gt/ferrite-core/wiki/Getting-Started) |
 
-## Trading information links
-| Name                      | Link                                            | Description                                                                |
-|---------------------------|-------------------------------------------------|----------------------------------------------------------------------------| 
-| CoinPaprika               | [FEC Price, Charts, Markets](https://coinpaprika.com/coin/fec-ferrite/) | Price information and charts |
-| Trading Exchanges         | [Trade Ferrite coin](https://github.com/koh-gt/ferrite-core/wiki/Trading-Exchanges) | Price history, available FEC trading pairs |
 
-## Blockchain information links
-| Name                      | Link                                            | Description                                                                |
-|---------------------------|-------------------------------------------------|----------------------------------------------------------------------------|
-| Website                   | [View](http://www.ferritecoin.org) | Ferrite website with mining calculator |
-| Block Explorer            | [View](http://explorer.ferritecoin.org) | Blockchain explorer to view latest transactions, circulating supply and rich list distribution |
-| Merchandise               | [View](http://shop.ferritecoin.org) | Redirect link to Teespring shop with Ferrite coin themed merchandise |
+## 📌 Blockchain information links
+> Provides transaction details, block information, wallet balances, smart contract interactions, network status, and analytics. They are essential tools for exploring and analyzing blockchain data.
+> 
+| Name                      | Link                                            | Description                                                          |
+|---------------------------|-------------------------------------------------|----------------------------------------------------------------------|
+| Website                   | [View](https://ferritecoin.org) | FerriteClassic website with mining calculator |
+| FerriteClassic Forum             | [View](https://ferritecoin.org:52443) | FerriteClassic Forum for discussions |
+| Explorer                  | [View](https://explorer.ferritecoin.org) | Blockchain explorer to view latest transactions, circulating supply and rich list distribution |
+| Ordinals Explorer         | `-----`                                   | Blockchain explorer to view ordinal inscriptions |
+| CryptoID Explorer         | [View](https://btc.cryptoid.info/fecc/) | An advanced explorer with block mining history and node version data |
+| Merchandise               | [View](http://shop.ferritecoin.org) | Redirect link to Teespring shop with FerriteClassic coin themed merchandise |
 
-## Ferrite is a cryptocurrency that seeks to enable fast and free payments.  <br>
+## FerriteClassic is a cryptocurrency that seeks to enable fast and free payments.  <br>
 
-![ferrite-core-main-Banner art 1280-640](https://user-images.githubusercontent.com/101822992/204157973-5025ca19-d12b-4656-9b7a-2f3956b34c9f.png)
+![ferriteclassic-core-main-Banner art 1280-640](https://user-images.githubusercontent.com/101822992/204157973-5025ca19-d12b-4656-9b7a-2f3956b34c9f.png)
+
+## 📝 Description
 
 ## Features:
-### 1 minute block time - 
-Transactions are received instantly and can be confirmed within minutes.
 
-### 1 hour difficulty adjustment time - 
-Difficulty adjusts in 60 blocks, allowing for dynamic difficulty adaptation.
-> If mining hashrate spikes, difficulty will quickly rise to limit supply.
-> If mining hashrate plummets, difficulty will quickly drop to encourage mining.
-
-### Limited supply - 
-A maximum of $100$ FEC (Ferrite coins) are mined in a block. 
-This number will halve every $301107$ blocks, or about 8 months considering block propagation time.
-> There will be no more than $60,221,400$ FEC. $10^{16}$ times smaller than Avogadro's number!
-
-### Transparency - 
-No pre-mine - Linux Executables are uploaded on public Telegram and Discord groups as early as block 120 (2 hours), with full migration to Github by block 3000 (50 hours).
-
-### Decentralised - 
-Ferrite has no owner. The miners shall decide the fate of the network.
-
-### Pseudonymous -
-Nobody knows who owns the mined coins, nor who sent the coins. Unless you identify as the owner of the public address, you maintain anonymity.
-
-### Scrypt Algorithm -  
-Reuse obsolete Litecoin, Dogecoin and Ethereum / Classic miners to mine Ferrite. Originally designed to be ASIC resistant. 
-
-## Ferrite coin specifications
+## 📐 FerriteClassic coin specifications
 ### Technical specifications: <br/>
-### Start Date: 22 Nov 2022
-### Current Block Height: **`114844`** (14 Mar 2023)
-### Halving Epoch: **0**
-### Next halving block: 301107 (~ Jul 2023)
+### Start Date: 1 Jan 2025
+### Start Height: 250000 (Ferritecoin)
 
 Algorithm type: Scrypt, Proof of Work <br/>
-Ports: 9573 (RPC), 9574 (P2P) <br/>
+Ports: 9673 (RPC), 9674 (P2P) <br/>
 Block time: 1 minute <br/>
 Difficulty adjustment time: 1 block or 1 hour <br/>
 Halving time: 301,107 blocks <br/>
-Propogation time: 5 seconds (8.3% detached rate) <br/>
+Propagation time: 5 seconds (8.3% detached rate) <br/>
 Block size: 3.8147 MiB <br/>
-Transaction capacity: 50/s (100/s with Segwit) <br/>
+Transaction capacity: 105/s <br/>
 Premine: No premine <br/>
 
 ### Economic specifications: <br/>
-### Circulating supply:  **$$𝔽\ 11,484,400\ /\ 60,221,400$$** 
 
-![](https://geps.dev/progress/19?dangerColor=0ff0fc&warningColor=0ff0fc&successColor=0ff0fc)<br>
-Block reward: 𝔽 100 <br/>
-Current Block reward:  𝔽 100 <br/>
+Initial block reward: 𝔽 100 <br/>
 Maximum supply: 𝔽 60,221,400 <br/>
 Blocks with reward: 10,237,637 blocks (33 halvings -1) <br/>
-Halving timespan: 209 days <br/>
-Reward lifespan: 7109 days (19.48 years) <br/>
+Halving timespan: at minimum 209 days <br/>
+Reward lifespan: at minimum 7109 days (19.48 years) <br/>
  
-## Additional information - 
+## ℹ️ Additional information - 
 
-![ferrite-core-main-512px](https://user-images.githubusercontent.com/101822992/204157969-c910673a-44a3-42a8-be9c-957907c05b39.png)
-
-### Why the name Ferrite Core?
-The humble ferrite core is cheap and hidden from view. Most people have never heard about it, yet it is what allows our electric generators, switches and radio antennas to function. It has high magnetic permeability allowing for magnetic fields to pass through, yet has low electrical conductivity which reduces eddy current losses. Most importantly, the ferrite core possesses these properties while being cheap and safe to use. This makes the ferrite core suitable for being used as magnetic cores for electromagnet coils. 
-
-Bitcoin is considered as digital gold, Litecoin as digital silver. Ferrite is ferrite. 
-> In the real world, we use coins made of ferrous base metals because gold and silver are too precious for circulation. 
-
-A cheap and low barrier to entry will allow for mass adoption.
-Similarly, I hope that Ferrite Core will be used for fast, low volume transactions as well as small amount remittances for the unbanked people in developing nations to avoid exuberant remittance costs. 
-A low price will ensure that Ferrite coins and its fees stay affordable.  
-The Ferrite coin logo is the IEEE-315 circuit diagram symbol for a ferrite bead.
-
-There are so many coins out there, what makes this special? - Nothing for now. This coin is created as a non-profit experimental software. Ferrite Core is just copied code, pre-generated code, and lines of edited code from multiple sources. Ferrite coins, like other cryptocurrencies, have zero intrinsic value. Do not invest more than what you can afford to lose.
-
-High adoption rates need not be expensive, and high market cap is not the way to having high adoption.
-How many people are in cryptocurrency for its technological features rather than its profit potential?
-
-### Graphs
-This coin would either be very active or completely inactive in a year or two. For the sake of practicality the graphs will not extend beyond the time scope of 750 days. This should be enough to capture the first 3 halvings.  
-
-The total coin supply per halving epoch can be found using this equation.
-
-$$\sum_{i=0}^{33}301,107\left(\frac{100}{2^i}\right)\approx60,221,400$$
-
-![ferritesupplyXXLgithub_black](https://user-images.githubusercontent.com/101822992/215062635-76796fb1-f7d3-4772-b82e-d681592f5655.PNG)
-
-![ferriteinflationXXLgithub_black](https://user-images.githubusercontent.com/101822992/215062666-67b845c6-97fc-42b7-a527-463cc87976bc.PNG)
 

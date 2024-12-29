@@ -77,7 +77,7 @@ class RESTTest (BitcoinTestFramework):
 
     def run_test(self):
         self.url = urllib.parse.urlparse(self.nodes[0].url)
-        self.log.info("Mine blocks and send Litecoin to node 1")
+        self.log.info("Mine blocks and send FerriteClassic to node 1")
 
         # Random address so node1's balance doesn't increase
         not_related_address = "2MxqoHEdNQTyYeX1mHcbrrpzgojbosTpCvJ"
@@ -205,7 +205,7 @@ class RESTTest (BitcoinTestFramework):
         long_uri = '/'.join(['{}-{}'.format(txid, n_) for n_ in range(15)])
         self.test_rest_request("/getutxos/checkmempool/{}".format(long_uri), http_method='POST', status=200)
 
-        self.nodes[0].generate(1)  # generate block to not affect upcoming tests
+        self.nodes[0].generate(1)  # generate block to not affecct upcoming tests
         self.sync_all()
 
         self.log.info("Test the /block, /blockhashbyheight and /headers URIs")

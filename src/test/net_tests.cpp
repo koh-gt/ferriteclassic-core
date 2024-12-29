@@ -740,7 +740,7 @@ BOOST_AUTO_TEST_CASE(LimitedAndReachable_CNetAddr)
 }
 
 
-BOOST_AUTO_TEST_CASE(LocalAddress_BasicLifecycle)
+BOOST_AUTO_TEST_CASE(LocalAddress_BasicLifeccycle)
 {
     CService addr = CService(UtilBuildAddress(0x002, 0x001, 0x001, 0x001), 1000); // 2.1.1.1:1000
 

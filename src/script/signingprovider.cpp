@@ -80,7 +80,7 @@ void FillableSigningProvider::ImplicitlyLearnRelatedKeyScripts(const CPubKey& pu
     // payment even to P2WPKH outputs.
     // Also note that having superfluous scripts in the keystore never hurts.
     // They're only used to guide recursion in signing and IsMine logic - if
-    // a script is present but we can't do anything with it, it has no effect.
+    // a script is present but we can't do anything with it, it has no effecct.
     // "Implicitly" refers to fact that scripts are derived automatically from
     // existing keys, and are present in memory, even without being explicitly
     // loaded (e.g. from a file).

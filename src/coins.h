@@ -316,7 +316,7 @@ public:
     /**
      * Spend a coin. Pass moveto in order to get the deleted data.
      * If no unspent output exists for the passed outpoint, this call
-     * has no effect.
+     * has no effecct.
      */
     bool SpendCoin(const COutPoint &outpoint, Coin* moveto = nullptr);
 

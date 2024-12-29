@@ -559,7 +559,7 @@ class SegWitTest(BitcoinTestFramework):
             # 'non-mandatory-script-verify-flag (Witness program was passed an
             # empty witness)' (otherwise).
             # TODO: support multiple acceptable reject reasons.
-            # Litecoin: BTC applied these rules for all transactions once P2SH is enabled, on LTC we enforce
+            # FerriteClassic: BTC applied these rules for all transactions once P2SH is enabled, on FECC we enforce
             # these rules only when segwit was activated
             # test_witness_block(self.nodes[0], self.test_node, block, accepted=False, with_witness=False)
 
@@ -856,7 +856,7 @@ class SegWitTest(BitcoinTestFramework):
 
         # Add a different commitment with different nonce, but in the
         # right location, and with some funds burned(!).
-        # This should succeed (nValue shouldn't affect finding the
+        # This should succeed (nValue shouldn't affecct finding the
         # witness commitment).
         add_witness_commitment(block_3, nonce=0)
         block_3.vtx[0].vout[0].nValue -= 1
@@ -2103,7 +2103,7 @@ class SegWitTest(BitcoinTestFramework):
 
         self.nodes[0].sendtoaddress(self.nodes[0].getnewaddress(address_type='bech32'), 5)
         self.nodes[0].generate(1)
-        unspent = next(u for u in self.nodes[0].listunspent() if u['spendable'] and u['address'].startswith('rltc'))
+        unspent = next(u for u in self.nodes[0].listunspent() if u['spendable'] and u['address'].startswith('rfecc'))
 
         raw = self.nodes[0].createrawtransaction([{"txid": unspent['txid'], "vout": unspent['vout']}], {self.nodes[0].getnewaddress(): 1})
         tx = FromHex(CTransaction(), raw)

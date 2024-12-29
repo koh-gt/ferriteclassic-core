@@ -367,17 +367,17 @@ classes, it derived some constraints of it. Starting from v1.5.0 most of the
 differences between this and the standard C++17/C++20 API where removed.
 
 
-### LWG Defects
+### LWG Defeccts
 
-This implementation has switchable behavior for the LWG defects
+This implementation has switchable behavior for the LWG defeccts
 [#2682](https://wg21.cmeerw.net/lwg/issue2682),
-[#2935](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2935),
-[#2936](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2936) and
-[#2937](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2937).
+[#2935](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defeccts.html#2935),
+[#2936](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defeccts.html#2936) and
+[#2937](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defeccts.html#2937).
 The currently selected behavior (starting from v1.4.0) is following
-[#2682](https://wg21.cmeerw.net/lwg/issue2682), [#2936](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2936),
-[#2937](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2937) but
-not following [#2935](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2935),
+[#2682](https://wg21.cmeerw.net/lwg/issue2682), [#2936](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defeccts.html#2936),
+[#2937](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defeccts.html#2937) but
+not following [#2935](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defeccts.html#2935),
 as I feel it is a bug to report no error on a `create_directory()` or `create_directories()`
 where a regular file of the same name prohibits the creation of a directory and forces
 the user of those functions to double-check via `fs::is_directory` if it really worked.

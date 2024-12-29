@@ -42,12 +42,12 @@ static const int TOOLTIP_WRAP_THRESHOLD = 80;
 /* Number of frames in spinner animation */
 #define SPINNER_FRAMES 36
 
-#define QAPP_ORG_NAME "Ferrite"
-#define QAPP_ORG_DOMAIN "www.ferritecoin.org"
-#define QAPP_APP_NAME_DEFAULT "Ferrite-Qt"
-#define QAPP_APP_NAME_TESTNET "Ferrite-Qt-testnet"
-#define QAPP_APP_NAME_SIGNET "Ferrite-Qt-signet"
-#define QAPP_APP_NAME_REGTEST "Ferrite-Qt-regtest"
+#define QAPP_ORG_NAME "FerriteClassic"
+#define QAPP_ORG_DOMAIN "www.ferriteclassiccoin.org"
+#define QAPP_APP_NAME_DEFAULT "FerriteClassic-Qt"
+#define QAPP_APP_NAME_TESTNET "FerriteClassic-Qt-testnet"
+#define QAPP_APP_NAME_SIGNET "FerriteClassic-Qt-signet"
+#define QAPP_APP_NAME_REGTEST "FerriteClassic-Qt-regtest"
 
 /* One gigabyte (GB) in bytes */
 static constexpr uint64_t GB_BYTES{1000000000};

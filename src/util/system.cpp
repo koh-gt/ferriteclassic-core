@@ -71,7 +71,7 @@
 // Application startup time (used for uptime calculation)
 const int64_t nStartupTime = GetTime();
 
-const char * const BITCOIN_CONF_FILENAME = "ferrite.conf";
+const char * const BITCOIN_CONF_FILENAME = "ferriteclassic.conf";
 const char * const BITCOIN_SETTINGS_FILENAME = "settings.json";
 
 ArgsManager gArgs;
@@ -631,7 +631,7 @@ static std::string FormatException(const std::exception* pex, const char* pszThr
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(nullptr, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "ferrite";
+    const char* pszModule = "ferriteclassic";
 #endif
     if (pex)
         return strprintf(
@@ -655,7 +655,7 @@ fs::path GetDefaultDataDir()
     // Unix-like: ~/.bitcoin
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "Ferrite";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "FerriteClassic";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -665,10 +665,10 @@ fs::path GetDefaultDataDir()
         pathRet = fs::path(pszHome);
 #ifdef MAC_OSX
     // macOS
-    return pathRet / "Library/Application Support/Ferrite";
+    return pathRet / "Library/Application Support/FerriteClassic";
 #else
     // Unix-like
-    return pathRet / ".ferrite";
+    return pathRet / ".ferriteclassic";
 #endif
 #endif
 }
@@ -1284,11 +1284,15 @@ std::string CopyrightHolders(const std::string& strPrefix)
     const auto copyright_devs = strprintf(_(COPYRIGHT_HOLDERS).translated, COPYRIGHT_HOLDERS_SUBSTITUTION);
     std::string strCopyrightHolders = strPrefix + copyright_devs;
 
-    // Make sure Bitcoin Core copyright is not removed by accident
+    // Make sure copyrights are not removed by accident
     if (copyright_devs.find("Bitcoin Core") == std::string::npos) {
         if (strPrefix.find("2011") != std::string::npos) {
             std::string strYear = strPrefix;
-            strYear.replace(strYear.find("2022-2023"), sizeof("2022-2023")-1, "2011-2023");
+	    strYear.replace(strYear.find("2022-2023"), sizeof("2022-2023")-1, "2014-2023");
+            strCopyrightHolders += "\n" + strYear + "The Dash Core developers";
+            strYear.replace(strYear.find("2014-2023"), sizeof("2014-2023")-1, "2013-2023");
+            strCopyrightHolders += "\n" + strYear + "The Dogecoin Core developers";
+            strYear.replace(strYear.find("2013-2023"), sizeof("2013-2023")-1, "2011-2023");
             strCopyrightHolders += "\n" + strYear + "The Litecoin Core developers";
             strYear.replace(strYear.find("2011-2023"), sizeof("2011-2023")-1, "2009-2023");
             strCopyrightHolders += "\n" + strYear + "The Bitcoin Core developers";

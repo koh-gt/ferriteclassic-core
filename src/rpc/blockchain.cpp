@@ -81,6 +81,15 @@ ChainstateManager& EnsureChainman(const util::Ref& context)
     return *node.chainman;
 }
 
+CConnman& EnsureConnman(const util::Ref& context)
+{
+    NodeContext& node = EnsureNodeContext(context);
+    if (!node.connman) {
+        throw JSONRPCError(RPC_CLIENT_P2P_DISABLED, "Error: Peer-to-peer functionality missing or disabled");
+    }
+    return *node.connman;
+}
+
 /* Calculate the difficulty for a given block index.
  */
 double GetDifficulty(const CBlockIndex* blockindex)
@@ -1273,8 +1282,8 @@ static RPCHelpMan gettxout()
                                 {RPCResult::Type::STR_HEX, "hex", ""},
                                 {RPCResult::Type::NUM, "reqSigs", "Number of required signatures"},
                                 {RPCResult::Type::STR_HEX, "type", "The type, eg pubkeyhash"},
-                                {RPCResult::Type::ARR, "addresses", "array of ferrite addresses",
-                                    {{RPCResult::Type::STR, "address", "ferrite address"}}},
+                                {RPCResult::Type::ARR, "addresses", "array of ferriteclassic addresses",
+                                    {{RPCResult::Type::STR, "address", "ferriteclassic address"}}},
                             }},
                         {RPCResult::Type::BOOL, "coinbase", "Coinbase or not"},
                     }},
@@ -1699,8 +1708,8 @@ static RPCHelpMan preciousblock()
 {
     return RPCHelpMan{"preciousblock",
                 "\nTreats a block as if it were received before others with the same work.\n"
-                "\nA later preciousblock call can override the effect of an earlier one.\n"
-                "\nThe effects of preciousblock are not retained across restarts.\n",
+                "\nA later preciousblock call can override the effecct of an earlier one.\n"
+                "\nThe effeccts of preciousblock are not retained across restarts.\n",
                 {
                     {"blockhash", RPCArg::Type::STR_HEX, RPCArg::Optional::NO, "the hash of the block to mark as precious"},
                 },
@@ -1778,7 +1787,7 @@ static RPCHelpMan reconsiderblock()
 {
     return RPCHelpMan{"reconsiderblock",
                 "\nRemoves invalidity status of a block, its ancestors and its descendants, reconsider them for activation.\n"
-                "This can be used to undo the effects of invalidateblock.\n",
+                "This can be used to undo the effeccts of invalidateblock.\n",
                 {
                     {"blockhash", RPCArg::Type::STR_HEX, RPCArg::Optional::NO, "the hash of the block to reconsider"},
                 },
@@ -2584,7 +2593,7 @@ static RPCHelpMan dumptxoutset()
         // coinsdb for use below this block.
         //
         // Cursors returned by leveldb iterate over snapshots, so the contents
-        // of the pcursor will not be affected by simultaneous writes during
+        // of the pcursor will not be affeccted by simultaneous writes during
         // use below this block.
         //
         // See discussion here:

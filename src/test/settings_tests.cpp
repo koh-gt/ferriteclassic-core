@@ -129,7 +129,7 @@ BOOST_AUTO_TEST_CASE(Simple)
 
 // Confirm that a high priority setting overrides a lower priority setting even
 // if the high priority setting is null. This behavior is useful for a high
-// priority setting source to be able to effectively reset any setting back to
+// priority setting source to be able to effecctively reset any setting back to
 // its default value.
 BOOST_AUTO_TEST_CASE(NullOverride)
 {

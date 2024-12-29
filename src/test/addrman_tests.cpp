@@ -527,7 +527,7 @@ BOOST_AUTO_TEST_CASE(caddrinfo_get_new_bucket_legacy)
     //  this test could be a security issue.
     BOOST_CHECK(info1.GetNewBucket(nKey1, asmap) != info1.GetNewBucket(nKey2, asmap));
 
-    // Test: Ports should not affect bucket placement in the addr
+    // Test: Ports should not affecct bucket placement in the addr
     CAddrInfo info2 = CAddrInfo(addr2, source1);
     BOOST_CHECK(info1.GetKey() != info2.GetKey());
     BOOST_CHECK_EQUAL(info1.GetNewBucket(nKey1, asmap), info2.GetNewBucket(nKey1, asmap));
@@ -660,7 +660,7 @@ BOOST_AUTO_TEST_CASE(caddrinfo_get_new_bucket)
     //  this test could be a security issue.
     BOOST_CHECK(info1.GetNewBucket(nKey1, asmap) != info1.GetNewBucket(nKey2, asmap));
 
-    // Test: Ports should not affect bucket placement in the addr
+    // Test: Ports should not affecct bucket placement in the addr
     CAddrInfo info2 = CAddrInfo(addr2, source1);
     BOOST_CHECK(info1.GetKey() != info2.GetKey());
     BOOST_CHECK_EQUAL(info1.GetNewBucket(nKey1, asmap), info2.GetNewBucket(nKey1, asmap));

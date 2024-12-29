@@ -88,22 +88,22 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += ferrited
+  bin_PROGRAMS += ferriteclassicd
 endif
 
 if BUILD_BITCOIN_NODE
-  bin_PROGRAMS += ferrite-node
+  bin_PROGRAMS += ferriteclassic-node
 endif
 
 if BUILD_BITCOIN_CLI
-  bin_PROGRAMS += ferrite-cli
+  bin_PROGRAMS += ferriteclassic-cli
 endif
 if BUILD_BITCOIN_TX
-  bin_PROGRAMS += ferrite-tx
+  bin_PROGRAMS += ferriteclassic-tx
 endif
 if ENABLE_WALLET
 if BUILD_BITCOIN_WALLET
-  bin_PROGRAMS += ferrite-wallet
+  bin_PROGRAMS += ferriteclassic-wallet
 endif
 endif
 
@@ -133,6 +133,7 @@ libmw_a_SOURCES = \
 	libmw/src/mmr/PMMRCache.cpp \
 	libmw/src/mmr/PMMR.cpp \
 	libmw/src/mmr/PruneList.cpp \
+	libmw/src/mmr/Segment.cpp \
 	libmw/src/models/block/Block.cpp \
 	libmw/src/models/crypto/Commitment.cpp \
 	libmw/src/models/crypto/PublicKey.cpp \
@@ -622,6 +623,7 @@ libbitcoin_util_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 if USE_LIBEVENT
+libbitcoin_util_a_CPPFLAGS += $(EVENT_CFLAGS)
 libbitcoin_util_a_SOURCES += util/url.cpp
 endif
 
@@ -643,16 +645,16 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind & bitcoin-node binaries #
-ferrite_daemon_sources = bitcoind.cpp
-ferrite_bin_cppflags = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-ferrite_bin_cxxflags = $(AM_CXXFLAGS) $(PIE_FLAGS)
-ferrite_bin_ldflags = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
+ferriteclassic_daemon_sources = bitcoind.cpp
+ferriteclassic_bin_cppflags = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+ferriteclassic_bin_cxxflags = $(AM_CXXFLAGS) $(PIE_FLAGS)
+ferriteclassic_bin_ldflags = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
 
 if TARGET_WINDOWS
-ferrite_daemon_sources += bitcoind-res.rc
+ferriteclassic_daemon_sources += bitcoind-res.rc
 endif
 
-ferrite_bin_ldadd = \
+ferriteclassic_bin_ldadd = \
   $(LIBBITCOIN_WALLET) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -666,50 +668,50 @@ ferrite_bin_ldadd = \
   $(LIBSECP256K1) \
   $(LIBMW)
 
-ferrite_bin_ldadd += $(BOOST_LIBS) $(BDB_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS) $(SQLITE_LIBS) $(MWEB_LIBS)
+ferriteclassic_bin_ldadd += $(BOOST_LIBS) $(BDB_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS) $(SQLITE_LIBS) $(MWEB_LIBS)
 
-ferrited_SOURCES = $(ferrite_daemon_sources)
-ferrited_CPPFLAGS = $(ferrite_bin_cppflags)
-ferrited_CXXFLAGS = $(ferrite_bin_cxxflags)
-ferrited_LDFLAGS = $(ferrite_bin_ldflags)
-ferrited_LDADD = $(LIBBITCOIN_SERVER) $(ferrite_bin_ldadd)
+ferriteclassicd_SOURCES = $(ferriteclassic_daemon_sources)
+ferriteclassicd_CPPFLAGS = $(ferriteclassic_bin_cppflags)
+ferriteclassicd_CXXFLAGS = $(ferriteclassic_bin_cxxflags)
+ferriteclassicd_LDFLAGS = $(ferriteclassic_bin_ldflags)
+ferriteclassicd_LDADD = $(LIBBITCOIN_SERVER) $(ferriteclassic_bin_ldadd)
 
-ferrite_node_SOURCES = $(ferrite_daemon_sources)
-ferrite_node_CPPFLAGS = $(ferrite_bin_cppflags)
-ferrite_node_CXXFLAGS = $(ferrite_bin_cxxflags)
-ferrite_node_LDFLAGS = $(ferrite_bin_ldflags)
-ferrite_node_LDADD = $(LIBBITCOIN_SERVER) $(ferrite_bin_ldadd)
+ferriteclassic_node_SOURCES = $(ferriteclassic_daemon_sources)
+ferriteclassic_node_CPPFLAGS = $(ferriteclassic_bin_cppflags)
+ferriteclassic_node_CXXFLAGS = $(ferriteclassic_bin_cxxflags)
+ferriteclassic_node_LDFLAGS = $(ferriteclassic_bin_ldflags)
+ferriteclassic_node_LDADD = $(LIBBITCOIN_SERVER) $(ferriteclassic_bin_ldadd)
 
 # bitcoin-cli binary #
-ferrite_cli_SOURCES = bitcoin-cli.cpp
-ferrite_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-ferrite_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-ferrite_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
+ferriteclassic_cli_SOURCES = bitcoin-cli.cpp
+ferriteclassic_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+ferriteclassic_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+ferriteclassic_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
 
 if TARGET_WINDOWS
-ferrite_cli_SOURCES += bitcoin-cli-res.rc
+ferriteclassic_cli_SOURCES += bitcoin-cli-res.rc
 endif
 
-ferrite_cli_LDADD = \
+ferriteclassic_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO)
 
-ferrite_cli_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS) $(MWEB_LIBS)
+ferriteclassic_cli_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS) $(MWEB_LIBS)
 #
 
 # bitcoin-tx binary #
-ferrite_tx_SOURCES = bitcoin-tx.cpp
-ferrite_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-ferrite_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-ferrite_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
+ferriteclassic_tx_SOURCES = bitcoin-tx.cpp
+ferriteclassic_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+ferriteclassic_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+ferriteclassic_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
 
 if TARGET_WINDOWS
-ferrite_tx_SOURCES += bitcoin-tx-res.rc
+ferriteclassic_tx_SOURCES += bitcoin-tx-res.rc
 endif
 
-ferrite_tx_LDADD = \
+ferriteclassic_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -718,17 +720,17 @@ ferrite_tx_LDADD = \
   $(LIBSECP256K1) \
   $(LIBMW)
 
-ferrite_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS) $(MWEB_LIBS)
+ferriteclassic_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS) $(MWEB_LIBS)
 
 # bitcoin-wallet binary #
-ferrite_wallet_SOURCES = bitcoin-wallet.cpp
-ferrite_wallet_CPPFLAGS = $(ferrite_bin_cppflags)
-ferrite_wallet_CXXFLAGS = $(ferrite_bin_cxxflags)
-ferrite_wallet_LDFLAGS = $(ferrite_bin_ldflags)
-ferrite_wallet_LDADD = $(LIBBITCOIN_WALLET_TOOL) $(ferrite_bin_ldadd)
+ferriteclassic_wallet_SOURCES = bitcoin-wallet.cpp
+ferriteclassic_wallet_CPPFLAGS = $(ferriteclassic_bin_cppflags)
+ferriteclassic_wallet_CXXFLAGS = $(ferriteclassic_bin_cxxflags)
+ferriteclassic_wallet_LDFLAGS = $(ferriteclassic_bin_ldflags)
+ferriteclassic_wallet_LDADD = $(LIBBITCOIN_WALLET_TOOL) $(ferriteclassic_bin_ldadd)
 
 if TARGET_WINDOWS
-ferrite_wallet_SOURCES += bitcoin-wallet-res.rc
+ferriteclassic_wallet_SOURCES += bitcoin-wallet-res.rc
 endif
 #
 

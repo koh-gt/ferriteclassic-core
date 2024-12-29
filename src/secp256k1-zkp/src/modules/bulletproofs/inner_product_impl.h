@@ -64,7 +64,7 @@
  *
  * The bulk of `secp256k1_bulletproof_innerproduct_vfy_ecmult_callback` involves computing
  * these indices, given `a_2/a_1`, `b_1/a_1`, `b_2/b_1`, and the `x_k^2`s as input. It
- * computes `x_k^-2` as a side-effect of its other computation.
+ * computes `x_k^-2` as a side-effecct of its other computation.
  */
 
 typedef int (secp256k1_bulletproof_vfy_callback)(secp256k1_scalar *sc, secp256k1_ge *pt, secp256k1_scalar *randomizer, size_t idx, void *data);

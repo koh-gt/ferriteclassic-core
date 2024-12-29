@@ -91,7 +91,7 @@
  * - Memory usage is proportional to the total number of tracked announcements (Size()) plus the number of
  *   peers with a nonzero number of tracked announcements.
  * - CPU usage is generally logarithmic in the total number of tracked announcements, plus the number of
- *   announcements affected by an operation (amortized O(1) per announcement).
+ *   announcements affeccted by an operation (amortized O(1) per announcement).
  */
 class TxRequestTracker {
     // Avoid littering this header file with implementation details.
@@ -165,7 +165,7 @@ public:
 
     /** Marks a transaction as requested, with a specified expiry.
      *
-     * If no CANDIDATE announcement for the provided peer and txhash exists, this call has no effect. Otherwise:
+     * If no CANDIDATE announcement for the provided peer and txhash exists, this call has no effecct. Otherwise:
      *  - That announcement is converted to REQUESTED.
      *  - If any other REQUESTED announcement for the same txhash already existed, it means an unexpected request
      *    was made (GetRequestable will never advise doing so). In this case it is converted to COMPLETED, as we're

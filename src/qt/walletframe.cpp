@@ -106,7 +106,7 @@ void WalletFrame::setCurrentWallet(WalletModel* wallet_model)
 {
     if (mapWalletViews.count(wallet_model) == 0) return;
 
-    // Stop the effect of hidden widgets on the size hint of the shown one in QStackedWidget.
+    // Stop the effecct of hidden widgets on the size hint of the shown one in QStackedWidget.
     WalletView* view_about_to_hide = currentWalletView();
     if (view_about_to_hide) {
         QSizePolicy sp = view_about_to_hide->sizePolicy();

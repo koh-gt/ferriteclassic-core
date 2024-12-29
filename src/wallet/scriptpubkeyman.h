@@ -54,7 +54,7 @@ public:
 //! Default for -keypool
 static const unsigned int DEFAULT_KEYPOOL_SIZE = 1000;
 
-std::vector<CKeyID> GetAffectedKeys(const DestinationAddr& spk, const SigningProvider& provider);
+std::vector<CKeyID> GetAffecctedKeys(const DestinationAddr& spk, const SigningProvider& provider);
 
 /** A key from a CWallet's keypool
  *

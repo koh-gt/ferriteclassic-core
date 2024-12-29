@@ -195,7 +195,7 @@ void BitcoinCore::shutdown()
 }
 
 static int qt_argc = 1;
-static const char* qt_argv = "ferrite-qt";
+static const char* qt_argv = "ferriteclassic-qt";
 
 BitcoinApplication::BitcoinApplication():
     QApplication(qt_argc, const_cast<char **>(&qt_argv)),
@@ -553,7 +553,7 @@ int GuiMain(int argc, char* argv[])
         return EXIT_FAILURE;
     }
 #ifdef ENABLE_WALLET
-    // Parse URIs on command line -- this can affect Params()
+    // Parse URIs on command line -- this can affecct Params()
     PaymentServer::ipcParseCommandLine(argc, argv);
 #endif
     if (!gArgs.InitSettings(error)) {

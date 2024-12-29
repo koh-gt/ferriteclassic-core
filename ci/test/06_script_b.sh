@@ -9,7 +9,7 @@ export LC_ALL=C.UTF-8
 if [[ $HOST = *-mingw32 ]]; then
   BEGIN_FOLD wrap-wine
   # Generate all binaries, so that they can be wrapped
-  DOCKER_EXEC make $MAKEJOBS -C src/secp256k1 VERBOSE=1
+  DOCKER_EXEC make $MAKEJOBS -C src/secp256k1-zkp VERBOSE=1
   DOCKER_EXEC make $MAKEJOBS -C src/univalue VERBOSE=1
   DOCKER_EXEC "${BASE_ROOT_DIR}/ci/test/wrap-wine.sh"
   END_FOLD
@@ -18,7 +18,7 @@ fi
 if [ -n "$QEMU_USER_CMD" ]; then
   BEGIN_FOLD wrap-qemu
   # Generate all binaries, so that they can be wrapped
-  DOCKER_EXEC make $MAKEJOBS -C src/secp256k1 VERBOSE=1
+  DOCKER_EXEC make $MAKEJOBS -C src/secp256k1-zkp VERBOSE=1
   DOCKER_EXEC make $MAKEJOBS -C src/univalue VERBOSE=1
   DOCKER_EXEC "${BASE_ROOT_DIR}/ci/test/wrap-qemu.sh"
   END_FOLD
@@ -38,7 +38,7 @@ fi
 
 if [ "$RUN_UNIT_TESTS_SEQUENTIAL" = "true" ]; then
   BEGIN_FOLD unit-tests-seq
-  DOCKER_EXEC ${TEST_RUNNER_ENV} DIR_UNIT_TEST_DATA=${DIR_UNIT_TEST_DATA} LD_LIBRARY_PATH=$DEPENDS_DIR/$HOST/lib "${BASE_BUILD_DIR}/litecoin-*/src/test/test_litecoin*" --catch_system_errors=no -l test_suite
+  DOCKER_EXEC ${TEST_RUNNER_ENV} DIR_UNIT_TEST_DATA=${DIR_UNIT_TEST_DATA} LD_LIBRARY_PATH=$DEPENDS_DIR/$HOST/lib "${BASE_BUILD_DIR}/ferriteclassic-*/src/test/test_ferriteclassic*" --catch_system_errors=no -l test_suite
   END_FOLD
 fi
 

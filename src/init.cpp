@@ -110,7 +110,7 @@ static const char* DEFAULT_ASMAP_FILENAME="ip_asn.map";
 /**
  * The PID file facilities.
  */
-static const char* BITCOIN_PID_FILENAME = "bitcoind.pid";
+static const char* BITCOIN_PID_FILENAME = "ferriteclassicd.pid";
 
 static fs::path GetPidFile(const ArgsManager& args)
 {
@@ -406,7 +406,7 @@ void SetupServerArgs(NodeContext& node)
     argsman.AddArg("-blocknotify=<cmd>", "Execute command when the best block changes (%s in cmd is replaced by block hash)", ArgsManager::ALLOW_ANY, OptionsCategory::OPTIONS);
 #endif
     argsman.AddArg("-blockreconstructionextratxn=<n>", strprintf("Extra transactions to keep in memory for compact block reconstructions (default: %u)", DEFAULT_BLOCK_RECONSTRUCTION_EXTRA_TXN), ArgsManager::ALLOW_ANY, OptionsCategory::OPTIONS);
-    argsman.AddArg("-blocksonly", strprintf("Whether to reject transactions from network peers. Automatic broadcast and rebroadcast of any transactions from inbound peers is disabled, unless the peer has the 'forcerelay' permission. RPC transactions are not affected. (default: %u)", DEFAULT_BLOCKSONLY), ArgsManager::ALLOW_ANY, OptionsCategory::OPTIONS);
+    argsman.AddArg("-blocksonly", strprintf("Whether to reject transactions from network peers. Automatic broadcast and rebroadcast of any transactions from inbound peers is disabled, unless the peer has the 'forcerelay' permission. RPC transactions are not affeccted. (default: %u)", DEFAULT_BLOCKSONLY), ArgsManager::ALLOW_ANY, OptionsCategory::OPTIONS);
     argsman.AddArg("-conf=<file>", strprintf("Specify path to read-only configuration file. Relative paths will be prefixed by datadir location. (default: %s)", BITCOIN_CONF_FILENAME), ArgsManager::ALLOW_ANY, OptionsCategory::OPTIONS);
     argsman.AddArg("-datadir=<dir>", "Specify data directory", ArgsManager::ALLOW_ANY, OptionsCategory::OPTIONS);
     argsman.AddArg("-dbbatchsize", strprintf("Maximum database write batch size in bytes (default: %u)", nDefaultDbBatchSize), ArgsManager::ALLOW_ANY | ArgsManager::DEBUG_ONLY, OptionsCategory::OPTIONS);
@@ -434,7 +434,7 @@ void SetupServerArgs(NodeContext& node)
     argsman.AddArg("-startupnotify=<cmd>", "Execute command on startup.", ArgsManager::ALLOW_ANY, OptionsCategory::OPTIONS);
 #endif
 #ifndef WIN32
-    argsman.AddArg("-sysperms", "Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)", ArgsManager::ALLOW_ANY, OptionsCategory::OPTIONS);
+    argsman.AddArg("-sysperms", "Create new files with system default permissions, instead of umask 077 (only effecctive with disabled wallet functionality)", ArgsManager::ALLOW_ANY, OptionsCategory::OPTIONS);
 #else
     hidden_args.emplace_back("-sysperms");
 #endif
@@ -462,7 +462,7 @@ void SetupServerArgs(NodeContext& node)
     argsman.AddArg("-maxtimeadjustment", strprintf("Maximum allowed median peer time offset adjustment. Local perspective of time may be influenced by peers forward or backward by this amount. (default: %u seconds)", DEFAULT_MAX_TIME_ADJUSTMENT), ArgsManager::ALLOW_ANY, OptionsCategory::CONNECTION);
     argsman.AddArg("-maxuploadtarget=<n>", strprintf("Tries to keep outbound traffic under the given target (in MiB per 24h). Limit does not apply to peers with 'download' permission. 0 = no limit (default: %d)", DEFAULT_MAX_UPLOAD_TARGET), ArgsManager::ALLOW_ANY, OptionsCategory::CONNECTION);
     argsman.AddArg("-onion=<ip:port>", "Use separate SOCKS5 proxy to reach peers via Tor onion services, set -noonion to disable (default: -proxy)", ArgsManager::ALLOW_ANY, OptionsCategory::CONNECTION);
-    argsman.AddArg("-onlynet=<net>", "Make outgoing connections only through network <net> (ipv4, ipv6 or onion). Incoming connections are not affected by this option. This option can be specified multiple times to allow multiple networks.", ArgsManager::ALLOW_ANY, OptionsCategory::CONNECTION);
+    argsman.AddArg("-onlynet=<net>", "Make outgoing connections only through network <net> (ipv4, ipv6 or onion). Incoming connections are not affeccted by this option. This option can be specified multiple times to allow multiple networks.", ArgsManager::ALLOW_ANY, OptionsCategory::CONNECTION);
     argsman.AddArg("-peerbloomfilters", strprintf("Support filtering of blocks and transaction with bloom filters (default: %u)", DEFAULT_PEERBLOOMFILTERS), ArgsManager::ALLOW_ANY, OptionsCategory::CONNECTION);
     argsman.AddArg("-peerblockfilters", strprintf("Serve compact block filters to peers per BIP 157 (default: %u)", DEFAULT_PEERBLOCKFILTERS), ArgsManager::ALLOW_ANY, OptionsCategory::CONNECTION);
     argsman.AddArg("-permitbaremultisig", strprintf("Relay non-P2SH multisig (default: %u)", DEFAULT_PERMIT_BAREMULTISIG), ArgsManager::ALLOW_ANY, OptionsCategory::CONNECTION);
@@ -598,17 +598,32 @@ void SetupServerArgs(NodeContext& node)
 
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/koh-gt/ferrite-core>";
-    const std::string URL_WEBSITE = "<http://www.ferritecoin.org>";
-    const std::string URL_BLOCK_EXPLORER = "<http://explorer.ferritecoin.org>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/koh-gt/ferriteclassic-core>";
+    const std::string URL_WEBSITE = "<https://ferritecoin.org>";
+    const std::string URL_FORUM = "<https://ferritecoin.org:52443>";
+    const std::string URL_BLOCK_EXPLORER = "<https://explorer.ferritecoin.org>";
+    const std::string FEXT_URL_WEBSITE = "<https://github.com/koh-gt/ferritext/>";
+    const std::string FEXT_HELP_URL_WEBSITE = "<https://github.com/koh-gt/ferritext/wiki>";
 
-    return CopyrightHolders(strprintf(_("Copyright (C) %i-%i").translated, 2022, COPYRIGHT_YEAR) + " ") +
+    const std::string URL_MOBILE_WALLET = "<https://github.com/koh-gt/ferriteclassic-wallet/releases>";
+
+    return CopyrightHolders(strprintf(_("Copyright (C) %i-%i").translated, 2024, COPYRIGHT_YEAR) + " ") +
+	   strprintf(_("\nCopyright (C) %i-%i The Ferrite Core developers").translated, 2022, COPYRIGHT_YEAR) +
+           strprintf(_("\nCopyright (C) %i-%i The Dash Core developers").translated, 2014, COPYRIGHT_YEAR) +
+           strprintf(_("\nCopyright (C) %i-%i The Dogecoin Core developers").translated, 2013, COPYRIGHT_YEAR) +
            strprintf(_("\nCopyright (C) %i-%i The Litecoin Core developers").translated, 2011, COPYRIGHT_YEAR) +
            strprintf(_("\nCopyright (C) %i-%i The Bitcoin Core developers").translated, 2009, COPYRIGHT_YEAR) +
-           
+
            strprintf(_(" \n\nPlease contribute if you find %s useful. "
                        "Visit %s for further information about the software.").translated,
                PACKAGE_NAME, URL_WEBSITE) +
+
+           strprintf(_(" \n\nFerritext (FEXT) is a native messaging tool built on %s. FEXT is available from %s. "
+                       "Visit %s for further information about the feature.").translated,
+               PACKAGE_NAME, FEXT_URL_WEBSITE, FEXT_HELP_URL_WEBSITE) +
+        
+           strprintf(_("\nVisit FerriteClassic Forum at %s for more details.").translated,
+               URL_FORUM) +
 
            strprintf(_("\nThe source code is available from %s.").translated,
                URL_SOURCE_CODE) +
@@ -616,7 +631,9 @@ std::string LicenseInfo()
            strprintf(_("\nThe block explorer is available from %s.").translated,
                URL_BLOCK_EXPLORER) +
 
-           
+           strprintf(_("\n\nThe mobile wallet is available from %s.").translated,
+               URL_MOBILE_WALLET) +
+
            _("\n\nThis is experimental software.").translated +
            strprintf(_("\nDistributed under the MIT software license, see the accompanying file %s or %s").translated, "COPYING", "<https://opensource.org/licenses/MIT>") +
            strprintf(_("\n\nThis product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit %s and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.").translated, "<https://opensource.org/licenses/MIT>");
@@ -625,9 +642,9 @@ std::string LicenseInfo()
 /*
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/koh-gt/ferrite-core>";
-    const std::string URL_WEBSITE = "<http://www.ferritecoin.org>";
-    const std::string URL_BLOCK_EXPLORER = "<http://explorer.ferritecoin.org>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/koh-gt/ferriteclassic-core>";
+    const std::string URL_WEBSITE = "<https://www.ferritecoin.org>";
+    const std::string URL_BLOCK_EXPLORER = "<https://explorer.ferritecoin.org>";
 
     return CopyrightHolders(strprintf(_("Copyright (C) %i-%i").translated, 2022, COPYRIGHT_YEAR) + " ") +
            
@@ -1033,7 +1050,11 @@ bool AppInitParameterInteraction(const ArgsManager& args)
     }
 
     // parse and validate enabled filter types
+    bool fReindexChainState = args.GetBoolArg("-reindex-chainstate", false);
     std::string blockfilterindex_value = args.GetArg("-blockfilterindex", DEFAULT_BLOCKFILTERINDEX);
+    if (fReindexChainState && !args.IsArgSet("-blockfilterindex")) {
+        blockfilterindex_value = "0";
+    }
     if (blockfilterindex_value == "" || blockfilterindex_value == "1") {
         g_enabled_filter_types = AllBlockFilterTypes();
     } else if (blockfilterindex_value != "0") {
@@ -1048,7 +1069,11 @@ bool AppInitParameterInteraction(const ArgsManager& args)
     }
 
     // Signal NODE_COMPACT_FILTERS if peerblockfilters and basic filters index are both enabled.
-    if (args.GetBoolArg("-peerblockfilters", DEFAULT_PEERBLOCKFILTERS)) {
+    bool peerblockfilters = args.GetBoolArg("-peerblockfilters", DEFAULT_PEERBLOCKFILTERS);
+    if (fReindexChainState && !args.IsArgSet("-peerblockfilters")) {
+        peerblockfilters = false;
+    }
+    if (peerblockfilters) {
         if (g_enabled_filter_types.count(BlockFilterType::BASIC) != 1) {
             return InitError(_("Cannot set -peerblockfilters without -blockfilterindex."));
         }
@@ -1342,12 +1367,13 @@ bool AppInitMain(const util::Ref& context, NodeContext& node, interfaces::BlockA
 
         FILE* configFile = fopen(GetConfigFile(gArgs.GetArg("-conf", BITCOIN_CONF_FILENAME)).string().c_str(), "a");
         if (configFile != NULL) {
-            std::string strHeader = "# Ferrite Core configuration file:\n"
+            std::string strHeader = "# FerriteClassic Core configuration file v2.2.0 10kb:\n"
                                     "\n"            
-                                    "# Node settings (default: Full Node):\n"
+                                    "# Node settings (default: Full Node with no pruning):\n"
+                                    "prune=0\n"
                                     "daemon=1\n"
                                     "server=1\n"
-                                    "prune=0\n"
+                                    "blockfilterindex=basic\n"
                                     "txindex=1\n"
                                     "listen=1\n"
                                     "upnp=1\n"
@@ -1355,36 +1381,54 @@ bool AppInitMain(const util::Ref& context, NodeContext& node, interfaces::BlockA
                                     "# RPC settings (default: Local network only)\n"
                                     "rpcuser=user\n"
                                     "rpcpassword=password\n"
-                                    "port=9574\n"
                                     "rpcallowip=127.0.0.1\n"
                                     "rpcthreads=32\n"
                                     "\n"
                                     "# Relay and fee settings (default: 1 atom/vB)\n"
                                     "mintxfee=0.00001\n"
+                                    "maxtxfee=1000\n"
+                                    "maxfeerate=1000\n"
                                     "minrelaytxfee=0.00001\n"
-                                    "rpcconnect=500\n"
                                     "maxconnections=500\n"
+				    "datacarriersize=10000\n"
                                     "\n"
                                     "# Depreciated RPCs for compatibility\n"
                                     "deprecatedrpc=accounts\n"
                                     "deprecatedrpc=generate\n"
                                     "\n"
                                     "# Nodes:\n"
-                                    "addnode=node1.ferritecoin.org\n"
-                                    "addnode=38.242.145.73:21004 # xeggex.com \n"
-                                    "addnode=node2.ferritecoin.org\n"
-                                    "addnode=node3.ferritecoin.org\n"
-                                    "addnode=node2.walletbuilders.com\n"    
+                                    "addnode=118.189.201.104:9674\n"
+                                    "addnode=118.189.201.104:9688\n"
+                                    "addnode=118.189.201.104:9698\n"  
+	                            "addnode=133.177.197.167:9574\n"
                                     "addnode=118.189.201.104:9574\n"
                                     "addnode=118.189.201.104:9588\n"
                                     "addnode=118.189.201.104:9598\n"
                                     "addnode=78.220.84.58:9574\n"
-                                    "addnode=188.165.227.178:9574 # spools.online \n"
-                                    "addnode=207.244.243.35:9574 # luckydogpool.com \n"
-                                    "addnode=144.91.107.170:9574 # coinxpool.com \n"
-                                    "addnode=83.61.85.197:9574 # 2miningpool.com \n"
-                                    "addnode=155.138.247.235:9574 # miningmypool.com \n"
-                                    "addnode=155.133.26.223:9574 # zeusminingpool.com \n"
+                                    "\n"
+                                    "\n"
+                                    "# Testnet parameters: \n"
+                                    "# Change testnet=0 to testnet=1 and launch ferriteclassic core \n"
+                                    "# to launch ferriteclassic in testnet mode. \n"
+                                    "# You can run both mainnet and testnet nodes simultaneously \n"
+                                    "# Default: testnet = 0 (Testnet disabled)\n"
+                                    "testnet = 0\n"
+                                    "\n"
+                                    "[test]\n"
+                                    "daemon=1\n"
+                                    "server=1\n"
+                                    "txindex=1\n"
+                                    "mintxfee=0.00001\n"
+                                    "minrelaytxfee=0.00001\n"
+                                    "port=19674\n"
+                                    "addnode=118.189.201.104:19674\n"
+                                    "addnode=118.189.201.104:19688\n"
+                                    "addnode=118.189.201.104:19698\n"
+                                    "addnode=118.189.201.104:19574\n"
+                                    "addnode=118.189.201.104:19588\n"
+                                    "addnode=118.189.201.104:19598\n"
+                                    "deprecatedrpc=accounts\n"
+                                    "deprecatedrpc=generate\n"
                                     "\n";
 
             fwrite(strHeader.c_str(), std::strlen(strHeader.c_str()), 1, configFile);
@@ -1400,9 +1444,9 @@ bool AppInitMain(const util::Ref& context, NodeContext& node, interfaces::BlockA
     // Warn about relative -datadir path.
     if (args.IsArgSet("-datadir") && !fs::path(args.GetArg("-datadir", "")).is_absolute()) {
         LogPrintf("Warning: relative datadir option '%s' specified, which will be interpreted relative to the " /* Continued */
-                  "current working directory '%s'. This is fragile, because if litecoin is started in the future "
+                  "current working directory '%s'. This is fragile, because if ferriteclassic is started in the future "
                   "from a different location, it will be unable to locate the current data files. There could "
-                  "also be data loss if litecoin is started while in a temporary directory.\n",
+                  "also be data loss if ferriteclassic is started while in a temporary directory.\n",
                   args.GetArg("-datadir", ""), fs::current_path().string());
     }
 
@@ -1938,7 +1982,7 @@ bool AppInitMain(const util::Ref& context, NodeContext& node, interfaces::BlockA
         nLocalServices = ServiceFlags(nLocalServices | NODE_WITNESS);
 
         // NODE_MWEB requires NODE_WITNESS, so we shouldn't signal for NODE_MWEB without NODE_WITNESS
-        nLocalServices = ServiceFlags(nLocalServices | NODE_MWEB);
+        nLocalServices = ServiceFlags(nLocalServices | NODE_MWEB | NODE_MWEB_LIGHT_CLIENT);
     }
 
     // ********************************************************* Step 11: import blocks

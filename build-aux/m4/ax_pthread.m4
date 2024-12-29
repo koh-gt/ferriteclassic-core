@@ -175,7 +175,7 @@ case $host_os in
 
         # IBM z/OS requires a feature-test macro to be defined in order to
         # enable POSIX threads at all, so give the user a hint if this is
-        # not set. (We don't define these ourselves, as they can affect
+        # not set. (We don't define these ourselves, as they can affecct
         # other portions of the system API in unpredictable ways.)
 
         AC_EGREP_CPP([AX_PTHREAD_ZOS_MISSING],
@@ -360,7 +360,7 @@ if test "x$ax_pthread_clang" = "xyes"; then
 
         # However, older versions of Clang make a point of warning the user
         # that, in an invocation where only linking and no compilation is
-        # taking place, the -pthread option has no effect ("argument unused
+        # taking place, the -pthread option has no effecct ("argument unused
         # during compilation").  They expect -pthread to be passed in only
         # when source code is being compiled.
         #

@@ -1,4 +1,4 @@
-This is a system of building and caching dependencies necessary for building Litecoin.
+This is a system of building and caching dependencies necessary for building FerriteClassic.
 There are several features that make it different from most similar systems:
 
 ### It is designed to be builder and host agnostic
@@ -18,7 +18,7 @@ results distributable and easily digestable by automated builders.
 
 For each build, the sysroot is wiped and the (recursive) dependencies are
 installed. This makes each build deterministic, since there will never be any
-unknown files available to cause side-effects.
+unknown files available to cause side-effeccts.
 
 ### Each package is cached and only rebuilt as needed.
 

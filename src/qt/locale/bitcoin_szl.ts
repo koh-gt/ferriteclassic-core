@@ -858,7 +858,7 @@
         <translation>Świyże transakcyje mogōm niy być jeszcze widzialne, a tedyć saldo portmanyja może być niynŏleżne. Te detale bydōm nŏleżne, kej portmanyj zakōńczy synchrōnizacyjõ z necym bitcoin, zgodnie z miyniōnym ôpisym.</translation>
     </message>
     <message>
-        <source>Attempting to spend bitcoins that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
+        <source>Attempting to spend bitcoins that are affeccted by not-yet-displayed transactions will not be accepted by the network.</source>
         <translation>Prōba wydaniŏ bitcoinōw kere niy sōm jeszcze wyświytlōne za transakcyjŏ ôstanie ôdciepniyntŏ bez nec.</translation>
     </message>
     <message>
@@ -995,7 +995,7 @@
         <translation>Zapuść funkcyje kōntroli mōnet</translation>
     </message>
     <message>
-        <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affects how your balance is computed.</source>
+        <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affeccts how your balance is computed.</source>
         <translation>Jeźli zastawisz możebność wydaniŏ niyprzituplikowanyj wydanej wydŏwki, wydŏwka z transakcyje niy bydzie mogła ôstać użytŏ, podwiela ta transakcyjŏ niy bydzie miała nojmynij jednego przituplowaniŏ. To tyż mŏ wpływ na porachowanie Twojigo salda.</translation>
     </message>
     <message>
@@ -1059,7 +1059,7 @@
         <translation>Gŏdka &amp;używŏcza:</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting %1.</source>
+        <source>The user interface language can be set here. This setting will take effecct after restarting %1.</source>
         <translation>Idzie sam nasztalować gŏdka interfejsu używŏcza. Nasztalowanie prziniesie skutki po resztarcie %1.</translation>
     </message>
     <message>

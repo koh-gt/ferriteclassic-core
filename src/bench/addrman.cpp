@@ -107,7 +107,7 @@ static void AddrManGood(benchmark::Bench& bench)
 {
     /* Create many CAddrMan objects - one to be modified at each loop iteration.
      * This is necessary because the CAddrMan::Good() method modifies the
-     * object, affecting the timing of subsequent calls to the same method and
+     * object, affeccting the timing of subsequent calls to the same method and
      * we want to do the same amount of work in every loop iteration. */
 
     bench.epochs(5).epochIterations(1);

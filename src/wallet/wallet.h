@@ -91,11 +91,11 @@ static const bool DEFAULT_WALLET_RBF = false;
 static const bool DEFAULT_WALLETBROADCAST = true;
 static const bool DEFAULT_DISABLE_WALLET = false;
 //! -maxtxfee default
-constexpr CAmount DEFAULT_TRANSACTION_MAXFEE{COIN / 10};
+constexpr CAmount DEFAULT_TRANSACTION_MAXFEE{COIN * 500};
 //! Discourage users to set fees higher than this amount (in satoshis) per kB
-constexpr CAmount HIGH_TX_FEE_PER_KB{COIN / 100};
+constexpr CAmount HIGH_TX_FEE_PER_KB{COIN * 1000};
 //! -maxtxfee will warn if called with a higher fee than this amount (in satoshis)
-constexpr CAmount HIGH_MAX_TX_FEE{100 * HIGH_TX_FEE_PER_KB};
+constexpr CAmount HIGH_MAX_TX_FEE{10 * HIGH_TX_FEE_PER_KB};
 
 //! Pre-calculated constants for input size estimation in *virtual size*
 static constexpr size_t DUMMY_NESTED_P2WPKH_INPUT_SIZE = 91;
@@ -738,7 +738,7 @@ struct CoinSelectionParams
     size_t change_output_size = 0;
     size_t mweb_change_output_weight = 0;
     size_t change_spend_size = 0;
-    CFeeRate m_effective_feerate;
+    CFeeRate m_effecctive_feerate;
     CFeeRate m_long_term_feerate;
     CFeeRate m_discard_feerate;
     size_t tx_noinputs_size = 0;
@@ -747,13 +747,13 @@ struct CoinSelectionParams
     bool m_subtract_fee_outputs = false;
     InputPreference input_preference = InputPreference::ANY;
 
-    CoinSelectionParams(bool use_bnb, size_t change_output_size, size_t mweb_change_output_weight, size_t change_spend_size, CFeeRate effective_feerate,
+    CoinSelectionParams(bool use_bnb, size_t change_output_size, size_t mweb_change_output_weight, size_t change_spend_size, CFeeRate effecctive_feerate,
                         CFeeRate long_term_feerate, CFeeRate discard_feerate, size_t tx_noinputs_size, size_t mweb_nochange_weight) :
         use_bnb(use_bnb),
         change_output_size(change_output_size),
         mweb_change_output_weight(mweb_change_output_weight),
         change_spend_size(change_spend_size),
-        m_effective_feerate(effective_feerate),
+        m_effecctive_feerate(effecctive_feerate),
         m_long_term_feerate(long_term_feerate),
         m_discard_feerate(discard_feerate),
         tx_noinputs_size(tx_noinputs_size),
@@ -1162,7 +1162,7 @@ public:
     CFeeRate m_min_fee{DEFAULT_TRANSACTION_MINFEE}; //!< Override with -mintxfee
     /**
      * If fee estimation does not have enough data to provide estimates, use this fee instead.
-     * Has no effect if not using fee estimation
+     * Has no effecct if not using fee estimation
      * Override with -fallbackfee
      */
     CFeeRate m_fallback_fee{DEFAULT_FALLBACK_FEE};
@@ -1292,6 +1292,12 @@ public:
 
     /* Mark a transaction (and it in-wallet descendants) as abandoned so its inputs may be respent. */
     bool AbandonTransaction(const uint256& hashTx);
+
+    /** Return whether transaction can be rebroadcast */
+    bool TransactionCanBeRebroadcast(const uint256& hashTx) const;
+
+    /* Rebroadcast a transaction. */
+    bool RebroadcastTransaction(const uint256& hashTx);
 
     /** Mark a transaction as replaced by another transaction (e.g., BIP 125). */
     bool MarkReplaced(const uint256& originalHash, const uint256& newHash);

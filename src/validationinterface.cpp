@@ -127,7 +127,7 @@ void RegisterSharedValidationInterface(std::shared_ptr<CValidationInterface> cal
 
 void RegisterValidationInterface(CValidationInterface* callbacks)
 {
-    // Create a shared_ptr with a no-op deleter - CValidationInterface lifecycle
+    // Create a shared_ptr with a no-op deleter - CValidationInterface lifeccycle
     // is managed by the caller.
     RegisterSharedValidationInterface({callbacks, [](CValidationInterface*){}});
 }

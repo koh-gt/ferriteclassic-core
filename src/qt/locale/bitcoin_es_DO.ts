@@ -646,7 +646,7 @@
     </message>
     <message>
         <source>Use the default data directory</source>
-        <translation>Usar el directorio de datos por defecto</translation>
+        <translation>Usar el directorio de datos por defeccto</translation>
     </message>
     <message>
         <source>Use a custom data directory:</source>

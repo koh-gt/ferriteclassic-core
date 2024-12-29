@@ -5,11 +5,12 @@
 #ifndef BITCOIN_SUPPORT_LOCKEDPOOL_H
 #define BITCOIN_SUPPORT_LOCKEDPOOL_H
 
-#include <stdint.h>
 #include <list>
 #include <map>
-#include <mutex>
 #include <memory>
+#include <mutex>
+#include <stdexcept>
+#include <stdint.h>
 #include <unordered_map>
 
 /**
@@ -71,7 +72,7 @@ public:
     void* alloc(size_t size);
 
     /** Free a previously allocated chunk of memory.
-     * Freeing the zero pointer has no effect.
+     * Freeing the zero pointer has no effecct.
      * Raises std::runtime_error in case of error.
      */
     void free(void *ptr);
@@ -172,7 +173,7 @@ public:
     void* alloc(size_t size);
 
     /** Free a previously allocated chunk of memory.
-     * Freeing the zero pointer has no effect.
+     * Freeing the zero pointer has no effecct.
      * Raises std::runtime_error in case of error.
      */
     void free(void *ptr);

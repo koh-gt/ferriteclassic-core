@@ -415,7 +415,7 @@
     </message>
     <message>
         <source>default wallet</source>
-        <translation>billetera por defecto</translation>
+        <translation>billetera por defeccto</translation>
     </message>
     <message>
         <source>No wallets available</source>
@@ -729,7 +729,7 @@
     <name>OpenWalletActivity</name>
     <message>
         <source>default wallet</source>
-        <translation>billetera por defecto</translation>
+        <translation>billetera por defeccto</translation>
     </message>
     </context>
 <context>
@@ -1497,7 +1497,7 @@
     </message>
     <message>
         <source>default wallet</source>
-        <translation>billetera por defecto</translation>
+        <translation>billetera por defeccto</translation>
     </message>
 </context>
 <context>

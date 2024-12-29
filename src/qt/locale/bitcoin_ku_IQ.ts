@@ -106,7 +106,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>دەستەواژەی تێپەڕەوی نوێ تێبنووسە بۆ جزدان.1 تکایە دەستەواژەی تێپەڕێک بەکاربێنە لە 2ten یان زیاتر لە هێما هەڕەمەکیەکان2، یان 38 یان زیاتر ووشەکان3.</translation>
     </message>
     <message>
-        <source>Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
+        <source>Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infeccting your computer.</source>
         <translation>بیرت بێت کە ڕەمزاندنی جزدانەکەت ناتوانێت بەتەواوی بیتکۆبیتەکانت بپارێزێت لە دزرابوون لەلایەن وورنەری تووشکردنی کۆمپیوتەرەکەت.</translation>
     </message>
     <message>
@@ -325,7 +325,7 @@ Signing is only possible with addresses of the type 'legacy'.</source>
         <translation>ڕووکاری بەکارهێنەر &amp;زمان:</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting %1.</source>
+        <source>The user interface language can be set here. This setting will take effecct after restarting %1.</source>
         <translation>زمانی ڕووکاری بەکارهێنەر دەکرێت لێرە دابنرێت. ئەم ڕێکخستنە کاریگەر دەبێت پاش دەستپێکردنەوەی %1.</translation>
     </message>
     <message>

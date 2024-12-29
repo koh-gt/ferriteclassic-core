@@ -142,7 +142,7 @@ void TxAssembler::CreateTransaction_Locked(
         new_tx.mweb_type = MWEB::GetTxType(new_tx.recipients, new_tx.selected_coins);
 
         // We already created an output for each non-MWEB recipient, but for pegout transactions,
-        // the recipients are funded through the pegout kernel instead of traditional LTC outputs.
+        // the recipients are funded through the pegout kernel instead of traditional FECC outputs.
         if (new_tx.mweb_type == MWEB::TxType::PEGOUT) {
             new_tx.tx.vout.clear();
         }
@@ -160,13 +160,13 @@ void TxAssembler::CreateTransaction_Locked(
         // Adds in a change output if there's enough leftover to create one
         AddChangeOutput(new_tx, new_tx.value_selected - amount_needed);
 
-        // Calculate transaction size and the total necessary fee amount (includes LTC and MWEB fees)
+        // Calculate transaction size and the total necessary fee amount (includes FECC and MWEB fees)
         new_tx.bytes = CalculateMaximumTxSize(new_tx);
-        new_tx.fee_needed = new_tx.coin_selection_params.m_effective_feerate.GetTotalFee(new_tx.bytes, new_tx.mweb_weight);
+        new_tx.fee_needed = new_tx.coin_selection_params.m_effecctive_feerate.GetTotalFee(new_tx.bytes, new_tx.mweb_weight);
 
         // Calculate the portion of the fee that should be paid on the MWEB side (using kernel fees)
         size_t pegout_bytes = MWEB::CalcPegOutBytes(new_tx.mweb_type, new_tx.recipients);
-        new_tx.mweb_fee = new_tx.coin_selection_params.m_effective_feerate.GetTotalFee(pegout_bytes, new_tx.mweb_weight);
+        new_tx.mweb_fee = new_tx.coin_selection_params.m_effecctive_feerate.GetTotalFee(pegout_bytes, new_tx.mweb_weight);
 
         if (new_tx.total_fee < new_tx.fee_needed && !pick_new_inputs) {
             // This shouldn't happen, we should have had enough excess
@@ -216,7 +216,7 @@ void TxAssembler::CreateTransaction_Locked(
     AddTxInputs(new_tx);
 
     // Now build the MWEB side of the transaction
-    if (new_tx.mweb_type != MWEB::TxType::LTC_TO_LTC) {
+    if (new_tx.mweb_type != MWEB::TxType::FECC_TO_FECC) {
         MWEB::Transact(m_wallet).AddMWEBTx(new_tx);
     }
 
@@ -350,16 +350,16 @@ void TxAssembler::InitCoinSelectionParams(InProcessTx& new_tx) const
     // Set discard feerate
     new_tx.coin_selection_params.m_discard_feerate = GetDiscardRate(m_wallet);
 
-    // Get the fee rate to use effective values in coin selection
-    new_tx.coin_selection_params.m_effective_feerate = GetMinimumFeeRate(m_wallet, new_tx.coin_control, &new_tx.fee_calc);
+    // Get the fee rate to use effecctive values in coin selection
+    new_tx.coin_selection_params.m_effecctive_feerate = GetMinimumFeeRate(m_wallet, new_tx.coin_control, &new_tx.fee_calc);
 
     // Do not, ever, assume that it's fine to change the fee rate if the user has explicitly
     // provided one
-    if (new_tx.coin_control.m_feerate && new_tx.coin_selection_params.m_effective_feerate > *new_tx.coin_control.m_feerate) {
+    if (new_tx.coin_control.m_feerate && new_tx.coin_selection_params.m_effecctive_feerate > *new_tx.coin_control.m_feerate) {
         throw CreateTxError(strprintf(
             _("Fee rate (%s) is lower than the minimum fee rate setting (%s)"),
             new_tx.coin_control.m_feerate->ToString(FeeEstimateMode::SAT_VB),
-            new_tx.coin_selection_params.m_effective_feerate.ToString(FeeEstimateMode::SAT_VB)
+            new_tx.coin_selection_params.m_effecctive_feerate.ToString(FeeEstimateMode::SAT_VB)
         ));
     }
 
@@ -376,7 +376,7 @@ void TxAssembler::InitCoinSelectionParams(InProcessTx& new_tx) const
     // BnB selector is the only selector used when this is true.
     // That should only happen on the first pass through the loop.
     new_tx.coin_selection_params.use_bnb = true;
-    new_tx.coin_selection_params.m_subtract_fee_outputs = new_tx.subtract_fee_from_amount != 0; // If we are doing subtract fee from recipient, don't use effective values
+    new_tx.coin_selection_params.m_subtract_fee_outputs = new_tx.subtract_fee_from_amount != 0; // If we are doing subtract fee from recipient, don't use effecctive values
 }
 
 bool TxAssembler::AttemptCoinSelection(InProcessTx& new_tx, const CAmount& nTargetValue) const
@@ -395,7 +395,7 @@ bool TxAssembler::AttemptCoinSelection(InProcessTx& new_tx, const CAmount& nTarg
         new_tx.coin_selection_params.change_spend_size = (size_t)change_spend_size;
     }
 
-    static auto is_ltc = [](const CInputCoin& input) { return !input.IsMWEB(); };
+    static auto is_fecc = [](const CInputCoin& input) { return !input.IsMWEB(); };
     static auto is_mweb = [](const CInputCoin& input) { return input.IsMWEB(); };
 
     if (new_tx.recipients.front().IsMWEB()) {
@@ -422,12 +422,12 @@ bool TxAssembler::AttemptCoinSelection(InProcessTx& new_tx, const CAmount& nTarg
         params_pegin.change_spend_size = change_on_mweb ? 0 : new_tx.coin_selection_params.change_spend_size;
 
         if (SelectCoins(new_tx, nTargetValue, params_pegin)) {
-            return std::any_of(new_tx.selected_coins.cbegin(), new_tx.selected_coins.cend(), is_ltc);
+            return std::any_of(new_tx.selected_coins.cbegin(), new_tx.selected_coins.cend(), is_fecc);
         }
     } else {
-        // First try to construct a LTC-to-LTC transaction
+        // First try to construct a FECC-to-FECC transaction
         CoinSelectionParams mweb_to_mweb = new_tx.coin_selection_params;
-        mweb_to_mweb.input_preference = InputPreference::LTC_ONLY;
+        mweb_to_mweb.input_preference = InputPreference::FECC_ONLY;
         mweb_to_mweb.mweb_change_output_weight = 0;
         mweb_to_mweb.mweb_nochange_weight = 0;
 
@@ -440,7 +440,7 @@ bool TxAssembler::AttemptCoinSelection(InProcessTx& new_tx, const CAmount& nTarg
             return false;
         }
 
-        // If LTC-to-LTC fails, create a peg-out transaction
+        // If FECC-to-FECC fails, create a peg-out transaction
         CoinSelectionParams params_pegout = new_tx.coin_selection_params;
         params_pegout.input_preference = InputPreference::ANY;
         params_pegout.mweb_change_output_weight = mw::STANDARD_OUTPUT_WEIGHT;
@@ -544,7 +544,7 @@ void TxAssembler::ReduceFee(InProcessTx& new_tx) const
     if (new_tx.change_position == -1 && new_tx.subtract_fee_from_amount == 0 && !new_tx.change_on_mweb && !new_tx.change_addr.IsMWEB()) {
         unsigned int output_buffer = 2; // Add 2 as a buffer in case increasing # of outputs changes compact size
         unsigned int tx_size_with_change = new_tx.change_on_mweb ? new_tx.bytes : new_tx.bytes + new_tx.coin_selection_params.change_output_size + output_buffer;
-        CAmount fee_needed_with_change = new_tx.coin_selection_params.m_effective_feerate.GetTotalFee(tx_size_with_change, new_tx.mweb_weight);
+        CAmount fee_needed_with_change = new_tx.coin_selection_params.m_effecctive_feerate.GetTotalFee(tx_size_with_change, new_tx.mweb_weight);
 
         CTxOut change_prototype_txout(0, new_tx.change_addr.GetScript());
         CAmount minimum_value_for_change = GetDustThreshold(change_prototype_txout, new_tx.coin_selection_params.m_discard_feerate);

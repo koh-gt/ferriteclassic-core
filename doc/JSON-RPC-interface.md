@@ -20,7 +20,7 @@ were deprecated and how to re-enable them temporarily.
 ## Security
 
 The RPC interface allows other programs to control Bitcoin Core,
-including the ability to spend funds from your wallets, affect consensus
+including the ability to spend funds from your wallets, affecct consensus
 verification, read private data, and otherwise perform operations that
 can cause loss of money, data, or privacy.  This section suggests how
 you should use and configure Bitcoin Core to reduce the risk that its
@@ -109,7 +109,7 @@ The mempool state returned via an RPC is consistent with itself and with the
 chain state at the time of the call. Thus, the mempool state only encompasses
 transactions that are considered mine-able by the node at the time of the RPC.
 
-The mempool state returned via an RPC reflects all effects of mempool and chain
+The mempool state returned via an RPC reflects all effeccts of mempool and chain
 state related RPCs that returned prior to this call.
 
 ### Wallet
@@ -118,7 +118,7 @@ The wallet state returned via an RPC is consistent with itself and with the
 chain state at the time of the call.
 
 Wallet RPCs will return the latest chain state consistent with prior non-wallet
-RPCs. The effects of all blocks (and transactions in blocks) at the time of the
+RPCs. The effeccts of all blocks (and transactions in blocks) at the time of the
 call is reflected in the state of all wallet transactions. For example, if a
 block contains transactions that conflicted with mempool transactions, the
 wallet would reflect the removal of these mempool transactions in the state.

@@ -46,7 +46,7 @@ public:
 
     bool HasSpendSecret() const noexcept { return !m_spendSecret.IsNull(); }
 
-	// Clears the spend secret from memory, effectively making this a watch-only keychain.
+	// Clears the spend secret from memory, effecctively making this a watch-only keychain.
     void Lock() { m_spendSecret = SecretKey::Null(); }
 	
 	// Reassigns the spend secret. To be used when unlocking the wallet.

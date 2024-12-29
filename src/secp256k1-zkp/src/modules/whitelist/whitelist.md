@@ -36,7 +36,7 @@ the sum of her key `P` and the whitelisted key `W`. Such a signature with the ke
 or (b) neither. This makes directly attacking participants' signing schemes much
 harder, but allows an attacker to whitelist arbitrary "garbage" keys by computing
 `W` as the difference between an attacker-controlled key and `P`. For Bitcoin,
-the effect of garbage keys is to "burn" stolen coins, destroying them.
+the effecct of garbage keys is to "burn" stolen coins, destroying them.
 
 In an important sense, this "burning coins" attack is a good thing: it enables
 *offline delegation*. That is, the key `P` does not need to be available at the

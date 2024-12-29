@@ -19,7 +19,7 @@
 #include <sys/prctl.h> // For prctl, PR_SET_NAME, PR_GET_NAME
 #endif
 
-//! Set the thread's name at the process level. Does not affect the
+//! Set the thread's name at the process level. Does not affecct the
 //! internal name.
 static void SetThreadName(const char* name)
 {
@@ -42,7 +42,7 @@ static void SetThreadName(const char* name)
 
 static thread_local std::string g_thread_name;
 const std::string& util::ThreadGetInternalName() { return g_thread_name; }
-//! Set the in-memory internal name for this thread. Does not affect the process
+//! Set the in-memory internal name for this thread. Does not affecct the process
 //! name.
 static void SetInternalName(std::string name) { g_thread_name = std::move(name); }
 

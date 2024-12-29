@@ -267,7 +267,7 @@ class ChainstateWriteCrashTest(BitcoinTestFramework):
             self.log.debug("Node3 utxo count: %d", len(utxo_list))
 
         # Check that the utxo hashes agree with node3
-        # Useful side effect: each utxo cache gets flushed here, so that we
+        # Useful side effecct: each utxo cache gets flushed here, so that we
         # won't get crashes on shutdown at the end of the test.
         self.verify_utxo_hash()
 

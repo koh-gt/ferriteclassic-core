@@ -102,7 +102,7 @@ class DecodeScriptTest(BitcoinTestFramework):
         rpc_result = self.nodes[0].decodescript('6a' + signature_imposter)
         assert_equal('OP_RETURN ' + signature_imposter[2:], rpc_result['asm'])
 
-        # 6) a CLTV redeem script. redeem scripts are in-effect scriptPubKey scripts, so adding a test here.
+        # 6) a CLTV redeem script. redeem scripts are in-effecct scriptPubKey scripts, so adding a test here.
         # OP_NOP2 is also known as OP_CHECKLOCKTIMEVERIFY.
         # just imagine that the pub keys used below are different.
         # for our purposes here it does not matter that they are the same even though it is unrealistic.

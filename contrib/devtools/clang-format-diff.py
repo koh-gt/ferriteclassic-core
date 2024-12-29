@@ -99,7 +99,7 @@ def main():
   parser.add_argument('-sort-includes', action='store_true', default=False,
                       help='let clang-format sort include blocks')
   parser.add_argument('-v', '--verbose', action='store_true',
-                      help='be more verbose, ineffective without -i')
+                      help='be more verbose, ineffecctive without -i')
   args = parser.parse_args()
 
   # Extract changed lines for each file.

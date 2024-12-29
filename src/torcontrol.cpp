@@ -34,11 +34,11 @@
 const std::string DEFAULT_TOR_CONTROL = "127.0.0.1:9051";
 /** Tor cookie size (from control-spec.txt) */
 static const int TOR_COOKIE_SIZE = 32;
-/** Size of client/server nonce for SAFECOOKIE */
+/** Size of client/server nonce for SAFECCOOKIE */
 static const int TOR_NONCE_SIZE = 32;
-/** For computing serverHash in SAFECOOKIE */
+/** For computing serverHash in SAFECCOOKIE */
 static const std::string TOR_SAFE_SERVERKEY = "Tor safe cookie authentication server-to-controller hash";
-/** For computing clientHash in SAFECOOKIE */
+/** For computing clientHash in SAFECCOOKIE */
 static const std::string TOR_SAFE_CLIENTKEY = "Tor safe cookie authentication controller-to-server hash";
 /** Exponential backoff configuration - initial timeout in seconds */
 static const float RECONNECT_TIMEOUT_START = 1.0;
@@ -266,7 +266,7 @@ std::pair<std::string,std::string> SplitTorReplyLine(const std::string &s)
     return make_pair(type, s.substr(ptr));
 }
 
-/** Parse reply arguments in the form 'METHODS=COOKIE,SAFECOOKIE COOKIEFILE=".../control_auth_cookie"'.
+/** Parse reply arguments in the form 'METHODS=COOKIE,SAFECCOOKIE COOKIEFILE=".../control_auth_cookie"'.
  * Returns a map of keys to values, or an empty map if there was an error.
  * Grammar is implicitly defined in https://spec.torproject.org/control-spec by
  * the server reply formats for PROTOCOLINFO (S3.21), AUTHCHALLENGE (S3.24),
@@ -432,9 +432,9 @@ private:
     float reconnect_timeout;
     CService service;
     const CService m_target;
-    /** Cookie for SAFECOOKIE auth */
+    /** Cookie for SAFECCOOKIE auth */
     std::vector<uint8_t> cookie;
-    /** ClientNonce for SAFECOOKIE auth */
+    /** ClientNonce for SAFECCOOKIE auth */
     std::vector<uint8_t> clientNonce;
 
     /** Callback for ADD_ONION result */
@@ -549,7 +549,7 @@ void TorController::auth_cb(TorControlConnection& _conn, const TorControlReply& 
     }
 }
 
-/** Compute Tor SAFECOOKIE response.
+/** Compute Tor SAFECCOOKIE response.
  *
  *    ServerHash is computed as:
  *      HMAC-SHA256("Tor safe cookie authentication server-to-controller hash",
@@ -579,7 +579,7 @@ static std::vector<uint8_t> ComputeResponse(const std::string &key, const std::v
 void TorController::authchallenge_cb(TorControlConnection& _conn, const TorControlReply& reply)
 {
     if (reply.code == 250) {
-        LogPrint(BCLog::TOR, "tor: SAFECOOKIE authentication challenge successful\n");
+        LogPrint(BCLog::TOR, "tor: SAFECCOOKIE authentication challenge successful\n");
         std::pair<std::string,std::string> l = SplitTorReplyLine(reply.lines[0]);
         if (l.first == "AUTHCHALLENGE") {
             std::map<std::string,std::string> m = ParseTorReplyMapping(l.second);
@@ -607,7 +607,7 @@ void TorController::authchallenge_cb(TorControlConnection& _conn, const TorContr
             LogPrintf("tor: Invalid reply to AUTHCHALLENGE\n");
         }
     } else {
-        LogPrintf("tor: SAFECOOKIE authentication challenge failed\n");
+        LogPrintf("tor: SAFECCOOKIE authentication challenge failed\n");
     }
 }
 
@@ -617,7 +617,7 @@ void TorController::protocolinfo_cb(TorControlConnection& _conn, const TorContro
         std::set<std::string> methods;
         std::string cookiefile;
         /*
-         * 250-AUTH METHODS=COOKIE,SAFECOOKIE COOKIEFILE="/home/x/.tor/control_auth_cookie"
+         * 250-AUTH METHODS=COOKIE,SAFECCOOKIE COOKIEFILE="/home/x/.tor/control_auth_cookie"
          * 250-AUTH METHODS=NULL
          * 250-AUTH METHODS=HASHEDPASSWORD
          */
@@ -641,7 +641,7 @@ void TorController::protocolinfo_cb(TorControlConnection& _conn, const TorContro
         for (const std::string &s : methods) {
             LogPrint(BCLog::TOR, "tor: Supported authentication method: %s\n", s);
         }
-        // Prefer NULL, otherwise SAFECOOKIE. If a password is provided, use HASHEDPASSWORD
+        // Prefer NULL, otherwise SAFECCOOKIE. If a password is provided, use HASHEDPASSWORD
         /* Authentication:
          *   cookie:   hex-encoded ~/.tor/control_auth_cookie
          *   password: "password"
@@ -658,16 +658,16 @@ void TorController::protocolinfo_cb(TorControlConnection& _conn, const TorContro
         } else if (methods.count("NULL")) {
             LogPrint(BCLog::TOR, "tor: Using NULL authentication\n");
             _conn.Command("AUTHENTICATE", std::bind(&TorController::auth_cb, this, std::placeholders::_1, std::placeholders::_2));
-        } else if (methods.count("SAFECOOKIE")) {
+        } else if (methods.count("SAFECCOOKIE")) {
             // Cookie: hexdump -e '32/1 "%02x""\n"'  ~/.tor/control_auth_cookie
-            LogPrint(BCLog::TOR, "tor: Using SAFECOOKIE authentication, reading cookie authentication from %s\n", cookiefile);
+            LogPrint(BCLog::TOR, "tor: Using SAFECCOOKIE authentication, reading cookie authentication from %s\n", cookiefile);
             std::pair<bool,std::string> status_cookie = ReadBinaryFile(cookiefile, TOR_COOKIE_SIZE);
             if (status_cookie.first && status_cookie.second.size() == TOR_COOKIE_SIZE) {
                 // _conn.Command("AUTHENTICATE " + HexStr(status_cookie.second), std::bind(&TorController::auth_cb, this, std::placeholders::_1, std::placeholders::_2));
                 cookie = std::vector<uint8_t>(status_cookie.second.begin(), status_cookie.second.end());
                 clientNonce = std::vector<uint8_t>(TOR_NONCE_SIZE, 0);
                 GetRandBytes(clientNonce.data(), TOR_NONCE_SIZE);
-                _conn.Command("AUTHCHALLENGE SAFECOOKIE " + HexStr(clientNonce), std::bind(&TorController::authchallenge_cb, this, std::placeholders::_1, std::placeholders::_2));
+                _conn.Command("AUTHCHALLENGE SAFECCOOKIE " + HexStr(clientNonce), std::bind(&TorController::authchallenge_cb, this, std::placeholders::_1, std::placeholders::_2));
             } else {
                 if (status_cookie.first) {
                     LogPrintf("tor: Authentication cookie %s is not exactly %i bytes, as is required by the spec\n", cookiefile, TOR_COOKIE_SIZE);

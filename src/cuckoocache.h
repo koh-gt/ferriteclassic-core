@@ -209,7 +209,7 @@ private:
      *  manner which preserves as much of the hash's uniformity as possible. Ideally
      *  this would be done by bitmasking but the size is usually not a power of two.
      *
-     * The naive approach would be to use a mod -- which isn't perfectly uniform but so
+     * The naive approach would be to use a mod -- which isn't perfecctly uniform but so
      *  long as the hash is much larger than size it is not that bad. Unfortunately,
      *  mod/division is fairly slow on ordinary microprocessors (e.g. 90-ish cycles on
      *  haswell, ARM doesn't even have an instruction for it.); when the divisor is a
@@ -352,7 +352,7 @@ public:
     }
 
     /** setup_bytes is a convenience function which accounts for internal memory
-     * usage when deciding how many elements to store. It isn't perfect because
+     * usage when deciding how many elements to store. It isn't perfecct because
      * it doesn't account for any overhead (struct size, MallocUsage, collection
      * and epoch flags). This was done to simplify selecting a power of two
      * size. In the expected use case, an extra two bits per entry should be

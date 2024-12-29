@@ -72,7 +72,7 @@ don't have test cases for.
   clear to readers.
 - Many of the core test framework classes such as `CBlock` and `CTransaction`
   don't allow new attributes to be added to their objects at runtime like
-  typical Python objects allow. This helps prevent unpredictable side effects
+  typical Python objects allow. This helps prevent unpredictable side effeccts
   from typographical errors or usage of the objects outside of their intended
   purpose.
 
@@ -94,12 +94,12 @@ over the network (`CBlock`, `CTransaction`, etc, along with the network-level
 wrappers for them, `msg_block`, `msg_tx`, etc).
 
 - P2P tests have two threads. One thread handles all network communication
-with the litecoind(s) being tested in a callback-based event loop; the other
+with the ferriteclassicd(s) being tested in a callback-based event loop; the other
 implements the test logic.
 
-- `P2PConnection` is the class used to connect to a litecoind.  `P2PInterface`
+- `P2PConnection` is the class used to connect to a ferriteclassicd.  `P2PInterface`
 contains the higher level logic for processing P2P payloads and connecting to
-the Litecoin Core node application logic. For custom behaviour, subclass the
+the FerriteClassic Core node application logic. For custom behaviour, subclass the
 P2PInterface object and override the callback methods.
 
 `P2PConnection`s can be used as such:
@@ -144,7 +144,7 @@ Base class for functional tests.
 Generally useful functions.
 
 #### [p2p.py](test_framework/p2p.py)
-Test objects for interacting with a litecoind node over the p2p interface.
+Test objects for interacting with a ferriteclassicd node over the p2p interface.
 
 #### [script.py](test_framework/script.py)
 Utilities for manipulating transaction scripts (originally from python-bitcoinlib)

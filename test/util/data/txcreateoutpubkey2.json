@@ -10,6 +10,7 @@
     ],
     "vout": [
         {
+            "ismweb": false,
             "value": 0.00000000,
             "n": 0,
             "scriptPubKey": {
@@ -18,7 +19,7 @@
                 "reqSigs": 1,
                 "type": "witness_v0_keyhash",
                 "addresses": [
-                    "ltc1q5fgkuac9s2ry56jka5s6zqsyfcugcchrqgz2yl"
+                    "fecc1q5fgkuac9s2ry56jka5s6zqsyfcugcchrqgz2yl"
                 ]
             }
         }

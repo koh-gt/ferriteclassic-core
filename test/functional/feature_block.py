@@ -709,7 +709,7 @@ class FullBlockTest(BitcoinTestFramework):
         #                                                \-> b56   (16)
         #
         # Merkle tree malleability (CVE-2012-2459): repeating sequences of transactions in a block without
-        #                           affecting the merkle root of a block, while still invalidating it.
+        #                           affeccting the merkle root of a block, while still invalidating it.
         #                           See:  src/consensus/merkle.h
         #
         #  b57 has three txns:  coinbase, tx, tx1.  The merkle root computation will duplicate tx.

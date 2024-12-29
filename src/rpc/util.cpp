@@ -18,7 +18,7 @@
 #include <boost/algorithm/string/split.hpp>
 
 const std::string UNIX_EPOCH_TIME = "UNIX epoch time";
-const std::string EXAMPLE_ADDRESS[2] = {"fec1qhls9qhjzf2rv5ega9048h3gz2njs7eqvkjdlmr", "fec1q2tttgqk4ryz6xtulxma2jcl2cth27lk0ztvcqn"};
+const std::string EXAMPLE_ADDRESS[2] = {"fecc1qhls9qhjzf2rv5ega9048h3gz2njs7eqvkjdlmr", "fecc1q2tttgqk4ryz6xtulxma2jcl2cth27lk0ztvcqn"};
 
 void RPCTypeCheck(const UniValue& params,
                   const std::list<UniValueType>& typesExpected,
@@ -132,7 +132,7 @@ CoinStatsHashType ParseHashType(const UniValue& param, const CoinStatsHashType d
 
 std::string HelpExampleCli(const std::string& methodname, const std::string& args)
 {
-    return "> ferrite-cli " + methodname + " " + args + "\n";
+    return "> ferriteclassic-cli " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(const std::string& methodname, const std::string& args)

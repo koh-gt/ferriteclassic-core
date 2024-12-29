@@ -28,7 +28,7 @@ from test_framework.test_framework import BitcoinTestFramework
 
 DEFAULT_ASMAP_FILENAME = 'ip_asn.map' # defined in src/init.cpp
 ASMAP = '../../src/test/data/asmap.raw' # path to unit test skeleton asmap
-VERSION = 'fec61fa21a9f46f3b17bdcd660d7f4cd90b966aad3aec593c99b35f0aca15853'
+VERSION = 'fecc61fa21a9f46f3b17bdcd660d7f4cd90b966aad3aec593c99b35f0aca15853'
 
 def expected_messages(filename):
     return ['Opened asmap file "{}" (59 bytes) from disk'.format(filename),

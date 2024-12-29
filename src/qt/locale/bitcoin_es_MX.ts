@@ -190,8 +190,8 @@ Signing is only possible with addresses of the type 'legacy'.</translation>
         <translation>Ingresa la antigua frase de contraseña y la nueva frase de contraseña para la billetera.</translation>
     </message>
     <message>
-        <source>Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
-        <translation>Recuerda que encriptar tu billetera no puede proteger completamente tus bitcoins de ser robadas por malware que haya infectado tu computadora.</translation>
+        <source>Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infeccting your computer.</source>
+        <translation>Recuerda que encriptar tu billetera no puede proteger completamente tus bitcoins de ser robadas por malware que haya infecctado tu computadora.</translation>
     </message>
     <message>
         <source>Wallet to be encrypted</source>
@@ -1075,8 +1075,8 @@ Solicitar pagos (genera códigos QR y bitcoin: URI)
         <translation>Las transacciones recientes pueden no ser visibles todavía, y por lo tanto el saldo de su cartera podría ser incorrecto. Esta información será correcta una vez que su cartera haya terminado de sincronizarse con la red de bitcoin, como se detalla abajo.</translation>
     </message>
     <message>
-        <source>Attempting to spend bitcoins that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
-        <translation>Los intentos de gastar bitcoins que se vean afectados por transacciones aún no mostradas no serán aceptados por la red.</translation>
+        <source>Attempting to spend bitcoins that are affeccted by not-yet-displayed transactions will not be accepted by the network.</source>
+        <translation>Los intentos de gastar bitcoins que se vean afecctados por transacciones aún no mostradas no serán aceptados por la red.</translation>
     </message>
     <message>
         <source>Number of blocks left</source>
@@ -1260,8 +1260,8 @@ Solicitar pagos (genera códigos QR y bitcoin: URI)
         <translation>Enable coin &amp;control features</translation>
     </message>
     <message>
-        <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affects how your balance is computed.</source>
-        <translation>Si usted desactiva el gasto de cambio no confirmado, el cambio de una transacción no puede ser utilizado hasta que esa transacción tenga al menos una confirmación. Esto también afecta la manera en que se calcula su saldo.</translation>
+        <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affeccts how your balance is computed.</source>
+        <translation>Si usted desactiva el gasto de cambio no confirmado, el cambio de una transacción no puede ser utilizado hasta que esa transacción tenga al menos una confirmación. Esto también afeccta la manera en que se calcula su saldo.</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
@@ -1344,8 +1344,8 @@ Solicitar pagos (genera códigos QR y bitcoin: URI)
         <translation>Idioma de la interfaz de usuario:</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting %1.</source>
-        <translation>The user interface language can be set here. This setting will take effect after restarting %1.</translation>
+        <source>The user interface language can be set here. This setting will take effecct after restarting %1.</source>
+        <translation>The user interface language can be set here. This setting will take effecct after restarting %1.</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>

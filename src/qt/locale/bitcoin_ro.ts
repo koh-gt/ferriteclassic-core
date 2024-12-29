@@ -67,7 +67,7 @@
     </message>
     <message>
         <source>These are your Bitcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Acestea sunt adresele tale Bitcoin pentru efectuarea platilor. Intotdeauna verifica atent suma de plata si adresa beneficiarului inainte de a trimite monede.</translation>
+        <translation>Acestea sunt adresele tale Bitcoin pentru efecctuarea platilor. Intotdeauna verifica atent suma de plata si adresa beneficiarului inainte de a trimite monede.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -185,8 +185,8 @@
  </translation>
     </message>
     <message>
-        <source>Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
-        <translation>Reţineti: criptarea portofelului dvs. nu vă poate proteja în totalitate bitcoin-urile împotriva furtului de malware care vă infectează computerul.</translation>
+        <source>Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infeccting your computer.</source>
+        <translation>Reţineti: criptarea portofelului dvs. nu vă poate proteja în totalitate bitcoin-urile împotriva furtului de malware care vă infecctează computerul.</translation>
     </message>
     <message>
         <source>Wallet to be encrypted</source>
@@ -1007,8 +1007,8 @@
         <translation>Tranzactiile recente pot sa nu fie inca vizibile, de aceea balanta portofelului poate fi incorecta. Aceasta informatie va fi corecta de indata ce portofelul va fi complet sincronizat cu reteaua Bitcoin, asa cum este detaliat mai jos.</translation>
     </message>
     <message>
-        <source>Attempting to spend bitcoins that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
-        <translation>Incercarea de a cheltui bitcoini care sunt afectati de tranzactii ce inca nu sunt afisate nu va fi acceptata de retea.</translation>
+        <source>Attempting to spend bitcoins that are affeccted by not-yet-displayed transactions will not be accepted by the network.</source>
+        <translation>Incercarea de a cheltui bitcoini care sunt afecctati de tranzactii ce inca nu sunt afisate nu va fi acceptata de retea.</translation>
     </message>
     <message>
         <source>Number of blocks left</source>
@@ -1168,8 +1168,8 @@
         <translation>Activare caracteristici de control ale monedei</translation>
     </message>
     <message>
-        <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affects how your balance is computed.</source>
-        <translation>Dacă dezactivaţi cheltuirea restului neconfirmat, restul dintr-o tranzacţie nu poate fi folosit pînă cînd tranzacţia are cel puţin o confirmare. Aceasta afectează de asemenea calcularea soldului.</translation>
+        <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affeccts how your balance is computed.</source>
+        <translation>Dacă dezactivaţi cheltuirea restului neconfirmat, restul dintr-o tranzacţie nu poate fi folosit pînă cînd tranzacţia are cel puţin o confirmare. Aceasta afecctează de asemenea calcularea soldului.</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
@@ -1252,8 +1252,8 @@
         <translation>&amp;Limbă interfaţă utilizator</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting %1.</source>
-        <translation>Limba interfeţei utilizatorului poate fi setată aici. Această setare va avea efect după repornirea %1.</translation>
+        <source>The user interface language can be set here. This setting will take effecct after restarting %1.</source>
+        <translation>Limba interfeţei utilizatorului poate fi setată aici. Această setare va avea efecct după repornirea %1.</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
@@ -2106,7 +2106,7 @@
     </message>
     <message>
         <source>Warning: Fee estimation is currently not possible.</source>
-        <translation>Avertisment: Estimarea comisionului nu s-a putut efectua.</translation>
+        <translation>Avertisment: Estimarea comisionului nu s-a putut efecctua.</translation>
     </message>
     <message>
         <source>Specify a custom fee per kB (1,000 bytes) of the transaction's virtual size.
@@ -3093,7 +3093,7 @@ Nota: Cum taxa este calculata per byte, o taxa de "100 satoshi per kB" pentru o 
     </message>
     <message>
         <source>Backup Successful</source>
-        <translation>Backup efectuat cu succes</translation>
+        <translation>Backup efecctuat cu succes</translation>
     </message>
     <message>
         <source>The wallet data was successfully saved to %1.</source>
@@ -3196,7 +3196,7 @@ Nota: Cum taxa este calculata per byte, o taxa de "100 satoshi per kB" pentru o 
     </message>
     <message>
         <source>Corrupted block database detected</source>
-        <translation>Bloc defect din baza de date detectat</translation>
+        <translation>Bloc defecct din baza de date detectat</translation>
     </message>
     <message>
         <source>Do you want to rebuild the block database now?</source>
@@ -3312,7 +3312,7 @@ Nota: Cum taxa este calculata per byte, o taxa de "100 satoshi per kB" pentru o 
     </message>
     <message>
         <source>Unable to bind to %s on this computer. %s is probably already running.</source>
-        <translation>Nu se poate efectua legatura la %s pe acest computer. %s probabil ruleaza deja.</translation>
+        <translation>Nu se poate efecctua legatura la %s pe acest computer. %s probabil ruleaza deja.</translation>
     </message>
     <message>
         <source>Unable to generate keys</source>

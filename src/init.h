@@ -53,7 +53,7 @@ bool AppInitSanityChecks();
  */
 bool AppInitLockDataDirectory();
 /**
- * Initialize node and wallet interface pointers. Has no prerequisites or side effects besides allocating memory.
+ * Initialize node and wallet interface pointers. Has no prerequisites or side effeccts besides allocating memory.
  */
 bool AppInitInterfaces(NodeContext& node);
 /**

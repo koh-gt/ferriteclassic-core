@@ -9,7 +9,7 @@ export LC_ALL=C
 IF="eth0"
 #limit of the network interface in question
 LINKCEIL="1gbit"
-#limit outbound Litecoin protocol traffic to this rate
+#limit outbound FerriteClassic protocol traffic to this rate
 LIMIT="160kbit"
 #defines the IPv4 address space for which you wish to disable rate limiting
 LOCALNET_V4="192.168.0.0/16"
@@ -53,10 +53,10 @@ fi
 #	--set-mark marks packages matching these criteria with the number "4" (v6)
 #	these packets are filtered by the tc filter with "handle 2"
 #	this filter sends the packages into the 1:11 class, and this class is limited to ${LIMIT}
-iptables -t mangle -A OUTPUT -p tcp -m tcp --dport 9574 ! -d ${LOCALNET_V4} -j MARK --set-mark 0x2
-iptables -t mangle -A OUTPUT -p tcp -m tcp --sport 9574 ! -d ${LOCALNET_V4} -j MARK --set-mark 0x2
+iptables -t mangle -A OUTPUT -p tcp -m tcp --dport 9674 ! -d ${LOCALNET_V4} -j MARK --set-mark 0x2
+iptables -t mangle -A OUTPUT -p tcp -m tcp --sport 9674 ! -d ${LOCALNET_V4} -j MARK --set-mark 0x2
 
 if [ -n "${LOCALNET_V6}" ] ; then
-	ip6tables -t mangle -A OUTPUT -p tcp -m tcp --dport 9574 ! -d ${LOCALNET_V6} -j MARK --set-mark 0x4
-	ip6tables -t mangle -A OUTPUT -p tcp -m tcp --sport 9574 ! -d ${LOCALNET_V6} -j MARK --set-mark 0x4
+	ip6tables -t mangle -A OUTPUT -p tcp -m tcp --dport 9674 ! -d ${LOCALNET_V6} -j MARK --set-mark 0x4
+	ip6tables -t mangle -A OUTPUT -p tcp -m tcp --sport 9674 ! -d ${LOCALNET_V6} -j MARK --set-mark 0x4
 fi

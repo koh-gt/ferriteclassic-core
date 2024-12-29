@@ -184,7 +184,7 @@
         <translation>பழைய கடவுச்சொல் மற்றும் புதிய கடுவுசொல்லை உள்ளிடுக.</translation>
     </message>
     <message>
-        <source>Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
+        <source>Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infeccting your computer.</source>
         <translation>வாலட்டை குறியாக்கம் செய்தால் மட்டும் உங்கள் பிட்காயினை வைரஸிடம் இருந்து பாதுகாக்க இயலாது.</translation>
     </message>
     <message>
@@ -1023,7 +1023,7 @@
         <translation>சமீபத்திய பரிவர்த்தனைகள் இன்னும் காணப்படாமல் இருக்கலாம், எனவே உங்கள் பணப்பையின் சமநிலை தவறாக இருக்கலாம். கீழே விவரிக்கப்பட்டுள்ளபடி, உங்கள் பணப்பை பிட்ஃபோனை நெட்வொர்க்குடன் ஒத்திசைக்க முடிந்ததும் இந்த தகவல் சரியாக இருக்கும்.</translation>
     </message>
     <message>
-        <source>Attempting to spend bitcoins that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
+        <source>Attempting to spend bitcoins that are affeccted by not-yet-displayed transactions will not be accepted by the network.</source>
         <translation>இதுவரை காட்டப்படாத பரிவர்த்தனைகளால் பாதிக்கப்படும் பிட்னிக்களை செலவிடுவதற்கு முயற்சி பிணையத்தால் ஏற்கப்படாது.</translation>
     </message>
     <message>
@@ -1196,7 +1196,7 @@
         <translation>நாணயம் மற்றும் கட்டுப்பாட்டு அம்சங்களை இயக்கவும்</translation>
     </message>
     <message>
-        <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affects how your balance is computed.</source>
+        <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affeccts how your balance is computed.</source>
         <translation>உறுதிப்படுத்தப்படாத மாற்றத்தின் செலவினத்தை நீங்கள் முடக்கினால், பரிவர்த்தனையில் குறைந்தது ஒரு உறுதிப்படுத்தல் வரை பரிமாற்றத்திலிருந்து வரும் மாற்றம் பயன்படுத்தப்படாது. இது உங்கள் இருப்பு எவ்வாறு கணக்கிடப்படுகிறது என்பதைப் பாதிக்கிறது.</translation>
     </message>
     <message>
@@ -1280,7 +1280,7 @@
         <translation>பயனர் இடைமுகம் &amp; மொழி:</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting %1.</source>
+        <source>The user interface language can be set here. This setting will take effecct after restarting %1.</source>
         <translation>பயனர் இடைமுக மொழி இங்கே அமைக்கப்படலாம். %1 ஐ மறுதொடக்கம் செய்த பிறகு இந்த அமைப்பு செயல்படுத்தப்படும்.</translation>
     </message>
     <message>

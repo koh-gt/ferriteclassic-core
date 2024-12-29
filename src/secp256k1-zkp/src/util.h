@@ -56,7 +56,7 @@ static SECP256K1_INLINE void secp256k1_callback_call(const secp256k1_callback * 
 } while(0)
 #endif
 
-/* Like assert(), but when VERIFY is defined, and side-effect safe. */
+/* Like assert(), but when VERIFY is defined, and side-effecct safe. */
 #if defined(COVERAGE)
 #define VERIFY_CHECK(check)
 #define VERIFY_SETUP(stmt)
@@ -66,6 +66,18 @@ static SECP256K1_INLINE void secp256k1_callback_call(const secp256k1_callback * 
 #else
 #define VERIFY_CHECK(cond) do { (void)(cond); } while(0)
 #define VERIFY_SETUP(stmt)
+#endif
+
+/* Define `VG_UNDEF` and `VG_CHECK` when VALGRIND is defined  */
+#if !defined(VG_CHECK)
+# if defined(VALGRIND)
+#  include <valgrind/memcheck.h>
+#  define VG_UNDEF(x,y) VALGRIND_MAKE_MEM_UNDEFINED((x),(y))
+#  define VG_CHECK(x,y) VALGRIND_CHECK_MEM_IS_DEFINED((x),(y))
+# else
+#  define VG_UNDEF(x,y)
+#  define VG_CHECK(x,y)
+# endif
 #endif
 
 /* Like `VG_CHECK` but on VERIFY only */

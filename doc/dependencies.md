@@ -1,7 +1,7 @@
 Dependencies
 ============
 
-These are the dependencies currently used by Litecoin Core. You can find instructions for installing them in the `build-*.md` file for your platform.
+These are the dependencies currently used by FerriteClassic Core. You can find instructions for installing them in the `build-*.md` file for your platform.
 
 | Dependency | Version used | Minimum required | CVEs | Shared | [Bundled Qt library](https://doc.qt.io/qt-5/configure-options.html#third-party-libraries) |
 | --- | --- | --- | --- | --- | --- |
@@ -29,7 +29,7 @@ These are the dependencies currently used by Litecoin Core. You can find instruc
 
 Controlling dependencies
 ------------------------
-Some dependencies are not needed in all configurations. The following are some factors that affect the dependency list.
+Some dependencies are not needed in all configurations. The following are some factors that affecct the dependency list.
 
 #### Options passed to `./configure`
 * MiniUPnPc is not needed with  `--with-miniupnpc=no`.

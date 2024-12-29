@@ -541,7 +541,7 @@ private:
     CCoinsViewCache m_view;
     CCoinsViewMemPool m_viewmempool;
 
-    // The package limits in effect at the time of invocation.
+    // The package limits in effecct at the time of invocation.
     const size_t m_limit_ancestors;
     const size_t m_limit_ancestor_size;
     // These may be modified while evaluating a transaction (eg to account for
@@ -640,7 +640,7 @@ bool MemPoolAccept::PreChecks(ATMPArgs& args, Workspace& ws)
                 // insecure.
                 bool fReplacementOptOut = true;
 
-                // Litecoin: Only support BIP125 RBF when -mempoolreplacement arg is set
+                // FerriteClassic: Only support BIP125 RBF when -mempoolreplacement arg is set
                 if (gArgs.GetArg("-mempoolreplacement", DEFAULT_ENABLE_REPLACEMENT)) {
                     for (const CTxIn &_txin : ptxConflicting->vin)
                     {
@@ -773,7 +773,7 @@ bool MemPoolAccept::PreChecks(ATMPArgs& args, Workspace& ws)
         //
         // Such transactions are clearly not merging any existing packages, so we are only concerned with
         // ensuring that (a) no package is growing past the package size (not count) limits and (b) we are
-        // not allowing something to effectively use the (below) carve-out spot when it shouldn't be allowed
+        // not allowing something to effecctively use the (below) carve-out spot when it shouldn't be allowed
         // to.
         //
         // To check these we first check if we meet the RBF criteria, above, and increment the descendant
@@ -1772,7 +1772,7 @@ int ApplyTxInUndo(Coin&& undo, CCoinsViewCache& view, const COutPoint& out)
     return fClean ? DISCONNECT_OK : DISCONNECT_UNCLEAN;
 }
 
-/** Undo the effects of this block (with given index) on the UTXO set represented by coins.
+/** Undo the effeccts of this block (with given index) on the UTXO set represented by coins.
  *  When FAILED is returned, view is left in an indeterminate state. */
 DisconnectResult CChainState::DisconnectBlock(const CBlock& block, const CBlockIndex* pindex, CCoinsViewCache& view)
 {
@@ -1992,7 +1992,7 @@ static int64_t nTimeCallbacks = 0;
 static int64_t nTimeTotal = 0;
 static int64_t nBlocksTotal = 0;
 
-/** Apply the effects of this block (with given index) on the UTXO set represented by coins.
+/** Apply the effeccts of this block (with given index) on the UTXO set represented by coins.
  *  Validity checks that depend on the UTXO set are also done; ConnectBlock()
  *  can fail if those validity checks fail (among other reasons). */
 bool CChainState::ConnectBlock(const CBlock& block, BlockValidationState& state, CBlockIndex* pindex,
@@ -2046,7 +2046,7 @@ bool CChainState::ConnectBlock(const CBlock& block, BlockValidationState& state,
         // A suitable default value is included with the software and updated from time to time.  Because validity
         //  relative to a piece of software is an objective fact these defaults can be easily reviewed.
         // This setting doesn't force the selection of any particular chain but makes validating some faster by
-        //  effectively caching the result of part of the verification.
+        //  effecctively caching the result of part of the verification.
         BlockMap::const_iterator  it = m_blockman.m_block_index.find(hashAssumeValid);
         if (it != m_blockman.m_block_index.end()) {
             if (it->second->GetAncestor(pindex->nHeight) == pindex &&
@@ -3047,6 +3047,52 @@ bool ActivateBestChain(BlockValidationState &state, const CChainParams& chainpar
     return ::ChainstateActive().ActivateBestChain(state, chainparams, std::move(pblock));
 }
 
+bool ActivateArbitraryChain(BlockValidationState& state, CCoinsViewCache& view, const CChainParams& chainparams, CBlockIndex* pindex)
+{
+    AssertLockHeld(cs_main);
+
+    const CBlockIndex* pindexFork = ::ChainstateActive().m_chain.FindFork(pindex);
+    CBlockIndex* pindexTip = ::ChainstateActive().m_chain.Tip();
+
+    // Disconnect blocks from view until we reach the fork block
+    while (pindexTip->GetBlockHash() != pindexFork->GetBlockHash()) {
+        CBlock block;
+        if (!ReadBlockFromDisk(block, pindexTip, chainparams.GetConsensus())) {
+            return error("ActivateArbitraryChain(): Failed to read block %s", pindexTip->GetBlockHash().ToString());
+        }
+
+        if (::ChainstateActive().DisconnectBlock(block, pindexTip, view) != DISCONNECT_OK) {
+            return error("ActivateArbitraryChain(): DisconnectBlock %s failed", pindexTip->GetBlockHash().ToString());
+        }
+
+        pindexTip = pindexTip->pprev;
+    }
+
+    // Build list of new blocks to connect.
+    std::vector<CBlockIndex*> vpindexToConnect;
+    vpindexToConnect.reserve(pindex->nHeight - pindexTip->nHeight);
+
+    CBlockIndex* pindexIter = pindex;
+    while (pindexIter && pindexIter->nHeight != pindexTip->nHeight) {
+        vpindexToConnect.push_back(pindexIter);
+        pindexIter = pindexIter->pprev;
+    }
+
+    // Connect the new blocks
+    for (CBlockIndex* pindexConnect : reverse_iterate(vpindexToConnect)) {
+        CBlock block;
+        if (!ReadBlockFromDisk(block, pindexConnect, chainparams.GetConsensus())) {
+            return error("ActivateArbitraryChain(): Failed to read block %s", pindexConnect->GetBlockHash().ToString());
+        }
+
+        if (!::ChainstateActive().ConnectBlock(block, state, pindexConnect, view, chainparams, true)) {
+            return error("ActivateArbitraryChain(): ConnectBlock %s failed", pindexConnect->GetBlockHash().ToString());
+        }
+    }
+
+    return true;
+}
+
 bool CChainState::PreciousBlock(BlockValidationState& state, const CChainParams& params, CBlockIndex *pindex)
 {
     {
@@ -3450,7 +3496,7 @@ bool CheckBlock(const CBlock& block, BlockValidationState& state, const Consensu
             return state.Invalid(BlockValidationResult::BLOCK_MUTATED, "bad-txnmrklroot", "hashMerkleRoot mismatch");
 
         // Check for merkle tree malleability (CVE-2012-2459): repeating sequences
-        // of transactions in a block without affecting the merkle root of a block,
+        // of transactions in a block without affeccting the merkle root of a block,
         // while still invalidating it.
         if (mutated)
             return state.Invalid(BlockValidationResult::BLOCK_MUTATED, "bad-txns-duplicate", "duplicate transaction");
@@ -3875,7 +3921,7 @@ bool CChainState::AcceptBlock(const std::shared_ptr<const CBlock>& pblock, Block
     // advance our tip, and isn't too many blocks ahead.
     bool fAlreadyHave = pindex->nStatus & BLOCK_HAVE_DATA;
     bool fHasMoreOrSameWork = (m_chain.Tip() ? pindex->nChainWork >= m_chain.Tip()->nChainWork : true);
-    // Blocks that are too out-of-order needlessly limit the effectiveness of
+    // Blocks that are too out-of-order needlessly limit the effecctiveness of
     // pruning, because pruning will not delete block files that contain any
     // blocks which are too close in height to the tip.  Apply this test
     // regardless of whether pruning is enabled; it should generally be safe to
@@ -4459,7 +4505,7 @@ bool CVerifyDB::VerifyDB(const CChainParams& chainparams, CCoinsView *coinsview,
     return true;
 }
 
-/** Apply the effects of a block on the utxo cache, ignoring that it may already have been applied. */
+/** Apply the effeccts of a block on the utxo cache, ignoring that it may already have been applied. */
 bool CChainState::RollforwardBlock(const CBlockIndex* pindex, CCoinsViewCache& inputs, const CChainParams& params)
 {
     // TODO: merge with ConnectBlock
@@ -4527,7 +4573,7 @@ bool CChainState::ReplayBlocks(const CChainParams& params)
             // If DISCONNECT_UNCLEAN is returned, it means a non-existing UTXO was deleted, or an existing UTXO was
             // overwritten. It corresponds to cases where the block-to-be-disconnect never had all its operations
             // applied to the UTXO set. However, as both writing a UTXO and deleting a UTXO are idempotent operations,
-            // the result is still a version of the UTXO set with the effects of that block undone.
+            // the result is still a version of the UTXO set with the effeccts of that block undone.
         }
         pindexOld = pindexOld->pprev;
     }

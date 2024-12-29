@@ -190,8 +190,8 @@ Només és possible firmar amb adreces del tipus "legacy".</translation>
         <translation>Introduïu la contrasenya antiga i la contrasenya nova a la cartera.</translation>
     </message>
     <message>
-        <source>Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
-        <translation>Recorda que tot i xifrant la teva cartera, els teus bitcoins no estan completament protegits de robatori a través de programari maliciós que estigui infectant el teu ordinador.</translation>
+        <source>Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infeccting your computer.</source>
+        <translation>Recorda que tot i xifrant la teva cartera, els teus bitcoins no estan completament protegits de robatori a través de programari maliciós que estigui infecctant el teu ordinador.</translation>
     </message>
     <message>
         <source>Wallet to be encrypted</source>
@@ -1015,7 +1015,7 @@ Això és ideal per a carteres de mode només lectura.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
-        <translation>Utilitza el directori de dades per defecte</translation>
+        <translation>Utilitza el directori de dades per defeccte</translation>
     </message>
     <message>
         <source>Use a custom data directory:</source>
@@ -1077,8 +1077,8 @@ Això és ideal per a carteres de mode només lectura.</translation>
         <translation>És possible que les transaccions recents encara no siguin visibles i, per tant, el saldo de la vostra cartera podria ser incorrecte. Aquesta informació serà correcta una vegada que la cartera hagi finalitzat la sincronització amb la xarxa bitcoin, tal com es detalla més avall.</translation>
     </message>
     <message>
-        <source>Attempting to spend bitcoins that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
-        <translation>Els intents de gastar bitcoins que es veuen afectats per les transaccions que encara no s'hagin mostrat no seran acceptats per la xarxa.</translation>
+        <source>Attempting to spend bitcoins that are affeccted by not-yet-displayed transactions will not be accepted by the network.</source>
+        <translation>Els intents de gastar bitcoins que es veuen afecctats per les transaccions que encara no s'hagin mostrat no seran acceptats per la xarxa.</translation>
     </message>
     <message>
         <source>Number of blocks left</source>
@@ -1148,7 +1148,7 @@ Això és ideal per a carteres de mode només lectura.</translation>
     </message>
     <message>
         <source>default wallet</source>
-        <translation>moneder per defecte</translation>
+        <translation>moneder per defeccte</translation>
     </message>
     <message>
         <source>Opening Wallet &lt;b&gt;%1&lt;/b&gt;...</source>
@@ -1262,8 +1262,8 @@ Això és ideal per a carteres de mode només lectura.</translation>
         <translation>Activa les funcions de &amp;control de les monedes</translation>
     </message>
     <message>
-        <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affects how your balance is computed.</source>
-        <translation>Si inhabiliteu la despesa d'un canvi sense confirmar, el canvi d'una transacció no pot ser utilitzat fins que la transacció no tingui com a mínim una confirmació. Això també afecta com es calcula el vostre balanç.</translation>
+        <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affeccts how your balance is computed.</source>
+        <translation>Si inhabiliteu la despesa d'un canvi sense confirmar, el canvi d'una transacció no pot ser utilitzat fins que la transacció no tingui com a mínim una confirmació. Això també afeccta com es calcula el vostre balanç.</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
@@ -1291,7 +1291,7 @@ Això és ideal per a carteres de mode només lectura.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
-        <translation>&amp;Connecta a través d'un proxy SOCKS5 (proxy per defecte):</translation>
+        <translation>&amp;Connecta a través d'un proxy SOCKS5 (proxy per defeccte):</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -1346,8 +1346,8 @@ Això és ideal per a carteres de mode només lectura.</translation>
         <translation>&amp;Llengua de la interfície d'usuari:</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting %1.</source>
-        <translation>Aquí es pot definir la llengua de la interfície d'usuari. Aquest paràmetre tindrà efecte en reiniciar el %1.</translation>
+        <source>The user interface language can be set here. This setting will take effecct after restarting %1.</source>
+        <translation>Aquí es pot definir la llengua de la interfície d'usuari. Aquest paràmetre tindrà efeccte en reiniciar el %1.</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
@@ -1355,7 +1355,7 @@ Això és ideal per a carteres de mode només lectura.</translation>
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Selecciona la unitat de subdivisió per defecte per mostrar en la interfície quan s'envien monedes.</translation>
+        <translation>Selecciona la unitat de subdivisió per defeccte per mostrar en la interfície quan s'envien monedes.</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1387,7 +1387,7 @@ Això és ideal per a carteres de mode només lectura.</translation>
     </message>
     <message>
         <source>default</source>
-        <translation>Per defecte</translation>
+        <translation>Per defeccte</translation>
     </message>
     <message>
         <source>none</source>
@@ -1652,7 +1652,7 @@ Això és ideal per a carteres de mode només lectura.</translation>
     </message>
     <message>
         <source>Due to widespread security flaws in BIP70 it's strongly recommended that any merchant instructions to switch wallets be ignored.</source>
-        <translation>A causa dels defectes generalitzats en el BIP70 és altament recomanable que qualsevol instrucció comerciant per canviar carteres sigui ignorada.</translation>
+        <translation>A causa dels defecctes generalitzats en el BIP70 és altament recomanable que qualsevol instrucció comerciant per canviar carteres sigui ignorada.</translation>
     </message>
     <message>
         <source>If you are receiving this error you should request the merchant provide a BIP21 compatible URI.</source>
@@ -1864,7 +1864,7 @@ Això és ideal per a carteres de mode només lectura.</translation>
     </message>
     <message>
         <source>To specify a non-default location of the data directory use the '%1' option.</source>
-        <translation>Per tal d'especificar una ubicació que no és per defecte del directori de dades utilitza la '%1' opció.</translation>
+        <translation>Per tal d'especificar una ubicació que no és per defeccte del directori de dades utilitza la '%1' opció.</translation>
     </message>
     <message>
         <source>Blocksdir</source>
@@ -1872,7 +1872,7 @@ Això és ideal per a carteres de mode només lectura.</translation>
     </message>
     <message>
         <source>To specify a non-default location of the blocks directory use the '%1' option.</source>
-        <translation>Per tal d'especificar una ubicació que no és per defecte del directori de blocs utilitza la '%1' opció.</translation>
+        <translation>Per tal d'especificar una ubicació que no és per defeccte del directori de blocs utilitza la '%1' opció.</translation>
     </message>
     <message>
         <source>Startup time</source>

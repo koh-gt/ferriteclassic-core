@@ -483,7 +483,7 @@ public:
 
             // This potentially acts on very many bytes of data, so it's
             // important that we calculate `j`, i.e. the `key` index in this
-            // way instead of doing a %, which would effectively be a division
+            // way instead of doing a %, which would effecctively be a division
             // for each byte Xor'd -- much slower than need be.
             if (j == key.size())
                 j = 0;

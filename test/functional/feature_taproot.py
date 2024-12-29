@@ -345,7 +345,7 @@ DEFAULT_CONTEXT = {
     "pubkey_inner": default_pubkey_inner,
     # The negation flag of the inner pubkey for a taproot script path spend.
     "negflag": default_negflag,
-    # The leaf version to include in the sighash (this does not affect the one in the control block).
+    # The leaf version to include in the sighash (this does not affecct the one in the control block).
     "leafversion": default_leafversion,
     # The Merkle path to include in the control block for a script path spend.
     "merklebranch": default_merklebranch,
@@ -661,7 +661,7 @@ def spenders_taproot_active():
         add_spender(spenders, "sighash/branched_codesep/left", tap=tap, leaf="branched_codesep", key=secs[0], codeseppos=3, **common, inputs=[getter("sign"), b'\x01'], **SIGHASH_BITFLIP, **ERR_SIG_SCHNORR)
         add_spender(spenders, "sighash/branched_codesep/right", tap=tap, leaf="branched_codesep", key=secs[1], codeseppos=6, **common, inputs=[getter("sign"), b''], **SIGHASH_BITFLIP, **ERR_SIG_SCHNORR)
 
-    # Reusing the scripts above, test that various features affect the sighash.
+    # Reusing the scripts above, test that various features affecct the sighash.
     add_spender(spenders, "sighash/annex", tap=tap, leaf="pk_codesep", key=secs[1], hashtype=hashtype, standard=False, **SINGLE_SIG, annex=bytes([ANNEX_TAG]), failure={"sighash": override(default_sighash, annex=None)}, **ERR_SIG_SCHNORR)
     add_spender(spenders, "sighash/script", tap=tap, leaf="pk_codesep", key=secs[1], **common, **SINGLE_SIG, failure={"sighash": override(default_sighash, script_taproot=tap.leaves["codesep_pk"].script)}, **ERR_SIG_SCHNORR)
     add_spender(spenders, "sighash/leafver", tap=tap, leaf="pk_codesep", key=secs[1], **common, **SINGLE_SIG, failure={"sighash": override(default_sighash, leafversion=random.choice([x & 0xFE for x in range(0x100) if x & 0xFE != 0xC0]))}, **ERR_SIG_SCHNORR)

@@ -44,10 +44,10 @@ QString BitcoinUnits::longName(int unit)
 {
     switch(unit)
     {
-    case kBTC: return QString("kFEC");
-    case BTC: return QString("FEC");
-    case mBTC: return QString("mFEC");
-    case uBTC: return QString("uFEC");
+    case kBTC: return QString("kFECC");
+    case BTC: return QString("FECC");
+    case mBTC: return QString("mFECC");
+    case uBTC: return QString("uFECC");
     case SAT: return QString("atoms");
     default: return QString("???");
     }
@@ -67,10 +67,10 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case kBTC: return QString("Kilo-Ferrites (1" THIN_SP_UTF8 "000)");
-    case BTC: return QString("Ferrite");
-    case mBTC: return QString("Milli-Ferrite (1 / 1" THIN_SP_UTF8 "000)");
-    case uBTC: return QString("Micro-Ferrite (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+    case kBTC: return QString("Kilo-FerriteClassics (1" THIN_SP_UTF8 "000)");
+    case BTC: return QString("FerriteClassic");
+    case mBTC: return QString("Milli-FerriteClassic (1 / 1" THIN_SP_UTF8 "000)");
+    case uBTC: return QString("Micro-FerriteClassic (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     case SAT: return QString("Atoms (sat) (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     default: return QString("???");
     }

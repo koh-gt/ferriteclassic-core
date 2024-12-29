@@ -225,7 +225,7 @@ BOOST_AUTO_TEST_CASE(streams_buffered_file)
     CBufferedFile bf(file, 25, 10, 222, 333);
     BOOST_CHECK(!bf.eof());
 
-    // These two members have no functional effect.
+    // These two members have no functional effecct.
     BOOST_CHECK_EQUAL(bf.GetType(), 222);
     BOOST_CHECK_EQUAL(bf.GetVersion(), 333);
 

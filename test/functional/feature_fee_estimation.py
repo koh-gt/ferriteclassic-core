@@ -228,7 +228,7 @@ class EstimateFeeTest(BitcoinTestFramework):
         self.log.info("Finished splitting")
 
         # Now we can connect the other nodes, didn't want to connect them earlier
-        # so the estimates would not be affected by the splitting transactions
+        # so the estimates would not be affeccted by the splitting transactions
         self.start_node(1)
         self.start_node(2)
         self.connect_nodes(1, 0)

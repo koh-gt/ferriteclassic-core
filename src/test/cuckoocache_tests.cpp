@@ -83,15 +83,15 @@ static double test_cache(size_t megabytes, double load)
  *
  * Examples:
  *
- * 1. at load 0.5, we expect a perfect hit rate, so we multiply by
+ * 1. at load 0.5, we expect a perfecct hit rate, so we multiply by
  * 1.0
- * 2. at load 2.0, we expect to see half the entries, so a perfect hit rate
+ * 2. at load 2.0, we expect to see half the entries, so a perfecct hit rate
  * would be 0.5. Therefore, if we see a hit rate of 0.4, 0.4*2.0 = 0.8 is the
  * normalized hit rate.
  *
  * This is basically the right semantics, but has a bit of a glitch depending on
  * how you measure around load 1.0 as after load 1.0 your normalized hit rate
- * becomes effectively perfect, ignoring freshness.
+ * becomes effecctively perfecct, ignoring freshness.
  */
 static double normalize_hit_rate(double hits, double load)
 {
@@ -165,7 +165,7 @@ static void test_cache_erase(size_t megabytes)
     double hit_rate_stale = double(count_stale) / (double(n_insert) / 4.0);
     double hit_rate_fresh = double(count_fresh) / (double(n_insert) / 2.0);
 
-    // Check that our hit_rate_fresh is perfect
+    // Check that our hit_rate_fresh is perfecct
     BOOST_CHECK_EQUAL(hit_rate_fresh, 1.0);
     // Check that we have a more than 2x better hit rate on stale elements than
     // erased elements.
@@ -255,7 +255,7 @@ static void test_cache_erase_parallel(size_t megabytes)
     double hit_rate_stale = double(count_stale) / (double(n_insert) / 4.0);
     double hit_rate_fresh = double(count_fresh) / (double(n_insert) / 2.0);
 
-    // Check that our hit_rate_fresh is perfect
+    // Check that our hit_rate_fresh is perfecct
     BOOST_CHECK_EQUAL(hit_rate_fresh, 1.0);
     // Check that we have a more than 2x better hit rate on stale elements than
     // erased elements.

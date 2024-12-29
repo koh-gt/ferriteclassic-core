@@ -2,10 +2,10 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-bin_PROGRAMS += qt/ferrite-qt
+bin_PROGRAMS += qt/ferriteclassic-qt
 
 if BUILD_BITCOIN_GUI
-  bin_PROGRAMS += ferrite-gui
+  bin_PROGRAMS += ferriteclassic-gui
 endif
 
 EXTRA_LIBRARIES += qt/libbitcoinqt.a
@@ -195,7 +195,7 @@ RES_ICONS = \
   qt/res/icons/hd_disabled.png \
   qt/res/icons/hd_enabled.png \
   qt/res/icons/history.png \
-  qt/res/icons/ferrite_splash.png \
+  qt/res/icons/ferriteclassic_splash.png \
   qt/res/icons/lock_closed.png \
   qt/res/icons/lock_open.png \
   qt/res/icons/network_disabled.png \
@@ -308,40 +308,40 @@ $(QT_MOC): $(QT_FORMS_H)
 $(qt_libbitcoinqt_a_OBJECTS) $(qt_bitcoin_qt_OBJECTS) $(bitcoin_gui_OBJECTS) : | $(QT_MOC)
 
 # bitcoin-qt and bitcoin-gui binaries #
-ferrite_qt_cppflags = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
+ferriteclassic_qt_cppflags = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
   $(QT_INCLUDES) $(QR_CFLAGS)
-ferrite_qt_cxxflags = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
+ferriteclassic_qt_cxxflags = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
 
-ferrite_qt_sources = qt/main.cpp
+ferriteclassic_qt_sources = qt/main.cpp
 if TARGET_WINDOWS
-  ferrite_qt_sources += $(BITCOIN_RC)
+  ferriteclassic_qt_sources += $(BITCOIN_RC)
 endif
-ferrite_qt_ldadd = qt/libbitcoinqt.a $(LIBBITCOIN_SERVER)
+ferriteclassic_qt_ldadd = qt/libbitcoinqt.a $(LIBBITCOIN_SERVER)
 if ENABLE_WALLET
-ferrite_qt_ldadd += $(LIBBITCOIN_UTIL) $(LIBBITCOIN_WALLET)
+ferriteclassic_qt_ldadd += $(LIBBITCOIN_UTIL) $(LIBBITCOIN_WALLET)
 endif
 if ENABLE_ZMQ
-ferrite_qt_ldadd += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+ferriteclassic_qt_ldadd += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
-ferrite_qt_ldadd += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CONSENSUS) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) \
+ferriteclassic_qt_ldadd += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CONSENSUS) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) \
   $(LIBMW) $(MWEB_LIBS) $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(BDB_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1) $(CRYPTO_LIBS) \
   $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(SQLITE_LIBS)
-ferrite_qt_ldflags = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
-ferrite_qt_libtoolflags = $(AM_LIBTOOLFLAGS) --tag CXX
+ferriteclassic_qt_ldflags = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
+ferriteclassic_qt_libtoolflags = $(AM_LIBTOOLFLAGS) --tag CXX
 
-qt_ferrite_qt_CPPFLAGS = $(ferrite_qt_cppflags)
-qt_ferrite_qt_CXXFLAGS = $(ferrite_qt_cxxflags)
-qt_ferrite_qt_SOURCES = $(ferrite_qt_sources)
-qt_ferrite_qt_LDADD = $(ferrite_qt_ldadd)
-qt_ferrite_qt_LDFLAGS = $(ferrite_qt_ldflags)
-qt_ferrite_qt_LIBTOOLFLAGS = $(ferrite_qt_libtoolflags)
+qt_ferriteclassic_qt_CPPFLAGS = $(ferriteclassic_qt_cppflags)
+qt_ferriteclassic_qt_CXXFLAGS = $(ferriteclassic_qt_cxxflags)
+qt_ferriteclassic_qt_SOURCES = $(ferriteclassic_qt_sources)
+qt_ferriteclassic_qt_LDADD = $(ferriteclassic_qt_ldadd)
+qt_ferriteclassic_qt_LDFLAGS = $(ferriteclassic_qt_ldflags)
+qt_ferriteclassic_qt_LIBTOOLFLAGS = $(ferriteclassic_qt_libtoolflags)
 
-ferrite_gui_CPPFLAGS = $(ferrite_qt_cppflags)
-ferrite_gui_CXXFLAGS = $(ferrite_qt_cxxflags)
-ferrite_gui_SOURCES = $(ferrite_qt_sources)
-ferrite_gui_LDADD = $(ferrite_qt_ldadd)
-ferrite_gui_LDFLAGS = $(ferrite_qt_ldflags)
-ferrite_gui_LIBTOOLFLAGS = $(ferrite_qt_libtoolflags)
+ferriteclassic_gui_CPPFLAGS = $(ferriteclassic_qt_cppflags)
+ferriteclassic_gui_CXXFLAGS = $(ferriteclassic_qt_cxxflags)
+ferriteclassic_gui_SOURCES = $(ferriteclassic_qt_sources)
+ferriteclassic_gui_LDADD = $(ferriteclassic_qt_ldadd)
+ferriteclassic_gui_LDFLAGS = $(ferriteclassic_qt_ldflags)
+ferriteclassic_gui_LIBTOOLFLAGS = $(ferriteclassic_qt_libtoolflags)
 
 #locale/foo.ts -> locale/foo.qm
 QT_QM=$(QT_TS:.ts=.qm)
@@ -373,9 +373,9 @@ CLEAN_QT = $(nodist_qt_libbitcoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda 
 CLEANFILES += $(CLEAN_QT)
 
 bitcoin_qt_clean: FORCE
-	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_ferrite_qt_OBJECTS) qt/ferrite-qt$(EXEEXT) $(LIBBITCOINQT)
+	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_ferriteclassic_qt_OBJECTS) qt/ferriteclassic-qt$(EXEEXT) $(LIBBITCOINQT)
 
-bitcoin_qt : qt/ferrite-qt$(EXEEXT)
+bitcoin_qt : qt/ferriteclassic-qt$(EXEEXT)
 
 ui_%.h: %.ui
 	@test -f $(UIC)

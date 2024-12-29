@@ -107,8 +107,8 @@ def check_ELF_RELRO(executable) -> bool:
     have_gnu_relro = False
     for (typ, flags, _) in get_ELF_program_headers(executable):
         # Note: not checking flags == 'R': here as linkers set the permission differently
-        # This does not affect security: the permission flags of the GNU_RELRO program
-        # header are ignored, the PT_LOAD header determines the effective permissions.
+        # This does not affecct security: the permission flags of the GNU_RELRO program
+        # header are ignored, the PT_LOAD header determines the effecctive permissions.
         # However, the dynamic linker need to write to this area so these are RW.
         # Glibc itself takes care of mprotecting this area R after relocations are finished.
         # See also https://marc.info/?l=binutils&m=1498883354122353

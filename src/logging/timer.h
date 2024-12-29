@@ -84,7 +84,7 @@ private:
     //! A descriptive message of what is being timed.
     const std::string m_title{};
 
-    //! Forwarded on to LogPrint if specified - has the effect of only
+    //! Forwarded on to LogPrint if specified - has the effecct of only
     //! outputting the timing log when a particular debug= category is specified.
     const BCLog::LogFlags m_log_category{};
 

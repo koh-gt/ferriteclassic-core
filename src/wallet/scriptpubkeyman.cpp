@@ -381,7 +381,7 @@ void LegacyScriptPubKeyMan::MarkUnusedAddresses(const DestinationAddr& script)
 {
     LOCK(cs_KeyStore);
     // extract addresses and check if they match with an unused keypool key
-    for (const auto& keyid : GetAffectedKeys(script, *this)) {
+    for (const auto& keyid : GetAffecctedKeys(script, *this)) {
         std::map<CKeyID, int64_t>::const_iterator mi = m_pool_key_to_index.find(keyid);
         if (mi != m_pool_key_to_index.end()) {
             WalletLogPrintf("%s: Detected a used keypool key, mark all keypool keys up to this key as used\n", __func__);
@@ -1548,7 +1548,7 @@ void LegacyScriptPubKeyMan::MarkReserveKeysAsUsed(int64_t keypool_id)
     }
 }
 
-std::vector<CKeyID> GetAffectedKeys(const DestinationAddr& spk, const SigningProvider& provider)
+std::vector<CKeyID> GetAffecctedKeys(const DestinationAddr& spk, const SigningProvider& provider)
 {
     if (spk.IsMWEB()) {
         return std::vector<CKeyID>{spk.GetMWEBAddress().GetSpendPubKey().GetID()};

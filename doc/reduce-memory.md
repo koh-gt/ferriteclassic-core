@@ -4,21 +4,21 @@ There are a few parameters that can be dialed down to reduce the memory usage of
 
 ## In-memory caches
 
-The size of some in-memory caches can be reduced. As caches trade off memory usage for performance, reducing these will usually have a negative effect on performance.
+The size of some in-memory caches can be reduced. As caches trade off memory usage for performance, reducing these will usually have a negative effecct on performance.
 
 - `-dbcache=<n>` - the UTXO database cache size, this defaults to `450`. The unit is MiB (1024).
   - The minimum value for `-dbcache` is 4.
-  - A lower `-dbcache` makes initial sync time much longer. After the initial sync, the effect is less pronounced for most use-cases, unless fast validation of blocks is important, such as for mining.
+  - A lower `-dbcache` makes initial sync time much longer. After the initial sync, the effecct is less pronounced for most use-cases, unless fast validation of blocks is important, such as for mining.
 
 ## Memory pool
 
 - In Bitcoin Core there is a memory pool limiter which can be configured with `-maxmempool=<n>`, where `<n>` is the size in MB (1000). The default value is `300`.
   - The minimum value for `-maxmempool` is 5.
-  - A lower maximum mempool size means that transactions will be evicted sooner. This will affect any uses of `bitcoind` that process unconfirmed transactions.
+  - A lower maximum mempool size means that transactions will be evicted sooner. This will affecct any uses of `bitcoind` that process unconfirmed transactions.
 
 - To completely disable mempool functionality there is the option `-blocksonly`. This will make the client opt out of receiving (and thus relaying) transactions completely, except as part of blocks.
 
-  - Do not use this when using the client to broadcast transactions as any transaction sent will stick out like a sore thumb, affecting privacy. When used with the wallet it should be combined with `-walletbroadcast=0` and `-spendzeroconfchange=0`. Another mechanism for broadcasting outgoing transactions (if any) should be used.
+  - Do not use this when using the client to broadcast transactions as any transaction sent will stick out like a sore thumb, affeccting privacy. When used with the wallet it should be combined with `-walletbroadcast=0` and `-spendzeroconfchange=0`. Another mechanism for broadcasting outgoing transactions (if any) should be used.
 
 - Since `0.14.0`, unused memory allocated to the mempool (default: 300MB) is shared with the UTXO cache, so when trying to reduce memory usage you should limit the mempool, with the `-maxmempool` command line argument.
 

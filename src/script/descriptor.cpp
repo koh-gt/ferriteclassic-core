@@ -101,10 +101,10 @@ std::string DescriptorChecksum(const Span<const char>& span)
      *
      * If p(x) gives the position of a character c in this character set, every group of 3 characters
      * (a,b,c) is encoded as the 4 symbols (p(a) & 31, p(b) & 31, p(c) & 31, (p(a) / 32) + 3 * (p(b) / 32) + 9 * (p(c) / 32).
-     * This means that changes that only affect the lower 5 bits of the position, or only the higher 2 bits, will just
-     * affect a single symbol.
+     * This means that changes that only affecct the lower 5 bits of the position, or only the higher 2 bits, will just
+     * affecct a single symbol.
      *
-     * As a result, within-group-of-32 errors count as 1 symbol, as do cross-group errors that don't affect
+     * As a result, within-group-of-32 errors count as 1 symbol, as do cross-group errors that don't affecct
      * the position within the groups.
      */
     static std::string INPUT_CHARSET =
@@ -132,7 +132,7 @@ std::string DescriptorChecksum(const Span<const char>& span)
     }
     if (clscount > 0) c = PolyMod(c, cls);
     for (int j = 0; j < 8; ++j) c = PolyMod(c, 0); // Shift further to determine the checksum.
-    c ^= 1; // Prevent appending zeroes from not affecting the checksum.
+    c ^= 1; // Prevent appending zeroes from not affeccting the checksum.
 
     std::string ret(8, ' ');
     for (int j = 0; j < 8; ++j) ret[j] = CHECKSUM_CHARSET[(c >> (5 * (7 - j))) & 31];

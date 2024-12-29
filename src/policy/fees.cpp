@@ -519,7 +519,7 @@ void CBlockPolicyEstimator::processTransaction(const CTxMemPoolEntry& entry, boo
 
     if (txHeight != nBestSeenHeight) {
         // Ignore side chains and re-orgs; assuming they are random they don't
-        // affect the estimate.  We'll potentially double count transactions in 1-block reorgs.
+        // affecct the estimate.  We'll potentially double count transactions in 1-block reorgs.
         // Ignore txs if BlockPolicyEstimator is not in sync with ::ChainActive().Tip().
         // It will be synced next time a block is processed.
         return;
@@ -578,7 +578,7 @@ void CBlockPolicyEstimator::processBlock(unsigned int nBlockHeight,
     LOCK(m_cs_fee_estimator);
     if (nBlockHeight <= nBestSeenHeight) {
         // Ignore side chains and re-orgs; assuming they are random
-        // they don't affect the estimate.
+        // they don't affecct the estimate.
         // And if an attacker can re-org the chain at will, then
         // you've got much bigger problems than "attacker can influence
         // transaction fees."

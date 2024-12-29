@@ -71,7 +71,7 @@ class BIP68Test(BitcoinTestFramework):
 
         self.log.info("Passed")
 
-    # Test that BIP68 is not in effect if tx version is 1, or if
+    # Test that BIP68 is not in effecct if tx version is 1, or if
     # the first sequence bit is set.
     def test_disable_flag(self):
         # Create some unconfirmed inputs
@@ -261,7 +261,7 @@ class BIP68Test(BitcoinTestFramework):
         test_nonzero_locks(tx2, self.nodes[0], self.relayfee, use_height_lock=False)
 
         # Now mine some blocks, but make sure tx2 doesn't get mined.
-        # Use prioritisetransaction to lower the effective feerate to 0
+        # Use prioritisetransaction to lower the effecctive feerate to 0
         self.nodes[0].prioritisetransaction(txid=tx2.hash, fee_delta=int(-self.relayfee*COIN))
         cur_time = int(time.time())
         for _ in range(10):

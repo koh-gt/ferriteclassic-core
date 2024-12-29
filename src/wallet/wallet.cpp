@@ -871,7 +871,7 @@ bool CWallet::IsSpentKey(const CTxOutput& output) const
     if (IsLegacy()) {
         LegacyScriptPubKeyMan* spk_man = GetLegacyScriptPubKeyMan();
         assert(spk_man != nullptr);
-        for (const auto& keyid : GetAffectedKeys(dest_addr, *spk_man)) {
+        for (const auto& keyid : GetAffecctedKeys(dest_addr, *spk_man)) {
             WitnessV0KeyHash wpkh_dest(keyid);
             if (GetDestData(wpkh_dest, "used", nullptr)) {
                 return true;
@@ -1175,6 +1175,49 @@ bool CWallet::AbandonTransaction(const uint256& hashTx)
     return true;
 }
 
+bool CWallet::TransactionCanBeRebroadcast(const uint256& hashTx) const
+{
+    LOCK(cs_wallet);
+
+    // Can't relay if wallet is not broadcasting
+    if (!GetBroadcastTransactions()) return false;
+
+    const CWalletTx* wtx = GetWalletTx(hashTx);
+    return wtx && !wtx->isAbandoned() && wtx->GetDepthInMainChain() == 0;
+}
+
+bool CWallet::RebroadcastTransaction(const uint256& hashTx)
+{
+    LOCK(cs_wallet);
+
+    // Can't relay if wallet is not broadcasting
+    if (!GetBroadcastTransactions()) return false;
+
+    // Can't mark abandoned if confirmed or in mempool
+    auto it = mapWallet.find(hashTx);
+    assert(it != mapWallet.end());
+    const CWalletTx& wtx = it->second;
+
+    // Don't relay abandoned transactions
+    if (wtx.isAbandoned()) return false;
+    // Don't try to submit coinbase or HogEx transactions. These would fail anyway but would
+    // cause log spam.
+    if (wtx.IsCoinBase() || wtx.IsHogEx()) return false;
+    // Don't try to submit conflicted or confirmed transactions.
+    if (wtx.GetDepthInMainChain() != 0) return false;
+
+    // Submit transaction to mempool for relay
+    WalletLogPrintf("Submitting wtx %s to mempool for relay\n", wtx.GetHash().ToString());
+
+    std::string err_string;
+    const bool ret = chain().broadcastTransaction(wtx.tx, m_default_max_tx_fee, true, err_string);
+    if (!ret) {
+        WalletLogPrintf("RebroadcastTransaction(): Transaction cannot be broadcast immediately, %s\n", err_string);
+    }
+
+    return ret;
+}
+
 void CWallet::MarkConflicted(const uint256& hashBlock, int conflicting_height, const uint256& hashTx)
 {
     LOCK(cs_wallet);
@@ -1292,7 +1335,7 @@ void CWallet::transactionRemovedFromMempool(const CTransactionRef& tx, MemPoolRe
         // Nothing described above should be seen as an unchangeable requirement
         // when improving this code in the future. The wallet's heuristics for
         // distinguishing between conflicted and unconfirmed transactions are
-        // imperfect, and could be improved in general, see
+        // imperfecct, and could be improved in general, see
         // https://github.com/bitcoin-core/bitcoin-devwiki/wiki/Wallet-Transaction-Conflict-Tracking
         SyncTransaction(tx, boost::none, {CWalletTx::Status::UNCONFIRMED, /* block height */ 0, /* block hash */ {}, /* index */ 0});
     }
@@ -2802,24 +2845,24 @@ bool CWallet::SelectCoinsMinConf(const CAmount& nTargetValue, const CoinEligibil
         // Calculate cost of change
         size_t mweb_change_spend_weight = 0; // MWEB inputs are weightless
         CAmount cost_of_change = coin_selection_params.m_discard_feerate.GetTotalFee(coin_selection_params.change_spend_size, mweb_change_spend_weight)
-            + coin_selection_params.m_effective_feerate.GetTotalFee(coin_selection_params.change_output_size, coin_selection_params.mweb_change_output_weight);
+            + coin_selection_params.m_effecctive_feerate.GetTotalFee(coin_selection_params.change_output_size, coin_selection_params.mweb_change_output_weight);
 
-        // Filter by the min conf specs and add to utxo_pool and calculate effective value
+        // Filter by the min conf specs and add to utxo_pool and calculate effecctive value
         for (OutputGroup& group : groups) {
             if (!group.EligibleForSpending(eligibility_filter, coin_selection_params.input_preference)) continue;
 
             if (coin_selection_params.m_subtract_fee_outputs) {
-                // Set the effective feerate to 0 as we don't want to use the effective value since the fees will be deducted from the output
-                group.SetFees(CFeeRate(0) /* effective_feerate */, coin_selection_params.m_long_term_feerate);
+                // Set the effecctive feerate to 0 as we don't want to use the effecctive value since the fees will be deducted from the output
+                group.SetFees(CFeeRate(0) /* effecctive_feerate */, coin_selection_params.m_long_term_feerate);
             } else {
-                group.SetFees(coin_selection_params.m_effective_feerate, coin_selection_params.m_long_term_feerate);
+                group.SetFees(coin_selection_params.m_effecctive_feerate, coin_selection_params.m_long_term_feerate);
             }
 
             OutputGroup pos_group = group.GetPositiveOnlyGroup();
-            if (pos_group.effective_value > 0) utxo_pool.push_back(pos_group);
+            if (pos_group.effecctive_value > 0) utxo_pool.push_back(pos_group);
         }
         // Calculate the fees for things that aren't inputs
-        CAmount not_input_fees = coin_selection_params.m_effective_feerate.GetTotalFee(coin_selection_params.tx_noinputs_size, coin_selection_params.mweb_nochange_weight);
+        CAmount not_input_fees = coin_selection_params.m_effecctive_feerate.GetTotalFee(coin_selection_params.tx_noinputs_size, coin_selection_params.mweb_nochange_weight);
         bnb_used = true;
         return SelectCoinsBnB(utxo_pool, nTargetValue, cost_of_change, setCoinsRet, nValueRet, not_input_fees);
     } else {
@@ -2869,9 +2912,9 @@ bool CWallet::SelectCoins(const std::vector<COutputCoin>& vAvailableCoins, const
             }
 
             CInputCoin coin(mweb_coin);
-            coin.effective_value = coin.GetAmount() - coin.CalculateFee(coin_selection_params.m_effective_feerate);
+            coin.effecctive_value = coin.GetAmount() - coin.CalculateFee(coin_selection_params.m_effecctive_feerate);
             if (coin_selection_params.use_bnb) {
-                value_to_select -= coin.effective_value;
+                value_to_select -= coin.effecctive_value;
             } else {
                 value_to_select -= coin.GetAmount();
             }
@@ -2896,9 +2939,9 @@ bool CWallet::SelectCoins(const std::vector<COutputCoin>& vAvailableCoins, const
             if (coin.m_input_bytes <= 0) {
                 return false; // Not solvable, can't estimate size for fee
             }
-            coin.effective_value = coin.GetAmount() - coin.CalculateFee(coin_selection_params.m_effective_feerate);
+            coin.effecctive_value = coin.GetAmount() - coin.CalculateFee(coin_selection_params.m_effecctive_feerate);
             if (coin_selection_params.use_bnb) {
-                value_to_select -= coin.effective_value;
+                value_to_select -= coin.effecctive_value;
             } else {
                 value_to_select -= coin.GetAmount();
             }
@@ -3605,7 +3648,7 @@ void CWallet::GetKeyBirthTimes(std::map<CKeyID, int64_t>& mapKeyBirth) const {
     if (mapKeyFirstBlock.empty())
         return;
 
-    // find first block that affects those keys, if there are any left
+    // find first block that affeccts those keys, if there are any left
     for (const auto& entry : mapWallet) {
         // iterate over all wallet transactions...
         const CWalletTx &wtx = entry.second;
@@ -3618,8 +3661,8 @@ void CWallet::GetKeyBirthTimes(std::map<CKeyID, int64_t>& mapKeyBirth) const {
                 }
 
                 // iterate over all their outputs
-                for (const auto& keyid : GetAffectedKeys(dest, *spk_man)) {
-                    // ... and all their affected keys
+                for (const auto& keyid : GetAffecctedKeys(dest, *spk_man)) {
+                    // ... and all their affeccted keys
                     auto rit = mapKeyFirstBlock.find(keyid);
                     if (rit != mapKeyFirstBlock.end() && wtx.m_confirm.block_height < rit->second->block_height) {
                         rit->second = &wtx.m_confirm;

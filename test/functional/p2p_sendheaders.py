@@ -276,7 +276,7 @@ class SendHeadersTest(BitcoinTestFramework):
             tip = self.mine_blocks(1)
             inv_node.check_last_inv_announcement(inv=[tip])
             test_node.check_last_inv_announcement(inv=[tip])
-            # Try a few different responses; none should affect next announcement
+            # Try a few different responses; none should affecct next announcement
             if i == 0:
                 # first request the block
                 test_node.send_get_data([tip])

@@ -519,7 +519,7 @@ static bool Socks5(const std::string& strDest, int port, const ProxyCredentials 
     uint8_t pchRet2[4];
     if ((recvr = InterruptibleRecv(pchRet2, 4, SOCKS5_RECV_TIMEOUT, hSocket)) != IntrRecvError::OK) {
         if (recvr == IntrRecvError::Timeout) {
-            /* If a timeout happens here, this effectively means we timed out while connecting
+            /* If a timeout happens here, this effecctively means we timed out while connecting
              * to the remote node. This is very common for Tor, so do not print an
              * error message. */
             return false;
@@ -738,7 +738,7 @@ bool GetProxy(enum Network net, proxyType &proxyInfoOut) {
  * hostname. After setting this proxy, connecting to a node specified by a
  * hostname won't result in a local lookup of said hostname, rather, connect to
  * the node by asking the name proxy for a proxy connection to the hostname,
- * effectively delegating the hostname lookup to the specified proxy.
+ * effecctively delegating the hostname lookup to the specified proxy.
  *
  * This delegation increases privacy for those who set the name proxy as they no
  * longer leak their external hostname queries to their DNS servers.

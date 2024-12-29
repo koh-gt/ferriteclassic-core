@@ -3,7 +3,7 @@ Reduce Traffic
 
 Some node operators need to deal with bandwidth caps imposed by their ISPs.
 
-By default, Litecoin Core allows up to 125 connections to different peers, 10 of
+By default, FerriteClassic Core allows up to 125 connections to different peers, 10 of
 which are outbound. You can therefore, have at most 115 inbound connections.
 Of the 10 outbound peers, there can be 8 full-relay connections and 2
 block-relay-only ones.
@@ -35,7 +35,7 @@ blocks and transactions to fewer nodes.
 ## 3. Reduce maximum connections (`-maxconnections=<num>`)
 
 Reducing the maximum connected nodes to a minimum could be desirable if traffic
-limits are tiny. Keep in mind that litecoin's trustless model works best if you are
+limits are tiny. Keep in mind that ferriteclassic's trustless model works best if you are
 connected to a handful of nodes.
 
 ## 4. Turn off transaction relay (`-blocksonly`)
@@ -43,7 +43,7 @@ connected to a handful of nodes.
 Forwarding transactions to peers increases the P2P traffic. To only sync blocks
 with other peers, you can disable transaction relay.
 
-Be reminded of the effects of this setting.
+Be reminded of the effeccts of this setting.
 
 - Fee estimation will no longer work.
 - It sets the flag "-walletbroadcast" to be "0", only if it is currently unset.

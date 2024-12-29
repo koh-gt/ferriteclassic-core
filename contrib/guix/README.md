@@ -126,10 +126,27 @@ find output/ -type f -print0 | sort -z | xargs -r0 sha256sum
 
 * _**MAX_JOBS**_
 
-  Override the maximum number of jobs to run simultaneously, you might want to
-  do so on a memory-limited machine. This may be passed to `make` as in `make
-  --jobs="$MAX_JOBS"` or `xargs` as in `xargs -P"$MAX_JOBS"`. _(defaults to the
-  value of `nproc` outside the container)_
+Set the depends tree cache for built packages. This is passed through to the
+  depends tree. Setting this to the same directory across multiple builds of the
+  depends tree can eliminate unnecessary building of packages.
+
+* _**SDK_PATH**_
+
+  Set the path where _extracted_ SDKs can be found. This is passed through to
+  the depends tree. Note that this is should be set to the _parent_ directory of
+  the actual SDK (e.g. SDK_PATH=$HOME/Downloads/macOS-SDKs instead of
+  $HOME/Downloads/macOS-SDKs/Xcode-12.1-12A7403-extracted-SDK-with-libcxx-headers).
+
+* _**JOBS**_
+
+  Override the number of jobs to run simultaneously, you might want to do so on
+  a memory-limited machine. This may be passed to:
+
+  - `guix` build commands as in `guix environment --cores="$JOBS"`
+  - `make` as in `make --jobs="$JOBS"`
+  - `xargs` as in `xargs -P"$JOBS"`
+
+  _(defaults to the value of `nproc` outside the container)_
 
 * _**SOURCE_DATE_EPOCH**_
 
@@ -145,7 +162,7 @@ find output/ -type f -print0 | sort -z | xargs -r0 sha256sum
   Note that any given value is ignored. The variable is only checked for
   emptiness. More concretely, this means that `V=` (setting `V` to the empty
   string) is interpreted the same way as not setting `V` at all, and that `V=0`
-  has the same effect as `V=1`.
+  has the same effecct as `V=1`.
 
 * _**ADDITIONAL_GUIX_ENVIRONMENT_FLAGS**_
 

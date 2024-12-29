@@ -39,7 +39,7 @@ std::pair<int, int64_t> CalculateSequenceLocks(const CTransaction &tx, int flags
     // values that would be necessary to satisfy all relative lock-
     // time constraints given our view of block chain history.
     // The semantics of nLockTime are the last invalid height/time, so
-    // use -1 to have the effect of any height or time being valid.
+    // use -1 to have the effecct of any height or time being valid.
     int nMinHeight = -1;
     int64_t nMinTime = -1;
 
@@ -74,7 +74,7 @@ std::pair<int, int64_t> CalculateSequenceLocks(const CTransaction &tx, int flags
             // NOTE: Subtract 1 to maintain nLockTime semantics
             // BIP 68 relative lock times have the semantics of calculating
             // the first block or time at which the transaction would be
-            // valid. When calculating the effective block time or height
+            // valid. When calculating the effecctive block time or height
             // for the entire transaction, we switch to using the
             // semantics of nLockTime which is the last invalid block
             // time or height.  Thus we subtract 1 from the calculated

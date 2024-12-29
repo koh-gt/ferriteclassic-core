@@ -184,7 +184,7 @@
         <translation>输入钱包的旧密码和新密码。</translation>
     </message>
     <message>
-        <source>Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
+        <source>Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infeccting your computer.</source>
         <translation>记住，加密您的钱包并不能完全保护您的比特币不被您电脑中的恶意软件窃取。</translation>
     </message>
     <message>

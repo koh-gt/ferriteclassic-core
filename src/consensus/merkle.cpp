@@ -37,7 +37,7 @@
        the case where we would hash two identical hashes at the end of the list
        together, and treating that identically to the block having an invalid
        merkle root. Assuming no double-SHA256 collisions, this will detect all
-       known ways of changing the transactions without affecting the merkle
+       known ways of changing the transactions without affeccting the merkle
        root.
 */
 

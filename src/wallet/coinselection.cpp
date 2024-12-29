@@ -13,7 +13,7 @@
 struct {
     bool operator()(const OutputGroup& a, const OutputGroup& b) const
     {
-        return a.effective_value > b.effective_value;
+        return a.effecctive_value > b.effecctive_value;
     }
 } descending;
 
@@ -22,7 +22,7 @@ struct {
  * set that can pay for the spending target and does not exceed the spending target by more than the
  * cost of creating and spending a change output. The algorithm uses a depth-first search on a binary
  * tree. In the binary tree, each node corresponds to the inclusion or the omission of a UTXO. UTXOs
- * are sorted by their effective values and the trees is explored deterministically per the inclusion
+ * are sorted by their effecctive values and the trees is explored deterministically per the inclusion
  * branch first. At each node, the algorithm checks whether the selection is within the target range.
  * While the selection has not reached the target range, more UTXOs are included. When a selection's
  * value exceeds the target range, the complete subtree deriving from this selection can be omitted.
@@ -39,15 +39,15 @@ struct {
  * The algorithm uses two additional optimizations. A lookahead keeps track of the total value of
  * the unexplored UTXOs. A subtree is not explored if the lookahead indicates that the target range
  * cannot be reached. Further, it is unnecessary to test equivalent combinations. This allows us
- * to skip testing the inclusion of UTXOs that match the effective value and waste of an omitted
+ * to skip testing the inclusion of UTXOs that match the effecctive value and waste of an omitted
  * predecessor.
  *
  * The Branch and Bound algorithm is described in detail in Murch's Master Thesis:
  * https://murch.one/wp-content/uploads/2016/11/erhardt2016coinselection.pdf
  *
  * @param const std::vector<CInputCoin>& utxo_pool The set of UTXOs that we are choosing from.
- *        These UTXOs will be sorted in descending order by effective value and the CInputCoins'
- *        values are their effective values.
+ *        These UTXOs will be sorted in descending order by effecctive value and the CInputCoins'
+ *        values are their effecctive values.
  * @param const CAmount& target_value This is the value that we want to select. It is the lower
  *        bound of the range.
  * @param const CAmount& cost_of_change This is the cost of creating and spending a change output.
@@ -74,9 +74,9 @@ bool SelectCoinsBnB(std::vector<OutputGroup>& utxo_pool, const CAmount& target_v
     // Calculate curr_available_value
     CAmount curr_available_value = 0;
     for (const OutputGroup& utxo : utxo_pool) {
-        // Assert that this utxo is not negative. It should never be negative, effective value calculation should have removed it
-        assert(utxo.effective_value > 0);
-        curr_available_value += utxo.effective_value;
+        // Assert that this utxo is not negative. It should never be negative, effecctive value calculation should have removed it
+        assert(utxo.effecctive_value > 0);
+        curr_available_value += utxo.effecctive_value;
     }
     if (curr_available_value < actual_target) {
         return false;
@@ -120,7 +120,7 @@ bool SelectCoinsBnB(std::vector<OutputGroup>& utxo_pool, const CAmount& target_v
             // Walk backwards to find the last included UTXO that still needs to have its omission branch traversed.
             while (!curr_selection.empty() && !curr_selection.back()) {
                 curr_selection.pop_back();
-                curr_available_value += utxo_pool.at(curr_selection.size()).effective_value;
+                curr_available_value += utxo_pool.at(curr_selection.size()).effecctive_value;
             }
 
             if (curr_selection.empty()) { // We have walked back to the first utxo and no branch is untraversed. All solutions searched
@@ -130,24 +130,24 @@ bool SelectCoinsBnB(std::vector<OutputGroup>& utxo_pool, const CAmount& target_v
             // Output was included on previous iterations, try excluding now.
             curr_selection.back() = false;
             OutputGroup& utxo = utxo_pool.at(curr_selection.size() - 1);
-            curr_value -= utxo.effective_value;
+            curr_value -= utxo.effecctive_value;
             curr_waste -= utxo.fee - utxo.long_term_fee;
         } else { // Moving forwards, continuing down this branch
             OutputGroup& utxo = utxo_pool.at(curr_selection.size());
 
             // Remove this utxo from the curr_available_value utxo amount
-            curr_available_value -= utxo.effective_value;
+            curr_available_value -= utxo.effecctive_value;
 
             // Avoid searching a branch if the previous UTXO has the same value and same waste and was excluded. Since the ratio of fee to
             // long term fee is the same, we only need to check if one of those values match in order to know that the waste is the same.
             if (!curr_selection.empty() && !curr_selection.back() &&
-                utxo.effective_value == utxo_pool.at(curr_selection.size() - 1).effective_value &&
+                utxo.effecctive_value == utxo_pool.at(curr_selection.size() - 1).effecctive_value &&
                 utxo.fee == utxo_pool.at(curr_selection.size() - 1).fee) {
                 curr_selection.push_back(false);
             } else {
                 // Inclusion branch first (Largest First Exploration)
                 curr_selection.push_back(true);
-                curr_value += utxo.effective_value;
+                curr_value += utxo.effecctive_value;
                 curr_waste += utxo.fee - utxo.long_term_fee;
             }
         }
@@ -312,7 +312,7 @@ void OutputGroup::Insert(const CInputCoin& output, int depth, bool from_me, size
     // descendants is the count as seen from the top ancestor, not the descendants as seen from the
     // coin itself; thus, this value is counted as the max, not the sum
     m_descendants = std::max(m_descendants, descendants);
-    effective_value += output.effective_value;
+    effecctive_value += output.effecctive_value;
     fee += output.m_fee;
     long_term_fee += output.m_long_term_fee;
 }
@@ -322,7 +322,7 @@ std::vector<CInputCoin>::iterator OutputGroup::Discard(const CInputCoin& output)
     while (it != m_outputs.end() && it->GetIndex() != output.GetIndex()) ++it;
     if (it == m_outputs.end()) return it;
     m_value -= output.GetAmount();
-    effective_value -= output.effective_value;
+    effecctive_value -= output.effecctive_value;
     fee -= output.m_fee;
     long_term_fee -= output.m_long_term_fee;
     return m_outputs.erase(it);
@@ -330,7 +330,7 @@ std::vector<CInputCoin>::iterator OutputGroup::Discard(const CInputCoin& output)
 
 bool OutputGroup::EligibleForSpending(const CoinEligibilityFilter& eligibility_filter, const InputPreference& input_preference) const
 {
-    if ((input_preference == InputPreference::LTC_ONLY && IsMWEB()) || (input_preference == InputPreference::MWEB_ONLY && !IsMWEB())) {
+    if ((input_preference == InputPreference::FECC_ONLY && IsMWEB()) || (input_preference == InputPreference::MWEB_ONLY && !IsMWEB())) {
         return false;
     }
 
@@ -339,20 +339,20 @@ bool OutputGroup::EligibleForSpending(const CoinEligibilityFilter& eligibility_f
         && m_descendants <= eligibility_filter.max_descendants;
 }
 
-void OutputGroup::SetFees(const CFeeRate effective_feerate, const CFeeRate long_term_feerate)
+void OutputGroup::SetFees(const CFeeRate effecctive_feerate, const CFeeRate long_term_feerate)
 {
     fee = 0;
     long_term_fee = 0;
-    effective_value = 0;
+    effecctive_value = 0;
     for (CInputCoin& coin : m_outputs) {
-        coin.m_fee = coin.CalculateFee(effective_feerate);
+        coin.m_fee = coin.CalculateFee(effecctive_feerate);
         fee += coin.m_fee;
 
         coin.m_long_term_fee = coin.CalculateFee(long_term_feerate);
         long_term_fee += coin.m_long_term_fee;
 
-        coin.effective_value = coin.GetAmount() - coin.m_fee;
-        effective_value += coin.effective_value;
+        coin.effecctive_value = coin.GetAmount() - coin.m_fee;
+        effecctive_value += coin.effecctive_value;
     }
 }
 
@@ -361,8 +361,8 @@ OutputGroup OutputGroup::GetPositiveOnlyGroup()
     OutputGroup group(*this);
     for (auto it = group.m_outputs.begin(); it != group.m_outputs.end(); ) {
         const CInputCoin& coin = *it;
-        // Only include outputs that are positive effective value (i.e. not dust)
-        if (coin.effective_value <= 0) {
+        // Only include outputs that are positive effecctive value (i.e. not dust)
+        if (coin.effecctive_value <= 0) {
             it = group.Discard(coin);
         } else {
             ++it;

@@ -549,7 +549,7 @@ public:
             //   same peer, but decide this ahead of time (as 'it' may change position in what follows).
             // - 'it' is the only non-COMPLETED announcement for its txhash. This means it will be deleted along
             //   with all other announcements for the same txhash - which may include std::next(it). However, other
-            //   than 'it', no announcements for the same peer can be affected (due to (peer, txhash) uniqueness).
+            //   than 'it', no announcements for the same peer can be affeccted (due to (peer, txhash) uniqueness).
             //   In other words, the situation where std::next(it) is deleted can only occur if std::next(it)
             //   belongs to a different peer but the same txhash as 'it'. This is covered by the first bulletpoint
             //   already, and we'll have set it_next to end().

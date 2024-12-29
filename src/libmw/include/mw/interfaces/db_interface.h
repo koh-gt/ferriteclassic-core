@@ -2,6 +2,7 @@
 
 // Copyright (c) 2018-2020 David Burkett
 // Copyright (c) 2020 The Litecoin Developers
+// Copyright (c) 2023 The FerriteClassic Core Developers
 // Distributed under the MIT software license, see the accompanying
 // file LICENSE or http://www.opensource.org/licenses/mit-license.php.
 

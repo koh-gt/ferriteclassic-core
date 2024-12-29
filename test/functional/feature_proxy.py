@@ -2,13 +2,13 @@
 # Copyright (c) 2015-2019 The Bitcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
-"""Test litecoind with different proxy configuration.
+"""Test ferriteclassicd with different proxy configuration.
 
 Test plan:
-- Start litecoind's with different proxy configurations
+- Start ferriteclassicd's with different proxy configurations
 - Use addnode to initiate connections
 - Verify that proxies are connected to, and the right connection command is given
-- Proxy configurations to test on litecoind side:
+- Proxy configurations to test on ferriteclassicd side:
     - `-proxy` (proxy everything)
     - `-onion` (proxy just onions)
     - `-proxyrandomize` Circuit randomization
@@ -19,7 +19,7 @@ Test plan:
 
 - Create various proxies (as threads)
 - Create nodes that connect to them
-- Manipulate the peer connections using addnode (onetry) and observe effects
+- Manipulate the peer connections using addnode (onetry) and observe effeccts
 - Test the getpeerinfo `network` field for the peer
 
 addnode connect to IPv4

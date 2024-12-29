@@ -31,8 +31,8 @@ BOOST_AUTO_TEST_CASE(util_SplitTorReplyLine)
         "PROTOCOLINFO PIVERSION",
         "PROTOCOLINFO", "PIVERSION");
     CheckSplitTorReplyLine(
-        "AUTH METHODS=COOKIE,SAFECOOKIE COOKIEFILE=\"/home/x/.tor/control_auth_cookie\"",
-        "AUTH", "METHODS=COOKIE,SAFECOOKIE COOKIEFILE=\"/home/x/.tor/control_auth_cookie\"");
+        "AUTH METHODS=COOKIE,SAFECCOOKIE COOKIEFILE=\"/home/x/.tor/control_auth_cookie\"",
+        "AUTH", "METHODS=COOKIE,SAFECCOOKIE COOKIEFILE=\"/home/x/.tor/control_auth_cookie\"");
     CheckSplitTorReplyLine(
         "AUTH METHODS=NULL",
         "AUTH", "METHODS=NULL");
@@ -75,8 +75,8 @@ BOOST_AUTO_TEST_CASE(util_ParseTorReplyMapping)
 {
     // Data we should receive during normal usage
     CheckParseTorReplyMapping(
-        "METHODS=COOKIE,SAFECOOKIE COOKIEFILE=\"/home/x/.tor/control_auth_cookie\"", {
-            {"METHODS", "COOKIE,SAFECOOKIE"},
+        "METHODS=COOKIE,SAFECCOOKIE COOKIEFILE=\"/home/x/.tor/control_auth_cookie\"", {
+            {"METHODS", "COOKIE,SAFECCOOKIE"},
             {"COOKIEFILE", "/home/x/.tor/control_auth_cookie"},
         });
     CheckParseTorReplyMapping(
@@ -186,7 +186,7 @@ BOOST_AUTO_TEST_CASE(util_ParseTorReplyMapping)
             {"SOME", "args,here"},
         });
 
-    // Inputs that are effectively invalid under the target grammar.
+    // Inputs that are effecctively invalid under the target grammar.
     // PROTOCOLINFO accepts an OtherLine that is just an OptArguments, which
     // would make these inputs valid. However,
     // - This parser is never used in that situation, because the

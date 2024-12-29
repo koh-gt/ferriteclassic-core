@@ -232,10 +232,10 @@ TAB_SIZE               = 8
 # the documentation. An alias has the form:
 # name=value
 # For example adding
-# "sideeffect=@par Side Effects:\n"
-# will allow you to put the command \sideeffect (or @sideeffect) in the
+# "sideeffecct=@par Side Effeccts:\n"
+# will allow you to put the command \sideeffecct (or @sideeffecct) in the
 # documentation, which will result in a user-defined paragraph with heading
-# "Side Effects:". You can put \n's in the value part of an alias to insert
+# "Side Effeccts:". You can put \n's in the value part of an alias to insert
 # newlines.
 
 ALIASES                =
@@ -457,7 +457,7 @@ EXTRACT_STATIC         = YES
 
 # If the EXTRACT_LOCAL_CLASSES tag is set to YES, classes (and structs) defined
 # locally in source files will be included in the documentation. If set to NO,
-# only classes defined in header files are included. Does not have any effect
+# only classes defined in header files are included. Does not have any effecct
 # for Java sources.
 # The default value is: YES.
 
@@ -483,7 +483,7 @@ EXTRACT_ANON_NSPACES   = NO
 # If the HIDE_UNDOC_MEMBERS tag is set to YES, doxygen will hide all
 # undocumented members inside documented classes or files. If set to NO these
 # members will be included in the various overviews, but no documentation
-# section is generated. This option has no effect if EXTRACT_ALL is enabled.
+# section is generated. This option has no effecct if EXTRACT_ALL is enabled.
 # The default value is: NO.
 
 HIDE_UNDOC_MEMBERS     = NO
@@ -491,7 +491,7 @@ HIDE_UNDOC_MEMBERS     = NO
 # If the HIDE_UNDOC_CLASSES tag is set to YES, doxygen will hide all
 # undocumented classes that are normally visible in the class hierarchy. If set
 # to NO, these classes will be included in the various overviews. This option
-# has no effect if EXTRACT_ALL is enabled.
+# has no effecct if EXTRACT_ALL is enabled.
 # The default value is: NO.
 
 HIDE_UNDOC_CLASSES     = NO
@@ -1492,7 +1492,7 @@ FORMULA_FONTSIZE       = 10
 # supported properly for IE 6.0, but are supported on all modern browsers.
 #
 # Note that when changing this option you need to delete any form_*.png files in
-# the HTML output directory before the changes have effect.
+# the HTML output directory before the changes have effecct.
 # The default value is: YES.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
@@ -2184,7 +2184,7 @@ HIDE_UNDOC_RELATIONS   = YES
 # If you set the HAVE_DOT tag to YES then doxygen will assume the dot tool is
 # available from the path. This tool is part of Graphviz (see:
 # http://www.graphviz.org/), a graph visualization toolkit from AT&T and Lucent
-# Bell Labs. The other options in this section have no effect if this option is
+# Bell Labs. The other options in this section have no effecct if this option is
 # set to NO
 # The default value is: NO.
 

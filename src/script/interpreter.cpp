@@ -1728,7 +1728,7 @@ bool GenericTransactionSignatureChecker<T>::CheckLockTime(const CScriptNum& nLoc
     // CHECKLOCKTIMEVERIFY bypassed if every txin has been
     // finalized by setting nSequence to maxint. The
     // transaction would be allowed into the blockchain, making
-    // the opcode ineffective.
+    // the opcode ineffecctive.
     //
     // Testing if this vin is not final is sufficient to
     // prevent this condition. Alternatively we could test all

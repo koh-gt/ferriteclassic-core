@@ -77,7 +77,7 @@ public:
         m_testname = std::move(testname);
     }
 
-    /** Advance this Scenario's time; this affects the timestamps newly scheduled events get. */
+    /** Advance this Scenario's time; this affeccts the timestamps newly scheduled events get. */
     void AdvanceTime(std::chrono::microseconds amount)
     {
         assert(amount.count() >= 0);
@@ -620,7 +620,7 @@ void BuildWeirdRequestsTest(Scenario& scenario)
     scenario.Check(peer1, {gtxid1}, 1, 0, 0, "q2");
     scenario.Check(peer2, {gtxid2}, 1, 0, 0, "q3");
 
-    // We request gtxid2 from *peer1* - no effect.
+    // We request gtxid2 from *peer1* - no effecct.
     if (InsecureRandBool()) scenario.AdvanceTime(RandomTime8s());
     scenario.RequestedTx(peer1, gtxid2.GetHash(), MAX_TIME);
     scenario.Check(peer1, {gtxid1}, 1, 0, 0, "q4");

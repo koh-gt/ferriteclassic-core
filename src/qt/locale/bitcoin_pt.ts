@@ -190,8 +190,8 @@ Assinar só é possível com endereços do tipo "legado".</translation>
         <translation>Insira a password antiga e a nova para a carteira.</translation>
     </message>
     <message>
-        <source>Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
-        <translation>Lembra se que encrostar a sua carteira não o pode defender na totalidade os seus bitcoins de serem roubados por um malware que possa infectar o seu computador.</translation>
+        <source>Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infeccting your computer.</source>
+        <translation>Lembra se que encrostar a sua carteira não o pode defender na totalidade os seus bitcoins de serem roubados por um malware que possa infecctar o seu computador.</translation>
     </message>
     <message>
         <source>Wallet to be encrypted</source>
@@ -1076,7 +1076,7 @@ Assinar só é possível com endereços do tipo "legado".</translation>
         <translation>Transações recentes podem não ser visíveis por agora, portanto o saldo da sua carteira pode estar incorreto. Esta informação será corrigida quando a sua carteira acabar de sincronizar com a rede, como está explicado em baixo.</translation>
     </message>
     <message>
-        <source>Attempting to spend bitcoins that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
+        <source>Attempting to spend bitcoins that are affeccted by not-yet-displayed transactions will not be accepted by the network.</source>
         <translation>Tentar enviar bitcoins que estão afetadas por transações ainda não exibidas não será aceite pela rede.</translation>
     </message>
     <message>
@@ -1198,7 +1198,7 @@ Assinar só é possível com endereços do tipo "legado".</translation>
     </message>
     <message>
         <source>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Exit in the menu.</source>
-        <translation>Minimize em vez de sair da aplicação quando a janela é fechada. Quando esta opção é ativada, a aplicação apenas será encerrada quando escolher Sair no menu.</translation>
+        <translation>Minimize em vez de sair da aplicação quando a janela é fecchada. Quando esta opção é ativada, a aplicação apenas será encerrada quando escolher Sair no menu.</translation>
     </message>
     <message>
         <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
@@ -1262,7 +1262,7 @@ Assinar só é possível com endereços do tipo "legado".</translation>
         <translation>Ativar as funcionalidades de &amp;controlo de moedas</translation>
     </message>
     <message>
-        <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affects how your balance is computed.</source>
+        <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affeccts how your balance is computed.</source>
         <translation>Se desativar o gasto de troco não confirmado, o troco de uma transação não pode ser utilizado até que essa transação tenha pelo menos uma confirmação. Isto também afeta o cálculo do seu saldo.</translation>
     </message>
     <message>
@@ -1335,7 +1335,7 @@ Assinar só é possível com endereços do tipo "legado".</translation>
     </message>
     <message>
         <source>M&amp;inimize on close</source>
-        <translation>M&amp;inimizar ao fechar</translation>
+        <translation>M&amp;inimizar ao fecchar</translation>
     </message>
     <message>
         <source>&amp;Display</source>
@@ -1346,7 +1346,7 @@ Assinar só é possível com endereços do tipo "legado".</translation>
         <translation>&amp;Linguagem da interface de utilizador:</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting %1.</source>
+        <source>The user interface language can be set here. This setting will take effecct after restarting %1.</source>
         <translation>A linguagem da interface do utilizador pode ser definida aqui. Esta definição entrará em efeito após reiniciar %1.</translation>
     </message>
     <message>
@@ -1803,7 +1803,7 @@ ID transação: %1</translation>
     </message>
     <message>
         <source>%1 didn't yet exit safely...</source>
-        <translation>%1 ainda não foi fechado em segurança...</translation>
+        <translation>%1 ainda não foi fecchado em segurança...</translation>
     </message>
     <message>
         <source>unknown</source>
@@ -3387,7 +3387,7 @@ Nota: como a taxa é calculada por byte, uma taxa de "100 satoshis por kB" por u
     </message>
     <message>
         <source>Are you sure you wish to close the wallet &lt;i&gt;%1&lt;/i&gt;?</source>
-        <translation>Tem a certeza que deseja fechar esta carteira &lt;i&gt;%1&lt;/i&gt;?</translation>
+        <translation>Tem a certeza que deseja fecchar esta carteira &lt;i&gt;%1&lt;/i&gt;?</translation>
     </message>
     <message>
         <source>Closing the wallet for too long can result in having to resync the entire chain if pruning is enabled.</source>
@@ -3399,7 +3399,7 @@ Nota: como a taxa é calculada por byte, uma taxa de "100 satoshis por kB" por u
     </message>
     <message>
         <source>Are you sure you wish to close all wallets?</source>
-        <translation>Você tem certeza que deseja fechar todas as carteira?</translation>
+        <translation>Você tem certeza que deseja fecchar todas as carteira?</translation>
     </message>
 </context>
 <context>

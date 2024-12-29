@@ -66,7 +66,7 @@ class ReorgsRestoreTest(BitcoinTestFramework):
         conflicting_txid = self.nodes[2].sendrawtransaction(conflicting["hex"])
         self.nodes[2].generate(9)
 
-        # Reconnect node0 and node2 and check that conflicted_txid is effectively conflicted
+        # Reconnect node0 and node2 and check that conflicted_txid is effecctively conflicted
         self.connect_nodes(0, 2)
         self.sync_blocks([self.nodes[0], self.nodes[2]])
         conflicted = self.nodes[0].gettransaction(conflicted_txid)

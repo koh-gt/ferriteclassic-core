@@ -29,7 +29,7 @@ public:
 
         m_index = COutPoint(tx->GetHash(), i);
         m_output = tx->vout[i];
-        effective_value = tx->vout[i].nValue;
+        effecctive_value = tx->vout[i].nValue;
     }
 
     CInputCoin(const CTransactionRef& tx, unsigned int i, int input_bytes) : CInputCoin(tx, i)
@@ -68,7 +68,7 @@ public:
         return m_input_bytes < 0 ? 0 : feerate.GetFee(m_input_bytes);
     }
 	
-    CAmount effective_value;
+    CAmount effecctive_value;
     CAmount m_fee{0};
     CAmount m_long_term_fee{0};
 
@@ -105,12 +105,12 @@ struct CoinEligibilityFilter
 };
 
 enum class InputPreference {
-    // Use LTC and MWEB inputs (MIXED)
+    // Use FECC and MWEB inputs (MIXED)
     ANY,
     // Only use MWEB inputs (used when explicitly pegging-out)
     MWEB_ONLY,
     // Only use canonical inputs (used when explicitly pegging-in)
-    LTC_ONLY
+    FECC_ONLY
 };
 
 struct OutputGroup
@@ -121,7 +121,7 @@ struct OutputGroup
     int m_depth{999};
     size_t m_ancestors{0};
     size_t m_descendants{0};
-    CAmount effective_value{0};
+    CAmount effecctive_value{0};
     CAmount fee{0};
     CAmount long_term_fee{0};
 
@@ -145,8 +145,8 @@ struct OutputGroup
         return !m_outputs.empty() && m_outputs.front().IsMWEB();
     }
 
-    //! Update the OutputGroup's fee, long_term_fee, and effective_value based on the given feerates
-    void SetFees(const CFeeRate effective_feerate, const CFeeRate long_term_feerate);
+    //! Update the OutputGroup's fee, long_term_fee, and effecctive_value based on the given feerates
+    void SetFees(const CFeeRate effecctive_feerate, const CFeeRate long_term_feerate);
     OutputGroup GetPositiveOnlyGroup();
 };
 

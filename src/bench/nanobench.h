@@ -524,7 +524,7 @@ public:
     /**
      * Generates a random number between 0 and range (excluding range).
      *
-     * The algorithm only produces 32bit numbers, and is slightly biased. The effect is quite small unless your range is close to the
+     * The algorithm only produces 32bit numbers, and is slightly biased. The effecct is quite small unless your range is close to the
      * maximum value of an integer. It is possible to correct the bias with rejection sampling (see
      * [here](https://lemire.me/blog/2016/06/30/fast-random-shuffling/), but this is most likely irrelevant in practices for the
      * purposes of this Rng.
@@ -597,12 +597,12 @@ public:
       @brief Repeatedly calls `op()` based on the configuration, and performs measurements.
 
       This call is marked with `noinline` to prevent the compiler to optimize beyond different benchmarks. This can have quite a big
-      effect on benchmark accuracy.
+      effecct on benchmark accuracy.
 
       @verbatim embed:rst
       .. note::
 
-        Each call to your lambda must have a side effect that the compiler can't possibly optimize it away. E.g. add a result to an
+        Each call to your lambda must have a side effecct that the compiler can't possibly optimize it away. E.g. add a result to an
         externally defined number (like `x` in the above example), and finally call `doNotOptimizeAway` on the variables the compiler
         must not remove. You can also use :cpp:func:`ankerl::nanobench::doNotOptimizeAway` directly in the lambda, but be aware that
         this has a small overhead.
@@ -688,7 +688,7 @@ public:
      * 20ns * 1000 * 11 \approx 0.2ms
      * @f]
      *
-     * To be precise, nanobench adds a 0-20% random noise to each evaluation. This is to prevent any aliasing effects, and further
+     * To be precise, nanobench adds a 0-20% random noise to each evaluation. This is to prevent any aliasing effeccts, and further
      * improves accuracy.
      *
      * Total runtime will be higher though: Some initial time is needed to find out the target number of iterations for each epoch, and
@@ -769,7 +769,7 @@ public:
      * @brief Sets a number of iterations that are initially performed without any measurements.
      *
      * Some benchmarks need a few evaluations to warm up caches / database / whatever access. Normally this should not be needed, since
-     * we show the median result so initial outliers will be filtered away automatically. If the warmup effect is large though, you
+     * we show the median result so initial outliers will be filtered away automatically. If the warmup effecct is large though, you
      * might want to set it. Default is 0.
      *
      * @param numWarmupIters Number of warmup iterations.

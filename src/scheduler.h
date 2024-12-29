@@ -107,7 +107,7 @@ private:
  * at the same time and memory will be release-acquire consistent
  * (the scheduler will internally do an acquire before invoking a callback
  * as well as a release at the end). In practice this means that a callback
- * B() will be able to observe all of the effects of callback A() which executed
+ * B() will be able to observe all of the effeccts of callback A() which executed
  * before it.
  */
 class SingleThreadedSchedulerClient

@@ -321,7 +321,7 @@ void test_exhaustive_sign(const secp256k1_context *ctx, const secp256k1_ge *grou
      * possible (s, r) tuple appears, but because the group order is larger
      * than the field order, when coercing the x-values to scalar values, some
      * appear more often than others, so we are actually not zero-knowledge.
-     * (This effect also appears in the real code, but the difference is on the
+     * (This effecct also appears in the real code, but the difference is on the
      * order of 1/2^128th the field order, so the deviation is not useful to a
      * computationally bounded attacker.)
      */

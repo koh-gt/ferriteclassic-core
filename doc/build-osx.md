@@ -16,11 +16,42 @@ xcode-select --install
 When the popup appears, click `Install`.
 
 Then install [Homebrew](https://brew.sh).
+``` shell
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
 
 ## Dependencies
+Qt requires [Xcode](https://developer.apple.com/download/all/)
+Tested on MacOS 10.15.7 - [Xcode 12.4](https://download.developer.apple.com/Developer_Tools/Xcode_12.4/Xcode_12.4.xip)  
+Extract and run Xcode - will require about 30 GB of storage space.  
 ```shell
-brew install automake libtool boost miniupnpc pkg-config python qt libevent qrencode fmt
+brew install automake libtool boost miniupnpc pkg-config python libevent libnatpmp qrencode fmt openssl protobuf
+brew install unzip virtualenv
+# Move xcode to applications folder, xcode necessary for qt
+sudo xcode-select --switch /Applications/Xcode.app
+brew install qt@5   # requires full xcode
+
+# If you need to have qt@5 first in your PATH, run:
+echo 'export PATH="/usr/local/opt/qt@5/bin:$PATH"' >> ~/.zshrc
+# For compilers to find qt@5 you may need to set:
+export LDFLAGS="-L/usr/local/opt/qt@5/lib"
+export CPPFLAGS="-I/usr/local/opt/qt@5/include"
+# For pkg-config to find qt@5 you may need to set:
+export PKG_CONFIG_PATH="/usr/local/opt/qt@5/lib/pkgconfig"
+
+# get latest c++17
+brew install gcc --HEAD
+
+#
 ```
+qt@5 only requires C++11, while latest qt 6 will require C++17 which may not be available on older MacOS make versions.
+Common qt error - 
+```error: "Qt requires a C++17 compiler"```
+```shell
+brew remove qt6
+```
+
+The requirements are only qt > 5.5.1. Current version is v5.15.8 (20230511)
 
 If you run into issues, check [Homebrew's troubleshooting page](https://docs.brew.sh/Troubleshooting).
 See [dependencies.md](dependencies.md) for a complete overview.
@@ -28,6 +59,8 @@ See [dependencies.md](dependencies.md) for a complete overview.
 If you want to build the disk image with `make deploy` (.dmg / optional), you need RSVG:
 ```shell
 brew install librsvg
+
+brew install imagemagick libtiff
 ```
 
 The wallet support requires one or both of the dependencies ([*SQLite*](#sqlite) and [*Berkeley DB*](#berkeley-db)) in the sections below.
@@ -60,25 +93,28 @@ Also, the Homebrew package could be installed:
 
 ```shell
 brew install berkeley-db4
+brew link berkeley-db@4 --force
 ```
 
-## Build Litecoin Core
+## Build Ferrite Classic Core
 
-1. Clone the Litecoin Core source code:
+1. Clone the Ferrite Classic Core source code:
     ```shell
-    git clone https://github.com/litecoin-project/litecoin
-    cd litecoin
+    git clone https://github.com/koh-gt/ferriteclassic-core/master
+    cd ferriteclassic-main
     ```
 
-2.  Build Litecoin Core:
+2.  Build Ferrite Classic Core:
 
-    Configure and build the headless Litecoin Core binaries as well as the GUI (if Qt is found).
+    Configure and build the headless Ferrite Classic Core binaries as well as the GUI (if Qt is found).
 
     You can disable the GUI build by passing `--without-gui` to configure.
     ```shell
+    chmod +x autogen.sh
+    chmod +x share/genbuild.sh
     ./autogen.sh
-    ./configure
-    make
+    ./configure --with-miniupnpc --enable-upnp-default --with-natpmp --disable-tests
+    make # make -j4 if you have 4 threads, make -j8 for 8 threads
     ```
 
 3.  It is recommended to build and run the unit tests:
@@ -92,7 +128,7 @@ brew install berkeley-db4
     ```
 
 ## Disable-wallet mode
-When the intention is to run only a P2P node without a wallet, Litecoin Core may be
+When the intention is to run only a P2P hout a wallet, FerriteClassic Core may be
 compiled in disable-wallet mode with:
 ```shell
 ./configure --disable-wallet
@@ -103,30 +139,30 @@ In this case there is no dependency on [*Berkeley DB*](#berkeley-db) and [*SQLit
 Mining is also possible in disable-wallet mode using the `getblocktemplate` RPC call.
 
 ## Running
-Litecoin Core is now available at `./src/litecoind`
+Ferrite Classic Core is now available at `./src/ferriteclassicd`
 
 Before running, you may create an empty configuration file:
 ```shell
-mkdir -p "/Users/${USER}/Library/Application Support/Litecoin"
+mkdir -p "/Users/${USER}/Library/Application Support/FerriteClassic"
 
-touch "/Users/${USER}/Library/Application Support/Litecoin/litecoin.conf"
+touch "/Users/${USER}/Library/Application Support/FerriteClassic/ferriteclassic.conf"
 
-chmod 600 "/Users/${USER}/Library/Application Support/Litecoin/litecoin.conf"
+chmod 600 "/Users/${USER}/Library/Application Support/FerriteClassic/ferriteclassic.conf"
 ```
 
-The first time you run litecoind, it will start downloading the blockchain. This process could
+The first time you run ferriteclassicd, it will start downloading the blockchain. This process could
 take many hours, or even days on slower than average systems.
 
 You can monitor the download process by looking at the debug.log file:
 ```shell
-tail -f $HOME/Library/Application\ Support/Litecoin/debug.log
+tail -f $HOME/Library/Application\ Support/FerriteClassic/debug.log
 ```
 
 ## Other commands:
 ```shell
-./src/litecoind -daemon      # Starts the litecoin daemon.
-./src/litecoin-cli --help    # Outputs a list of command-line options.
-./src/litecoin-cli help      # Outputs a list of RPC commands when the daemon is running.
+./src/ferriteclassicd -daemon      # Starts the ferriteclassic daemon.
+./src/ferriteclassic-cli --help    # Outputs a list of command-line options.
+./src/ferriteclassic-cli help      # Outputs a list of RPC commands when the daemon is running.
 ```
 
 ## Notes

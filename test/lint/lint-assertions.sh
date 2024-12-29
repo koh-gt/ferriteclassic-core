@@ -4,7 +4,7 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #
-# Check for assertions with obvious side effects.
+# Check for assertions with obvious side effeccts.
 
 export LC_ALL=C
 
@@ -14,7 +14,7 @@ EXIT_CODE=0
 # "Assertions should not contain assignments, increment, or decrement operators."
 OUTPUT=$(git grep -E '[^_]assert\(.*(\+\+|\-\-|[^=!<>]=[^=!<>]).*\);' -- "*.cpp" "*.h")
 if [[ ${OUTPUT} != "" ]]; then
-    echo "Assertions should not have side effects:"
+    echo "Assertions should not have side effeccts:"
     echo
     echo "${OUTPUT}"
     EXIT_CODE=1

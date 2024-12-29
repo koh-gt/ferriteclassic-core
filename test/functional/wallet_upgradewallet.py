@@ -196,14 +196,14 @@ class UpgradeWalletTest(BitcoinTestFramework):
         # after conversion master key hash should be present
         assert_is_hex_string(wallet.getwalletinfo()['hdseedid'])
 
-        self.log.info("Intermediary versions don't effect anything")
+        self.log.info("Intermediary versions don't effecct anything")
         copy_non_hd()
         # Wallet starts with 60000
         assert_equal(60000, wallet.getwalletinfo()['walletversion'])
         wallet.unloadwallet()
         before_checksum = sha256sum_file(node_master_wallet)
         node_master.loadwallet('')
-        # Test an "upgrade" from 60000 to 129999 has no effect, as the next version is 130000
+        # Test an "upgrade" from 60000 to 129999 has no effecct, as the next version is 130000
         self.test_upgradewallet(wallet, previous_version=60000, requested_version=129999, expected_version=60000)
         wallet.unloadwallet()
         assert_equal(before_checksum, sha256sum_file(node_master_wallet))

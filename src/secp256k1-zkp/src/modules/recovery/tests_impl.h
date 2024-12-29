@@ -135,7 +135,7 @@ void test_ecdsa_recovery_api(void) {
     CHECK(ecount == 6);
     CHECK(secp256k1_ecdsa_recoverable_signature_parse_compact(both, &recsig, sig, 5) == 0);
     CHECK(ecount == 7);
-    /* overflow in signature will fail but not affect ecount */
+    /* overflow in signature will fail but not affecct ecount */
     memcpy(sig, over_privkey, 32);
     CHECK(secp256k1_ecdsa_recoverable_signature_parse_compact(both, &recsig, sig, recid) == 0);
     CHECK(ecount == 7);
