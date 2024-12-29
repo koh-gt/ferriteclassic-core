@@ -4,10 +4,11 @@
 
 <img width=512 src="https://github.com/koh-gt/koh-gt/blob/main/img/fecc.png">
 
-### 📖 [Universal build guide](https://github.com/koh-gt/ferriteclassic-core/wiki/Universal-Build-Guide)
+### Nodes
+Note that after height 250000 most nodes running Ferrite Classic will be using RPC port 9673 and P2P port 9674. (compared to 9573 and 9574 respectively for Ferritecoin) 
 
 ## 💬 Community group links
-| [![telegram-logo](https://raw.githubusercontent.com/gauravghongde/social-icons/9d939e1c5b7ea4a24ac39c3e4631970c0aa1b920/SVG/Color/Telegram.svg)](https://t.me/ferrite_core) [Ferritecoin](https://t.me/ferrite_core) | [![reddit-logo](https://raw.githubusercontent.com/gauravghongde/social-icons/9d939e1c5b7ea4a24ac39c3e4631970c0aa1b920/SVG/Color/Reddit.svg)](https://www.reddit.com/r/Ferritecoin) [r/FerriteClassiccoin](https://www.reddit.com/r/FerriteClassiccoin) | [![discord-logo](https://raw.githubusercontent.com/gauravghongde/social-icons/9d939e1c5b7ea4a24ac39c3e4631970c0aa1b920/SVG/Color/Discord.svg)](https://discord.gg/qKgF5xhS5p) [Discord](https://discord.gg/qKgF5xhS5p) | <a href="https://x.com/ferriteclassiccoin"><img width=64 src="https://github.com/koh-gt/koh-gt/blob/main/img/x-fecc-logo-transparent.gif?raw=true"></a> [X / Twitter](https://x.com/ferriteclassiccoin) |
+| [![telegram-logo](https://raw.githubusercontent.com/gauravghongde/social-icons/9d939e1c5b7ea4a24ac39c3e4631970c0aa1b920/SVG/Color/Telegram.svg)](https://t.me/ferrite_core) [Ferritecoin](https://t.me/ferrite_core) | [![discord-logo](https://raw.githubusercontent.com/gauravghongde/social-icons/9d939e1c5b7ea4a24ac39c3e4631970c0aa1b920/SVG/Color/Discord.svg)](https://discord.gg/qKgF5xhS5p) [Discord](https://discord.gg/qKgF5xhS5p) | <a href="https://x.com/ferriteclassiccoin"><img width=64 src="https://github.com/koh-gt/koh-gt/blob/main/img/x-fecc-logo-transparent.gif?raw=true"></a> [X / Twitter](https://x.com/ferriteclassiccoin) |
 |--|--|--|--|
 
 
@@ -23,7 +24,6 @@
 | Name                      | Link                                            | Description                                                          |
 |---------------------------|-------------------------------------------------|----------------------------------------------------------------------|
 | Website                   | [View](https://ferritecoin.org) | FerriteClassic website with mining calculator |
-| FerriteClassic Forum             | [View](https://ferritecoin.org:52443) | FerriteClassic Forum for discussions |
 | Explorer                  | [View](https://explorer.ferritecoin.org) | Blockchain explorer to view latest transactions, circulating supply and rich list distribution |
 | Ordinals Explorer         | `-----`                                   | Blockchain explorer to view ordinal inscriptions |
 | CryptoID Explorer         | [View](https://btc.cryptoid.info/fecc/) | An advanced explorer with block mining history and node version data |
@@ -35,7 +35,7 @@
 
 ## Features:
 
-## 📐 FerriteClassic coin specifications
+## 📐 Ferrite Classic coin specifications
 ### Technical specifications: <br/>
 ### Start Date: 1 Jan 2025
 ### Start Height: 250000 (Ferritecoin)
