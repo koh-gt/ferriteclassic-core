@@ -1,11 +1,8 @@
 # ferriteclassic-core
-### <a href="https://ferritecoin.org/" target="_blank"><img width=256 src="https://github.com/koh-gt/ferrite-core/assets/101822992/bddf138c-659d-45cb-83ee-dbc783bffd18" /></a>
 
 > Ferrite Classic Core full node + wallet based on Ferrite Core v3.2.0.<br>
 
-
-##### <a href="https://github.com/koh-gt/ferriteclassic-core/releases" target="_blank"><img width=512 src="https://github.com/koh-gt/ferriteclassic-core/assets/101822992/e0a14905-5779-437b-b936-30fa7361342c" /></a>
-##### <p align=left><a href="https://github.com/koh-gt/ferriteclassic-wallet/releases" target="_blank"><img width=256 src="https://github.com/user-attachments/assets/635dcef7-fa5b-4618-a481-1a0657d5341f" /></a></p>
+<img width=512 src="https://github.com/koh-gt/koh-gt/blob/main/img/fecc.png">
 
 ### 📖 [Universal build guide](https://github.com/koh-gt/ferriteclassic-core/wiki/Universal-Build-Guide)
 
@@ -32,9 +29,7 @@
 | CryptoID Explorer         | [View](https://btc.cryptoid.info/fecc/) | An advanced explorer with block mining history and node version data |
 | Merchandise               | [View](http://shop.ferritecoin.org) | Redirect link to Teespring shop with FerriteClassic coin themed merchandise |
 
-## FerriteClassic is a cryptocurrency that seeks to enable fast and free payments.  <br>
-
-![ferriteclassic-core-main-Banner art 1280-640](https://user-images.githubusercontent.com/101822992/204157973-5025ca19-d12b-4656-9b7a-2f3956b34c9f.png)
+## Ferrite Classic is a cryptocurrency of Ferritecoin. <br>
 
 ## 📝 Description
 
